@@ -38,7 +38,8 @@ function initPDO()
 {
     initConfVar();
     global $dbHost, $dbName, $dbUser, $dbPass;
-    return new PDO("mysql:host=".$dbHost.";dbname=".$dbName."", $dbUser, $dbPass);
+    echo "mysql:host=".$dbHost.";dbname=".$dbName;
+    return new PDO("mysql:host=".$dbHost.";dbname=".$dbName, $dbUser, $dbPass);
 }
 
 ?>
