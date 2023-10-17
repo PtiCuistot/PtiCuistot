@@ -1,0 +1,282 @@
+.NavBar {  
+    font-size: 24px;
+    display: flex;
+    color: var(--base);
+  }
+  
+  .NavBar > ul {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    display: flex;
+  }
+  
+  .NavBar > ul > li:first-child {
+    flex-grow: 3;
+  }
+
+  .NavBar > ul > li {
+    list-style: none;
+    flex-grow: 1;
+    display: flex;
+    transition: all 0.7s ease;
+    position: relative;
+  }
+  
+  .NavBar > ul > li > a {
+    height: 50px;
+    width: 100%;
+    transition: all 0.7s ease;
+    color: var(--base);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding-left: 5%;
+    background-color: var(--blue);
+  }
+  
+  a:hover > .triangle-container > svg > .triangle {
+    transition: all 0.8s ease-in-out;
+    transform: rotate(60deg);
+  }
+
+  .NavBar span {
+    font-size: 13px;
+    margin-left: 5%;
+  }
+
+  .SecondSpan {
+    transform: rotate(-90deg);
+    display: inline-block;
+  }
+  
+  .NavBar > ul > li > a:hover, .SubMenu > li > a:hover {
+    color: var(--element);
+    transition: all 0.7s ease;
+    cursor: pointer;
+    background-color: var(--grey);
+  }
+  
+  .SubMenu {
+    width: -moz-available;
+    position: absolute;
+    border: 1px solid var(--blue);
+    background-color: var(--blue);
+    top: 100%;
+    list-style: none;
+    display: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .NavBarLiHasChildren:hover > a {    
+    transition: all 0.7s ease;
+    background-color: var(--blue);
+    color: var(--grey);
+  }
+
+  .SubMenu > li > a {
+    width: 95%;
+    color: var(--base);
+    text-decoration: none;
+    padding-left: 5%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .NavBarLiHasChildren:hover > .SubMenu {
+    display: block;
+  }
+  
+  .SubMenu .NavBarLiHasChildren {
+    position: relative;
+  }
+  
+  .SubMenu > li > .SubMenu {
+    left: 100%;
+    top: 0%;
+    width: 100%;
+  }
+
+  .ShowNav{
+    display: none;
+  }
+
+  .SubMenuRight{
+    left: -100% !important;
+  }
+
+  .SpanRight {
+    transform: rotate(-270deg) !important;
+  }
+
+  .SubMenuLeft{
+    left: -100% !important;
+  }
+
+  .SpanLeft {
+    transform: rotate(-270deg) !important;
+  }
+
+/* ---- Burger menu CSS ---- */
+.menu-btn, .reset-btn {
+    padding: 0;
+    margin: 0;
+    border: none;
+  }
+  
+  .menu-btn {
+    padding: 10px;
+    cursor: pointer;
+    position: relative;
+    background-color: var(--darker);
+    display: none;
+  }
+  
+  .menu-btn__line {
+    display: block;
+    width: 24px;
+    height: 2px;
+    margin-bottom: 3px;
+    background-color: var(--grey);
+    transition: transform 0.3s ease-in-out;
+    transform-origin: left;
+  }
+  
+  .menu-btn__close {
+    display: block;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: rotate(-45deg) translateX(-50%) translateY(-50%);
+    transform-origin: top left;
+  }
+  
+  .menu-btn__close::before, .menu-btn__close::after {
+    content: '';
+    display: block;
+    background-color: var(--grey);
+    position: absolute;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .menu-btn__close::before {
+    width: 2px;
+    height: 20px;
+    top: 0;
+    left: 50%;
+    margin-left: -1px;
+    transition-delay: 0.3s;
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  
+  .menu-btn__close::after {
+    width: 20px;
+    height: 2px;
+    top: 50%;
+    left: 0;
+    margin-top: -1px;
+    transition-delay: 0.2s;
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+  
+  .menu-btn.is-active .menu-btn__line {
+    transform: scaleX(0);
+  }
+  
+  .menu-btn.is-active .menu-btn__close::before {
+    transform: scaleY(1);
+    transition-delay: 0.3s;
+  }
+  
+  .menu-btn.is-active .menu-btn__close::after {
+    transform: scaleX(1);
+    transition-delay: 0.3s;
+  }
+  
+  .menu-btn.is-active .menu-btn__line:nth-child(1) {
+    transition-delay: 0.2s;
+  }
+
+  .menu-btn.is-active .menu-btn__line:nth-child(2) {
+    transition-delay: 0.2s;
+  }
+  
+  .menu-btn.is-active .menu-btn__line:nth-child(3) {
+    transition-delay: 0.2s;
+  }
+  
+  .menu-btn.is-active .menu-btn__line:nth-child(4) {
+    transition-delay: 0.2s;
+  }
+
+  .menu-btn__line:nth-child(1) {
+    transition-delay: 0.4s;
+  }
+  
+  .menu-btn__line:nth-child(2) {
+    transition-delay: 0.4s;
+  }
+  
+  .menu-btn__line:nth-child(3) {
+    transition-delay: 0.4s;
+  }
+  
+  .menu-btn__line:nth-child(4) {
+    transition-delay: 0.4s;
+  }
+  
+  .reset-btn {
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
+    overflow: visible;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    line-height: normal;
+    -webkit-font-smoothing: inherit;
+    -moz-osx-font-smoothing: inherit;
+    -webkit-appearance: none;
+  }
+/* ---- END Burger menu CSS ---- */
+
+  @media screen and (min-width: 1000px) {
+    .NavBar {
+        display: block !important;
+    }
+  }
+
+  @media screen and (max-width: 999px) {
+    header{
+      background-color: var(--dark);
+    }
+
+    .menu-btn {
+      display: block;
+    }
+
+    .NavBar {
+      display: none;
+      animation: slideDown 0.5s ease-in-out;
+    }
+
+    .NavBar > ul{
+      display: block;
+    }
+
+    .NavBarLiHasChildren {
+      display: block !important;
+    }
+
+    .SubMenu{
+      position: relative;
+      left: 0 !important;
+    }
+  }
