@@ -2,9 +2,8 @@
 
 :root
 {
-  --element : #FF8600;
   --base: #ffffff;
-  --grey : #838383;
+  --grey : #989898;
   --blue : #144aedee;
 
   --good : #00ff04;
@@ -17,7 +16,7 @@
 
 body {
   margin: 0;
-  color: var(--base);
+  color: var(--blue);
   font-size: var(--font);
   background-color: var(--base);
 }
@@ -25,4 +24,73 @@ body {
 header {
     color: var(--base);
     background-color: var(--blue);
+}
+
+.Content {
+    height: 100vh;
+    width: 100%;
+    display: block;
+}
+
+.Content > div {
+    margin: 2%;
+}
+
+.Content > div:first-child {
+    height: 30%;
+    width: 96%;
+    border: 1px solid var(--grey);
+}
+
+.Content > .TwoRow {
+    height: 70%;
+    width: 96%;
+    display: flex;
+    border: 1px solid var(--grey);
+}
+
+.Content > .TwoRow > div {
+    height: 100%;
+    width: 50%;
+    border: 1px solid var(--grey);
+}
+
+.Content > .TwoRow > .DernieresRecettes > div {
+    display: flex;
+}
+
+.Content > .TwoRow > .Edito {
+    background-color: var(--blue);
+    color: var(--base);
+}
+
+.Content > .TwoRow > .Edito > .center {
+    height: 60%;
+}
+
+img {
+    height: 100%;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+@media screen and (max-width: 999px) {
+
+    .Content > .TwoRow {
+        flex-direction: column;
+    }
+
+    .Content > .TwoRow > .DernieresRecettes {
+        order: 1;
+    }
+
+    .Content > .TwoRow > div {
+        width: 100%;
+        height: 50%;
+    }
 }

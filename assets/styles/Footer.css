@@ -3,7 +3,7 @@
     width: 1000px;
     display: flex;
     justify-content: center;
-    background-color: var(--darker);
+    background-color: var(--blue);
     border-top-right-radius: 50px;
     border-top-left-radius: 50px;
   }
@@ -28,8 +28,8 @@
     margin: 0;
   }
   
-  .Team > p {
-    color: var(--element);
+  .footerTeam > .Team > p {
+    color: var(--base);
   }
   
   .ContactUs{
