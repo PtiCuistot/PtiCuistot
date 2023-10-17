@@ -9,7 +9,7 @@ class Manager
 
     public function __construct()
     {
-        $pdo = initPDO();
+        $this->pdo = initPDO();
     }
 }
 

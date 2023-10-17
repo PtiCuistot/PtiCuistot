@@ -1,10 +1,12 @@
 <?php
 
+require('manager.php');
+
 class UserManager extends Manager
 {
     public function __construct()
     {
-        
+        parent::__construct();
     }
 
     public function getUserById($id)
@@ -20,21 +22,21 @@ class UserManager extends Manager
     
         if($user->getFirstname() == null && $user->getLastname() == null)
         {
-            $query = "INSERT INTO PC_USER(UT_ID, US_USERNAME, US_EMAIL, US_PASSWORD, US_STATUT) VALUES(1, ?, ?, ?, )";
+            $query = "INSERT INTO PC_USER(UT_ID, US_USERNAME, US_EMAIL, US_PASSWORD, US_STATUT) VALUES(1, ?, ?, ?, 1)";
             $statement = $this->pdo->prepare($query);
             $statement->execute([$user->getUsername(), $user->getEmail(), $user->getPassword()]);
         }
         
         if($user->getFirstname() == null && $user->getLastname() != null)
         {
-            $firstname = "";
+            $user->setFirstname("");
         }
         elseif($user->getFirstname() != null && $user->getLastname() == null)
         {
-            $lastname = "";
+            $user->setLastname("");
         }
     
-        $query = "INSERT INTO PC_USER(US_USERNAME, US_EMAIL, US_PASSWORD, US_FIRSTNAME, US_LASTNAME) VALUES(?, ?, ?, ?, ?)";
+        $query = "INSERT INTO PC_USER(US_ID, US_USERNAME, US_EMAIL, US_PASSWORD, US_FIRSTNAME, US_LASTNAME, US_STATUT) VALUES(1, ?, ?, ?, ?, ?, 1)";
         $statement = $this->pdo->prepare($query);
         $statement->execute([$user->getUsername(), $user->getEmail(), $user->getPassword(), $user->getFirstname(), $user->getLastname()]);
     }

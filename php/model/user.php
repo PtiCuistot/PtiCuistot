@@ -11,7 +11,7 @@ class User
     {
         $this->username = $username; 
         $this->email = $email; 
-        $this->password = $password;
+        $this->password = password_hash($password, PASSWORD_DEFAULT);
         $this->firstname = $firstname; 
         $this->lastname = $lastname;
     }
