@@ -6,6 +6,8 @@ class User
     private $password; 
     private $firstname; 
     private $lastname;
+    private $statut;
+    private $accountType;
 
     public function __construct($username, $email, $password, $firstname=null, $lastname=null)
     {
@@ -14,6 +16,8 @@ class User
         $this->password = password_hash($password, PASSWORD_DEFAULT);
         $this->firstname = $firstname; 
         $this->lastname = $lastname;
+        $this->statut = 1;
+        $this->accountType = 1;
     }
 
     /**
@@ -102,6 +106,42 @@ class User
     public function setLastname($lastname): self
     {
         $this->lastname = $lastname;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of statut
+     */
+    public function getStatut()
+    {
+        return $this->statut;
+    }
+
+    /**
+     * Set the value of statut
+     */
+    public function setStatut($statut): self
+    {
+        $this->statut = $statut;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of accountType
+     */
+    public function getAccountType()
+    {
+        return $this->accountType;
+    }
+
+    /**
+     * Set the value of accountType
+     */
+    public function setAccountType($accountType): self
+    {
+        $this->accountType = $accountType;
 
         return $this;
     }

@@ -3,8 +3,10 @@
 include '../model/usermanager.php';
 include '../model/user.php';
 
-$u = new User("Cyprien", "cypjeu@gmail.com", "jezkfnkznfeznf");
 $um = new UserManager();
-$um->insertUser($u);
+$u = $um->getUserById(1);
+$u->setFirstname("Antoine");
+echo $u->getFirstname();
+$um->updateUser($u);
 
 ?>
