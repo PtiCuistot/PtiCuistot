@@ -1,6 +1,6 @@
 <?php 
 
-require ('../database/connector.php');
+include_once('../database/connector.php');
 
 class Manager 
 {
@@ -11,6 +11,6 @@ class Manager
     {
         $this->pdo = initPDO();
     }
-}
+}   
 
 ?>

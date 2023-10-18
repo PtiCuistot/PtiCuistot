@@ -1,23 +1,25 @@
 <?php
 class User
 {
-    private $username; 
-    private $email; 
-    private $password; 
-    private $firstname; 
-    private $lastname;
-    private $statut;
-    private $accountType;
+    private string $username; 
+    private string $email; 
+    private string $password; 
+    private string $firstname; 
+    private string $lastname;
+    private int $statut;
+    private string $accountType;
+    private ?int $id;
 
     public function __construct($username, $email, $password, $firstname=null, $lastname=null)
     {
         $this->username = $username; 
         $this->email = $email; 
-        $this->password = password_hash($password, PASSWORD_DEFAULT);
+        $this->password = $password;
         $this->firstname = $firstname; 
         $this->lastname = $lastname;
         $this->statut = 1;
         $this->accountType = 1;
+        $this->id = null;
     }
 
     /**
@@ -69,7 +71,7 @@ class User
      */
     public function setPassword($password): self
     {
-        $this->password = password_hash($password, PASSWORD_DEFAULT);
+        $this->password = $password;
 
         return $this;
     }
@@ -144,6 +146,30 @@ class User
         $this->accountType = $accountType;
 
         return $this;
+    }
+
+    /**
+     * Get the value of id
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set the value of id
+     */
+    public function setId($id): self
+    {
+        if($this->id == null)
+        {
+            $this->id = $id;
+            return $this;
+        }
+        else
+        {
+            throw new Exception("Cannot redifined ID");
+        }
     }
 }
 

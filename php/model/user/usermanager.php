@@ -1,6 +1,7 @@
 <?php
 
-require('manager.php');
+include_once("manager.php");
+include_once('user.php');
 
 class UserManager extends Manager
 {
@@ -9,17 +10,36 @@ class UserManager extends Manager
         parent::__construct();
     }
 
-    public function getUserById($id)
+    public function getUserById(int $id): ?User
     {
         foreach($this->pdo->query("SELECT * FROM PC_USER WHERE US_ID = ".$id) as $row)
         {
-            return new User(
+            $u = new User(
                 $row['US_USERNAME'], 
                 $row['US_EMAIL'], 
                 $row['US_PASSWORD'], 
                 $row['US_FIRSTNAME'], 
                 $row['US_LASTNAME']);
+            $u->setId($row['US_ID']);
+            return $u;
         }    
+        return null;
+    }
+
+    public function getUserByMail(string $mail): ?User
+    {
+        foreach($this->pdo->query("SELECT * FROM PC_USER WHERE US_EMAIL = '".$mail."'") as $row)
+        {
+            $u = new User(
+                $row['US_USERNAME'], 
+                $row['US_EMAIL'], 
+                $row['US_PASSWORD'], 
+                $row['US_FIRSTNAME'], 
+                $row['US_LASTNAME']);
+            $u->setId($row['US_ID']);
+            return $u;
+        }   
+        return null;
     }
 
     public function insertUser(User $user)
@@ -62,7 +82,19 @@ class UserManager extends Manager
         ]);
     }
 
-
+    public function checkPassword(string $mail, string $password) :?User
+    {
+        $u = $this->getUserByMail($mail);
+        echo  $u->getPassword();
+        if(password_verify($password, $u->getPassword()))
+        {
+            return $u;
+        }
+        else
+        {
+            return null;
+        }
+    }
 }
 
 ?>
