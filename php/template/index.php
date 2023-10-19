@@ -3,37 +3,17 @@
     <head>
         <meta charset="UTF-8">
         <title>Accueil</title>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="../../assets/styles/style.css">
         <link rel="stylesheet" href="../../assets/styles/NavBar.css">
-        <link rel="stylesheet" href="../../assets/styles/Footer.css">
     </head>
-    <body>
-        <header class="site-header">
-            <button class="menu-btn" type="button" id="ShowNav">
-                <span class="menu-btn__line"></span>
-                <span class="menu-btn__line"></span>
-                <span class="menu-btn__line"></span>
-                <span class="menu-btn__line"></span>
-                <span class="menu-btn__close"></span>
-            </button>
-            <nav class="NavBar" id="NavBar">
-                <ul id="UlMenu">
-                    <li><a><img src="../../assets/images/Logo.png" alt="Logo"></a></li>
-                    <li><a href="#">Accueil</a></li>
-                    <li><a href="#">Nos Recettes</a></li>
-                    <li class="NavBarLiHasChildren">
-                        <a href="#">Filtes<span>▼</span></a>
-                        <ul class="SubMenu">
-                            <li><a href="#">Catégories</a></li>
-                            <li><a href="#">Titre</a></li>
-                            <li><a href="#">Ingrédients</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="Connexion.php">Connexion</a></li>
-                </ul>
-            </nav>
-        </header>
+    <?php include('header.php');?>
 
         <div class="Content">
             <div>
@@ -66,29 +46,6 @@
             </div>
         </div>
 
-        <footer>
-            <div class="centerFooter">
-                <div class="footerTeam">
-                    <p>Created by</p>
-                    <div class="Team">
-                        <p>Andgel Brissaud</p>
-                        <p>Clément Baratin </p>
-                        <p>Cyprien De La Poëze D'harambure</p>
-                        <p>Gabriel Hareng</p>
-                    </div>
-                </div>
-                <div class="ContactUs" id="ContactUs">
-                    <p>Media</p>
-                    <div class="Media">
-                        <img src="../../assets/images/facebook.png" alt="Link to Facebook" id="FooterFacebook">
-                        <img src="../../assets/images/linkedin.png" alt="Link to Linkedin" id="FooterLinkedin">
-                        <img src="../../assets/images/twitter.png" alt="Link to Twitter" id="FooterTwitter">
-                    </div>
-                </div>
-            </div>
-        </footer>
-
-        <script src="../../assets/scripts/script.js"></script>
-        <script src="../../assets/scripts/NavBar.js"></script>
+        <?php include('footer.php');?>
     </body>
 </html>
