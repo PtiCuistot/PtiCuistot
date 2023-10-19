@@ -1,9 +1,10 @@
 <?php
 
-include_once("user/usermanager.php");
-include_once("user/user.php");
+include_once("manager.php");
+include_once("usertype/usertypemanager.php");
+include_once("usertype/usertype.php");
 
-$usermanager = new UserManager();
-$myUser = $usermanager->checkPassword("clement.baratin@etu.unicaen.fr", "tata"); 
-echo $myUser->getUsername();
+$utm = new UserTypeManager();
+$ut = $utm->getUserTypeById(1);
+echo $ut->getName();
 ?>
