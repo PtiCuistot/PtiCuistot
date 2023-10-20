@@ -23,11 +23,8 @@
                     <div class="col-lg-12 mx-auto" style="color: white;">
                         <div class="p-5 shadow-sm rounded banner">
                             <h1 class="display-4">Nos Recettes</h1>
-                            <p class="lead">Bootstrap photogallery snippet.</p>
-                            <p class="lead">Snippet by 
-                                <a href="https://bootstrapious.com/snippets" class="text-reset">Bootstrapious</a>, Images by 
-                                <a href="https://unsplash.com" class="text-reset">Unsplash</a>.
-                            </p>
+                            <p class="lead">Voici une liste de toutes nos recettes</p>
+                            <p class="small">Classé de la plus récente a la plus ancienne</p>
                         </div>
                     </div>
                 </div>

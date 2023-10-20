@@ -26,6 +26,9 @@ header {
     /*font-family: 'Permanent Marker', cursive;*/
     color: var(--base);
     background-color: var(--blue);
+    z-index: 999;
+    top: 0;
+    position: sticky;
 }
 
 .Content {
