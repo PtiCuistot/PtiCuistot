@@ -40,6 +40,9 @@ class IngredientWeightManager extends Manager
 
     public function updateIngredientWeight(IngredientWeight $iw)
     {
+        $request = "UPDATE PC_INGREDIENTS_WEIGHT SET REP_ID = ?, ING_ID = ?, IW_WEIGHT = ?, IW_UNITY = ? WHERE IW_ID = ".$iw->getId();
+        $statement = $this->pdo->prepare($request); 
+        $statement->execute();
     }
 }
 

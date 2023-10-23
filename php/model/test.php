@@ -1,14 +1,11 @@
 <?php
-    echo "AAA";
 
 include_once("manager.php");
-include_once("ingredient/ingredientmanager.php");
-include_once("ingredient/ingredient.php");
+include_once("category/categorymanager.php");
+include_once("category/category.php");
 
-$apple = new Ingredient("Apple", "A juicy red fruit");
-$ingManager = new IngredientManager();  
+$cat = new Category("Juice", "A juicy red fruit", 1);
+$catMan = new CategoryManager();
+$catMan->insertCategory($cat);  
 
-$apple = $ingManager->getIngredientByName("Apple");
-
-echo $apple->getDescription();
 ?>

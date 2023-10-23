@@ -38,7 +38,18 @@ function initPDO()
 {
     initConfVar();
     global $dbHost, $dbName, $dbUser, $dbPass;
-    return new PDO("mysql:host=".$dbHost.";dbname=".$dbName, $dbUser, $dbPass);
+    
+    try
+    {
+        $pdo = new PDO("mysql:host=".$dbHost.";dbname=".$dbName, $dbUser, $dbPass);
+    }
+    catch(Exception)
+    {
+        throw new Exception("[PC1] An error occured during PDO Cration:: Critical | Path : ".$envFilePath);
+    }
+
+
+    return 
 }
 
 ?>
