@@ -1,10 +1,14 @@
 <?php
+    echo "AAA";
 
 include_once("manager.php");
-include_once("usertype/usertypemanager.php");
-include_once("usertype/usertype.php");
+include_once("ingredient/ingredientmanager.php");
+include_once("ingredient/ingredient.php");
 
-$utm = new UserTypeManager();
-$ut = $utm->getUserTypeById(1);
-echo $ut->getName();
+$apple = new Ingredient("Apple", "A juicy red fruit");
+$ingManager = new IngredientManager();  
+
+$apple = $ingManager->getIngredientByName("Apple");
+
+echo $apple->getDescription();
 ?>
