@@ -1,4 +1,5 @@
 <?php
+    echo "AAA";
 
 include_once("manager.php");
 include_once("ingredient/ingredientmanager.php");
