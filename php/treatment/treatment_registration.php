@@ -3,6 +3,8 @@
     include_once("../model/user/usermanager.php");
     include_once("../model/user/user.php");
 
+
+
     $pseudo = $_POST["pseudo_input"];
     $firstname = $_POST["firstname_input"];
     $lastname = $_POST["lastname_input"];
@@ -14,13 +16,13 @@
 
 
     if (preg_match($reg, $firstname) && preg_match($reg, $lastname)){
-        $newUser = new User($pseudo , $email, $password, $firstname, $lastname);
+        $newUser = new User($pseudo , $email, password_hash($password, PASSWORD_DEFAULT), $firstname, $lastname);
         $um = new UserManager();
 
         if($um->getUserByMail($email) == NULL ){
             try{
                 $um->insertUser($newUser);
-                echo "user inserted";
+                header('Location: ../template/registration.php');
             }catch(Exception $e){
                 echo $e;
             }
@@ -30,5 +32,4 @@
     }else{
         echo "incorrect input";
     }
-
 ?>

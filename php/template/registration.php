@@ -35,17 +35,17 @@
 
     <form action="../treatment/treatment_registration.php" method="post">
         <label for="pseudo_input">Pseudonyme *</label>
-        <input type="text" value="Dominique69" name="pseudo_input" id="pseudo_input" required></input>
+        <input type="text" name="pseudo_input" id="pseudo_input" required></input>
         <label for="firstname_input">Prénom</label>
-        <input type="text" value="Dominique" name="firstname_input" id="firstname_input"></input>
+        <input type="text" name="firstname_input" id="firstname_input"></input>
         <label for="lastname_input">Nom de famille</label>
-        <input type="text" value="Dupond" name="lastname_input" id="lastname_input"></input>
+        <input type="text" name="lastname_input" id="lastname_input"></input>
         <label for="email_input">Email *</label>
-        <input type="email" value="dominique69@mail.com" name="email_input" id="email_input" required></input>
+        <input type="email" name="email_input" id="email_input" required></input>
         <label for="password_input">Mot de passe *</label>
-        <input type="password" value="azerty1234" name="password_input" id="password_input" required></input>
+        <input type="password" name="password_input" id="password_input" required></input>
         <label for="passwordConfirm_input">Confirmer le mot de passe *</label>
-        <input type="password" value="azerty1234" name="passwordConfirm_input" id="passwordConfirm_input" required></input>
+        <input type="password" name="passwordConfirm_input" id="passwordConfirm_input" required></input>
         <button type="submit">S'inscrire</button>
     </form>
 
