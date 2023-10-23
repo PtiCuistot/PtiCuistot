@@ -6,11 +6,12 @@
     $password = $_POST["password_input"];
     $passwordConfirm = $_POST["passwordConfirm_input"];
 
-    $reg = '/^([a-zA-Z])+$/';
-    $text = "jèanmi";
+    $reg = '/^([^0-9\/\.\!\?\,\§\£\*\&\~\#\{\$\@])+$/i';
 
-    if (preg_match($reg, $text)){
+
+    if (preg_match($reg, $firstname) && preg_match($reg, $lastname)){
         echo "text valide";
+        
     }else{
         echo "text invalide";
     }
