@@ -1,4 +1,5 @@
 <?php 
+    include_once("../model/manager.php");
     include_once("../model/user/usermanager.php");
     include_once("../model/user/user.php");
 
@@ -16,7 +17,7 @@
         $newUser = new User($pseudo , $email, $password, $firstname, $lastname);
         $um = new UserManager();
 
-        if($um->getUserByMail($email)){
+        if($um->getUserByMail($email) == NULL ){
             try{
                 $um->insertUser($newUser);
                 echo "user inserted";
