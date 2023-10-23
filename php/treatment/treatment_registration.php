@@ -1,4 +1,7 @@
 <?php 
+    include_once("../model/user/usermanager.php");
+    include_once("../model/user/user.php");
+
     $pseudo = $_POST["pseudo_input"];
     $firstname = $_POST["firstname_input"];
     $lastname = $_POST["lastname_input"];
@@ -10,10 +13,21 @@
 
 
     if (preg_match($reg, $firstname) && preg_match($reg, $lastname)){
-        echo "text valide";
-        
+        $newUser = new User($pseudo , $email, $password, $firstname, $lastname);
+        $um = new UserManager();
+
+        if($um->getUserByMail($email)){
+            try{
+                $um->insertUser($newUser);
+                echo "user inserted";
+            }catch(Exception $e){
+                echo $e;
+            }
+        }else{
+            echo "email already used";
+        }
     }else{
-        echo "text invalide";
+        echo "incorrect input";
     }
 
 ?>
