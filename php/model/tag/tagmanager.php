@@ -13,11 +13,15 @@ class TagManager extends Manager
     {
         foreach($this->pdo->query("SELECT * FROM PC_TAGS WHERE TA_ID = ".$id) as $row)
         {
-            return new Tag(
-                $row["TA_ID"], 
+
+            $tag = new Tag( 
                 $row["TA_CONTENT"], 
                 $row["TA_STATUT"]
             );
+            
+            $tag->setId($row["TA_ID"]);
+
+            return $tag;
         }
     }
 
@@ -25,17 +29,27 @@ class TagManager extends Manager
     {
         foreach($this->pdo->query("SELECT * FROM PC_TAGS WHERE TA_CONTENT = ".$name) as $row)
         {
-            return new Tag(
-                $row["TA_ID"], 
+            $tag = new Tag( 
                 $row["TA_CONTENT"], 
                 $row["TA_STATUT"]
             );
+            
+            $tag->setId($row["TA_ID"]);
+
+            return $tag;
         }
     }
 
     public function updateTag(Tag $tag)
     {
         $request = "UPDATE PC_TAGS SET TA_CONTENT = ?, TA_STATUT = ? WHERE TA_ID = ".$tag->getId();
+        $statement = $this->pdo->prepare($request); 
+        $statement->execute([$tag->getContent(), $tag->getStatut()]);
+    }
+
+    public function insertTag(Tag $tag)
+    {
+        $request = "INSERT INTO PC_TAGS(TA_CONTENT, TA_STATUT) VALUES (?, ?)";
         $statement = $this->pdo->prepare($request); 
         $statement->execute([$tag->getContent(), $tag->getStatut()]);
     }

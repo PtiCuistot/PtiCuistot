@@ -2,13 +2,12 @@
 
 class Tag
 {
-    private int $id; 
+    private ?int $id; 
     private string $content; 
     private int $statut; 
 
-    public function __construct(int $id, string $content, int $statut)
+    public function __construct(string $content, int $statut)
     {
-        $this->id = $id; 
         $this->content = $content; 
         $this->statut = $statut;
     }
