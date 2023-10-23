@@ -15,7 +15,7 @@
     $reg = '/^([^0-9\/\.\!\?\,\§\£\*\&\~\#\{\$\@])+$/i';
 
 
-    if (preg_match($reg, $firstname) && preg_match($reg, $lastname)){
+    if (preg_match($reg, $firstname) && preg_match($reg, $lastname) && $password === $passwordConfirm){
         $newUser = new User($pseudo , $email, password_hash($password, PASSWORD_DEFAULT), $firstname, $lastname);
         $um = new UserManager();
 
