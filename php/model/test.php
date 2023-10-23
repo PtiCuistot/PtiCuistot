@@ -1,21 +1,27 @@
 <?php
-    echo "AAA";
-
     include_once("../model/recipe/recipe.php");
     include_once("../model/recipe/recipeManager.php");
-
-    echo "<br>AAA<br>";
-
-    $recipe = new Recipe("Title", "Content", "Image", "Created", "Updated");
-    echo $recipe->getId();
-    echo "<br>";
-    echo $recipe->getTitle();
-    echo "<br>";
-    echo $recipe->getContent();
-    echo "<br>";
+/*
+    $date = date("Y-m-d");
+    $recipe = new Recipe("a", "dd", "ff", $date, $date, 1);
 
     $rcp = new RecipeManager();
     $rcp->insertRecipe($recipe);
-    $rc = $rcp->getRecipeById(1);
-    echo $rc;
+
+    $rc = $rcp->getRecipeById(20);
+    echo $rc->getTitle();
+
+    */
+
+    include_once("../model/user/user.php");
+    include_once("../model/user/usermanager.php");
+
+    include_once("manager.php");
+
+    $mana = new Manager();
+    var_dump($mana);
+/*
+    $user = new User("Waterfox", "clement.baratin@etu.unicaen.fr", "ahudauyg", "a", "b");
+    $usermanager = new UserManager();
+    $usermanager->insertUser($user);*/
 ?>
