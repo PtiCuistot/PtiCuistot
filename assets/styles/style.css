@@ -1,0 +1,121 @@
+:root
+{
+  --base: #ffffff;
+  --grey : #999999;
+  --blue : #2a3990;
+  --softBlue : #7890cd;
+
+  --good : #00ff04;
+  --bad : #dc2323;
+
+  --BigTitle : 32px;
+  --title : 25px;
+  --font : 20px;
+}
+
+body {
+  /*font-family: 'Pacifico', cursive;*/
+  font-family: 'Calibri';
+  margin: 0;
+  color: var(--blue);
+  font-size: var(--font);
+  background-color: var(--base);
+}
+
+header {
+    /*font-family: 'Permanent Marker', cursive;*/
+    color: var(--base);
+    background-color: var(--blue);
+    z-index: 999;
+    top: 0;
+    position: sticky;
+}
+
+.Content {
+    height: 100vh;
+    width: 100%;
+    display: block;
+}
+
+.Content > div {
+    margin: 2%;
+}
+
+.Content > div:first-child {
+    height: 30%;
+    width: 96%;
+    border: 1px solid var(--grey);
+}
+
+.Content > .TwoRow {
+    height: 70%;
+    width: 96%;
+    display: flex;
+    border: 1px solid var(--grey);
+}
+
+.Content > .TwoRow > div {
+    height: 100%;
+    width: 50%;
+    border: 1px solid var(--grey);
+}
+
+.Content > .TwoRow > .DernieresRecettes > div {
+    display: flex;
+}
+
+.Content > .TwoRow > .Edito {
+    background-color: var(--blue);
+    color: var(--base);
+}
+
+.Content > .TwoRow > .Edito > .center {
+    height: 60%;
+}
+
+img {
+    height: 100%;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer{
+    margin-top: 50px;
+}
+
+.banner {
+    background: #a770ef;
+    background: -webkit-linear-gradient(to right, #a770ef, #cf8bf3, #fdb99b);
+    background: linear-gradient(to right, #a770ef, #cf8bf3, #fdb99b);
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+@media screen and (max-width: 999px) {
+
+    .Content > .TwoRow {
+        flex-direction: column;
+    }
+
+    .Content > .TwoRow > .DernieresRecettes {
+        order: 1;
+    }
+
+    .Content > .TwoRow > div {
+        width: 100%;
+        height: 50%;
+    }
+}

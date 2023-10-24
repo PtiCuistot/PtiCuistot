@@ -1,27 +1,20 @@
 <?php
     include_once("../model/recipe/recipe.php");
-    include_once("../model/recipe/recipeManager.php");
-/*
-    $date = date("Y-m-d");
-    $recipe = new Recipe("a", "dd", "ff", $date, $date, 1);
+    include_once("../model/recipe/recipemanager.php");
 
-    $rcp = new RecipeManager();
-    $rcp->insertRecipe($recipe);
+    include_once("../model/tag/tag.php");
+    include_once("../model/tag/tagmanager.php");
 
-    $rc = $rcp->getRecipeById(20);
-    echo $rc->getTitle();
+    $tag = new Tag("Désert", 1);
+    $tagManager = new TagManager(); 
 
-    */
+    $tagManager->insertTag($tag);
+    $tag = $tagManager->getTagByName("Désert"); 
 
-    include_once("../model/user/user.php");
-    include_once("../model/user/usermanager.php");
+    $recipeManager = new RecipeManager(); 
+    $recipe = $recipeManager->getRecipeById(1); 
 
-    include_once("manager.php");
-
-    $mana = new Manager();
-    var_dump($mana);
-/*
-    $user = new User("Waterfox", "clement.baratin@etu.unicaen.fr", "ahudauyg", "a", "b");
-    $usermanager = new UserManager();
-    $usermanager->insertUser($user);*/
+    $recipeManager->addTag($recipe, $tag);
+    
+    print_r($recipeManager->getTag($recipe));
 ?>
