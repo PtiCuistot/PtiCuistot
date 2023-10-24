@@ -1,8 +1,5 @@
 <?php
 
-include_once("manager.php");
-include_once('user.php');
-
 class UserManager extends Manager
 {
     public function __construct()

@@ -20,7 +20,7 @@
                         <li><a href="#">Ingrédients</a></li>
                     </ul>
                 </li>
-                <li><a href="Connexion.php">Connexion</a></li>
+                <li><a href="registration.php">Connexion</a></li>
             </ul>
         </nav>
     </header>
