@@ -1,7 +1,6 @@
 .NavBar {  
     font-size: 24px;
     display: flex;
-    color: var(--base);
   }
   
   .NavBar > ul {
@@ -12,7 +11,7 @@
   }
   
   .NavBar > ul > li:first-child {
-    flex-grow: 3;
+    flex-grow: 2;
   }
 
   .NavBar > ul > li {
@@ -34,10 +33,9 @@
     padding-left: 5%;
     background-color: var(--blue);
   }
-  
-  a:hover > .triangle-container > svg > .triangle {
-    transition: all 0.8s ease-in-out;
-    transform: rotate(60deg);
+
+  .NavBar > ul > li > a > img {
+    height: inherit;
   }
 
   .NavBar span {
@@ -51,10 +49,10 @@
   }
   
   .NavBar > ul > li > a:hover, .SubMenu > li > a:hover {
-    color: var(--element);
+    color: var(--blue);
     transition: all 0.7s ease;
     cursor: pointer;
-    background-color: var(--grey);
+    background-color: var(--base);
   }
   
   .SubMenu {
@@ -71,12 +69,11 @@
 
   .NavBarLiHasChildren:hover > a {    
     transition: all 0.7s ease;
-    background-color: var(--blue);
+    background-color: var(--base);
     color: var(--grey);
   }
 
   .SubMenu > li > a {
-    width: 95%;
     color: var(--base);
     text-decoration: none;
     padding-left: 5%;
