@@ -7,7 +7,7 @@ class RecipeManager extends Manager
 {
     public function construct()
     {
-        parent::construct();
+        parent::__construct();
     }
 
     public function getRecipeById(int $id): ?Recipe
