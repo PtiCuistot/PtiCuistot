@@ -27,7 +27,7 @@ class TagManager extends Manager
 
     public function getTagByName(string $name)
     {
-        foreach($this->pdo->query("SELECT * FROM PC_TAGS WHERE TA_CONTENT = ".$name) as $row)
+        foreach($this->pdo->query("SELECT * FROM PC_TAGS WHERE TA_CONTENT = '".$name."'") as $row)
         {
             $tag = new Tag( 
                 $row["TA_CONTENT"], 

@@ -82,7 +82,7 @@ class RecipeManager extends Manager
 
     public function addTag(Recipe $recipe, Tag $tag)
     {
-        $query = "INSERT INTO REFERENCED_BY (REP_ID, TA_ID, TA_CONTENT) VALUES (?, ?, ?)"; 
+        $query = "INSERT INTO PC_TAG_REFERENCE (REP_ID, TA_ID, TA_CONTENT) VALUES (?, ?, ?)"; 
         $statement = $this->pdo->prepare($query);
         $statement->execute([
             $recipe->getId(), 
@@ -95,7 +95,7 @@ class RecipeManager extends Manager
     {
         $tagArray = [];
         $tagManager = new TagManager();
-        foreach($this->pdo->query("SELECT * FROM REFERENCED_BY WHERE REP_ID = ".$recipe->getId()) as $row)
+        foreach($this->pdo->query("SELECT * FROM PC_TAG_REFERENCE WHERE REP_ID = ".$recipe->getId()) as $row)
         {
             array_push($tagArray, $tagManager->getTagById($row["TA_ID"]));
         }   

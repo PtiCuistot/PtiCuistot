@@ -2,8 +2,19 @@
     include_once("../model/recipe/recipe.php");
     include_once("../model/recipe/recipemanager.php");
 
-    $rcp = new RecipeManager();
-    $recipes = $rcp->getRecipes();
+    include_once("../model/tag/tag.php");
+    include_once("../model/tag/tagmanager.php");
 
-    print_r($recipes)
+    $tag = new Tag("Désert", 1);
+    $tagManager = new TagManager(); 
+
+    $tagManager->insertTag($tag);
+    $tag = $tagManager->getTagByName("Désert"); 
+
+    $recipeManager = new RecipeManager(); 
+    $recipe = $recipeManager->getRecipeById(1); 
+
+    $recipeManager->addTag($recipe, $tag);
+    
+    print_r($recipeManager->getTag($recipe));
 ?>
