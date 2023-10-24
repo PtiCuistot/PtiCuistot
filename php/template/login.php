@@ -33,6 +33,14 @@
             </nav>
         </header>
 
+        <form action="../treatment/treatment_login.php" method="post">
+            <label for="email_input">Email</label>
+            <input type="email" name="email_input" id="email_input" required></input>
+            <label for="password_input">Mot de passe</label>
+            <input type="password" name="password_input" id="password_input" required></input>
+            <button type="submit">Se connecter</button>
+        </form>
+
         <footer>
             <div class="centerFooter">
                 <div class="footerTeam">
