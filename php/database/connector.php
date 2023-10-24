@@ -43,13 +43,11 @@ function initPDO()
     {
         $pdo = new PDO("mysql:host=".$dbHost.";dbname=".$dbName, $dbUser, $dbPass);
     }
-    catch(Exception)
+    catch(Exception $e)
     {
         throw new Exception("[PC1] An error occured during PDO Cration:: Critical | Path : ".$envFilePath);
     }
-
-
-    return 
+    return $pdo;
 }
 
 ?>
