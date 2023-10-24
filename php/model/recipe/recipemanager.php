@@ -29,7 +29,7 @@ class RecipeManager extends Manager
 
     public function insertRecipe(Recipe $recipe)
     {
-        $query = "INSERT INTO PC_RECIPE(US_ID, REP_TITLE, REP_CONTENT, REP_IMAGE, REP_STATUT, CAT_ID) VALUES(2, ?, ?, ?, 1, ?)";
+        $query = "INSERT INTO PC_RECIPE(US_ID, REP_TITLE, REP_CONTENT, REP_IMAGE, REP_CREATED, REP_UPDATED, REP_STATUT, CAT_ID) VALUES(2, ?, ?, ?, now(), now(), 1, ?)";
         $statement = $this->pdo->prepare($query);
         $statement->execute([
             $recipe->getTitle(),
@@ -37,15 +37,19 @@ class RecipeManager extends Manager
             $recipe->getImage(),
             $recipe->getCatId()
         ]);
-        echo 'INSERT INTO PC_RECIPE(US_ID, REP_TITLE, REP_CONTENT, REP_IMAGE, REP_STATUT, CAT_ID) VALUES(1, "';
+        echo 'INSERT INTO PC_RECIPE(US_ID, REP_TITLE, REP_CONTENT, REP_IMAGE, REP_CREATED, REP_UPDATED, REP_STATUT, CAT_ID) VALUES(1, "';
         echo $recipe->getTitle();
         echo '", "';
         echo $recipe->getContent();
         echo '", "';
         echo $recipe->getImage();
-        echo '", 1,';
+        echo '", "';
+        echo $recipe->getCreated()->format("Y-m-d");
+        echo '", "';
+        echo $recipe->getUpdated()->format("Y-m-d");
+        echo '", ';
         echo $recipe->getCatId();
-        echo ')';
+        echo ', 1)';
     }
 
     public function updateRecipe(Recipe $recipe)
