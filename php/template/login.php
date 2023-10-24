@@ -6,10 +6,8 @@
         <link rel="stylesheet" href="../../assets/styles/style.css">
         <link rel="stylesheet" href="../../assets/styles/NavBar.css">
     </head>
-    <body>
+
         <?php include('header.php');?>
 
         
         <?php include('footer.php');?>
-    </body>
-</html>

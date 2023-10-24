@@ -9,6 +9,27 @@ class IngredientManager extends Manager
         parent::__construct();
     }
 
+    public function getIngredients()
+    {
+
+        $ingredients = [];
+
+        foreach($this->pdo->query("SELECT * FROM PC_INGREDIENTS") as $row)
+        {
+
+            $ing = new Ingredient(
+                $row["ING_NAME"], 
+                $row["ING_DESCRIPTION"]
+            );
+
+            $ing->setId($row["ING_ID"]);
+
+            array_push($ingredients,  $ing);
+        }
+
+        return $ingredients;
+    }
+
     public function getIngredientById(int $id)
     {
         foreach($this->pdo->query("SELECT * FROM PC_INGREDIENTS WHERE ING_ID = ".$id) as $row)

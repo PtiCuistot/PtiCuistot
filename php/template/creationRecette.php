@@ -15,11 +15,61 @@
         <link rel="stylesheet" href="../../assets/styles/style.css">
         <link rel="stylesheet" href="../../assets/styles/NavBar.css">
     </head>
-    <body>
         <?php include('header.php');?>
+        <form action="treatement_creation.php" method="POST">
+            
+            <h2>Informations de la recette</h2>
+            
+            <input type="text" name="recipeTitle" id="recipeTitle" class="RecipeTitle" placeholder="Nom de la recette">
+            <br>
+            <textarea name="recipeContent" id="recipeContent" class="RecipeContent" placeholder="Description de la recette"></textarea>
+            <br>
+            <input type="url" name="recipeImage" id="recipeImage" class="RecipeImage" placeholder="URL de l'image">
         
-        
+            <h2>Tags et catégories</h2>
+            
+            <label for="categorySelect">Catégorie :</label>
+            <select name="recipeCategory" id="recipeCategory" class="RecipeCategory">
+                <?php
+                    include_once("../model/manager.php");
+                    include_once("../model/category/category.php");
+                    include_once("../model/category/categorymanager.php");
+                    
+                    $cm = new CategoryManager();
 
-        <?php include('footer.php');?>
-    </body>
-</html>
+                    foreach($cm->getCategories() as $category)
+                    {
+                        echo "<option value=".$category[0]->getId().">".$category[0]->getTitle()."</option>";
+                    }
+                    
+                ?>
+            </select>
+            
+            <h2>Ingrédients de la recette</h2>
+
+            <label for="ingredientsInput">Ajouter un ingrédient</label>
+            <select name="recipeIngredients" id="recipeIngredients" class="RecipeIngredients">
+                <?php
+                    include_once("../model/manager.php");
+                    include_once("../model/ingredient/ingredient.php");
+                    include_once("../model/ingredient/ingredientmanager.php");
+                    
+                    $cm = new IngredientManager();
+
+                    foreach($cm->getIngredients() as $ingredient)
+                    {
+                        echo "<option value=".$ingredient->getId().">".$ingredient->getName()."</option>";
+                    }
+                ?>
+                <option>Ajouter un ingrédient</option>
+            </select>
+            <input type="number" name="ingredientWeight" id="ingredientWeight" class="IngredientWeight" placeholder="Quantité">
+            <input type="text" name="ingredientWeightUnity" id="ingredientWeightUnity" class="IngredientWeightUnity" placeholder="Unité">
+            <button type="button" id="addIngredient">Ajouter un ingrédient</button>
+            
+            <div>
+                <h4>Liste des ingrédients</h4>
+            </div>
+            
+        </form>
+        <?php include_once('footer.php');?>
