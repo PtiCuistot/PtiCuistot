@@ -16,7 +16,7 @@
         <link rel="stylesheet" href="../../assets/styles/NavBar.css">
     </head>
         <?php include('header.php');?>
-        <form action="treatement_creation.php" method="POST">
+        <form action="../treatment/treatment_recipe.php" id="recipeForm" method="POST">
             
             <h2>Informations de la recette</h2>
             
@@ -69,7 +69,14 @@
             
             <div>
                 <h4>Liste des ingrédients</h4>
+                <div id="ingredientList">
+
+                </div>
             </div>
             
+            <input type="submit" value="Créer ma recette" id="submitButton"></input>
+
         </form>
+        <script src="../../assets/scripts/RecipeCreation.js"></script>
+
         <?php include_once('footer.php');?>

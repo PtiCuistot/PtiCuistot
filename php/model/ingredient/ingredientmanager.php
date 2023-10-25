@@ -37,7 +37,6 @@ class IngredientManager extends Manager
 
             $ing = new Ingredient(
                 $row["ING_NAME"], 
-                $row["ING_DESCRIPTION"]
             );
 
             $ing->setId($row("ING_ID"));
@@ -52,8 +51,7 @@ class IngredientManager extends Manager
         {
 
             $ing = new Ingredient(
-                $row["ING_NAME"], 
-                $row["ING_DESCRIPTION"]
+                $row["ING_NAME"]                
             );
 
             $ing->setId(intval($row["ING_ID"]));
@@ -64,16 +62,16 @@ class IngredientManager extends Manager
 
     public function updateIngredient(Ingredient $ingredient)
     {
-        $request = "UPDATE PC_INGREDIENTS SET ING_NAME = ?, ING_DESCRIPTION = ? WHERE ING_ID = ".$ingredient->getId();
+        $request = "UPDATE PC_INGREDIENTS SET ING_NAME = ? WHERE ING_ID = ".$ingredient->getId();
         $statement = $this->pdo->prepare($request);
-        $statement->execute([$ingredient->getName(), $ingredient->getDescription()]); 
+        $statement->execute([$ingredient->getName()]); 
     }
     
     public function insertIngredient(Ingredient $ingredient)
     {
-        $request = "INSERT INTO PC_INGREDIENTS(ING_NAME, ING_DESCRIPTION) VALUES (?, ?)";
+        $request = "INSERT INTO PC_INGREDIENTS(ING_NAME) VALUES (?, ?)";
         $statement = $this->pdo->prepare($request);
-        $statement->execute([$ingredient->getName(), $ingredient->getDescription()]); 
+        $statement->execute([$ingredient->getName()]); 
     }
 }
 
