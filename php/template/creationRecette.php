@@ -46,7 +46,7 @@
                 <div class="form-row">
                     <div class="col">
                         <div class="form-group">
-                            <select  name="recipeIngredients" id="recipeIngredients" class="custom-select RecipeIngredients" required>
+                            <select name="recipeIngredients" id="recipeIngredients" class="custom-select RecipeIngredients" required>
                                 <?php
                                     include_once("../model/manager.php");
                                     include_once("../model/ingredient/ingredient.php");
@@ -57,7 +57,7 @@
                                         echo "<option value=".$ingredient->getId().">".$ingredient->getName()."</option>";
                                     }
                                 ?>
-                                <option>Crée un ingrédient</option>
+                                <option>Créer un ingrédient</option>
                             </select>
                         </div>
                         <div class="invalid-feedback">Example invalid custom select feedback</div>
