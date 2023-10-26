@@ -93,6 +93,16 @@ footer{
     background: linear-gradient(to right, #a770ef, #cf8bf3, #fdb99b);
 }
 
+.centerFormCreationRecette{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.centerFormCreationRecette > form > h1, .centerFormCreationRecette >  form > h2 {
+    text-align: center;
+}
+
 .fade-in {
     opacity: 0;
     transform: translateY(20px);

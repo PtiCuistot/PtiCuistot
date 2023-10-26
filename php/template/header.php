@@ -13,7 +13,7 @@
                 <li><a href="index.php">Accueil</a></li>
                 <li><a href="nosRecettes.php">Nos Recettes</a></li>
                 <li class="NavBarLiHasChildren">
-                    <a href="#">Filtes<span>▼</span></a>
+                    <a href="creationRecette.php">Filtes<span>▼</span></a>
                     <ul class="SubMenu">
                         <li><a href="#">Catégories</a></li>
                         <li><a href="#">Titre</a></li>
