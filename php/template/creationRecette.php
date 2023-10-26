@@ -26,7 +26,7 @@
                 </div>
                 <h2>Tags et catégories</h2>
                 <div class="form-group">
-                    <select class="custom-select" required>
+                    <select id="recipeCategory" class="custom-select" required>
                         <option value="">Sélectionner une catégorie</option>
                         <?php
                             include_once("../model/manager.php");

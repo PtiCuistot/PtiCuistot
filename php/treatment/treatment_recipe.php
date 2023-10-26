@@ -21,12 +21,10 @@ $ingManager = new IngredientManager();
 foreach($ingredientData as $id => $data)
 {
 
-    echo $id;
-
-    if (ctype_digit($id))
+    if (intval($id) != 0)
     {
         echo 'passed';
-        $iw = new IngredientWeight($recipeId, $id, intval($data['quantity']), $data['unity']); 
+        $iw = new IngredientWeight($recipeId, intval($id), intval($data['quantity']), $data['unity']); 
         $iwManager->insertIngredientWeight($iw);
     }
     else
