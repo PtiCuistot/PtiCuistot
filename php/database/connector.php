@@ -47,6 +47,7 @@ function initPDO()
     {
         throw new Exception("[PC1] An error occured during PDO Cration:: Critical | Path : ".$envFilePath);
     }
+    
     return $pdo;
 }
 

@@ -1,6 +1,7 @@
 <?php
 class Recipe
 {
+    private int $userId;
     private string $title; 
     private string $content; 
     private string $image; 
@@ -10,8 +11,9 @@ class Recipe
     private ?int $id;
     private int $catId;
 
-    public function __construct($title, $content, $image, $created, $updated, $catId)
+    public function __construct($userId, $title, $content, $image, $created, $updated, $catId = 1)
     {
+        $this->userId = $userId;
         $this->title = $title; 
         $this->content = $content; 
         $this->image = $image;
@@ -200,6 +202,30 @@ class Recipe
     public function setCatId(int $catId): self
     {
         $this->catId = $catId;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of userId
+     *
+     * @return int
+     */
+    public function getUserId(): int
+    {
+        return $this->userId;
+    }
+
+    /**
+     * Set the value of userId
+     *
+     * @param int $userId
+     *
+     * @return self
+     */
+    public function setUserId(int $userId): self
+    {
+        $this->userId = $userId;
 
         return $this;
     }
