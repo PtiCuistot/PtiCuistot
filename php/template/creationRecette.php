@@ -75,7 +75,7 @@
                     <span class="glyphicon glyphicon-warning-sign form-control-feedback" aria-hidden="true"></span>
                     <span id="ingredientWeightUnityStatus" class="sr-only">(warning)</span>
                 </div>
-                <div class="py-5 text-right"><a href="#" class="btn btn-dark px-5 py-3 text-uppercase" id="addIngredient">Ajouter un ingrédient</a></div>
+                <div class="py-5 text-right"><a href="#" class="btn btn-dark px-5 py-3 text-uppercase" id="addIngredientButton">Ajouter un ingrédient</a></div>
                 <div>
                     <h4>Liste des ingrédients</h4>
                     <div id="ingredientList">
