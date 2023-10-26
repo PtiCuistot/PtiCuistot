@@ -15,6 +15,7 @@
                     include_once("../model/recipe/recipemanager.php");
                 
                     $rm = new RecipeManager(); 
+                    $um = new UserManager();
 
                     foreach($rm->getRecipes() as $recipe)
                     {
@@ -23,6 +24,7 @@
                         <img src="'.$recipe->getImage().'" alt="" class="RecipeImg img-fluid card-img-top">
                         <div class="RecipeDiv p-4">
                             <h5><a href="#" class="RecipeTitle text-dark">'.$recipe->getTitle().'</a></h5>
+                            <b>By : '.$um->getUserById($recipe->getUserId())->getUsername().'</b>
                             <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
                                 <p class="small mb-0">
                                     <i class="fa-solid fa-star" style="var(--blue);"></i>

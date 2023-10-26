@@ -8,7 +8,9 @@ include_once("../model/ingredient/ingredientmanager.php");
 include_once("../model/ingredientWeight/ingredientweight.php");
 include_once("../model/ingredientWeight/ingredientweightmanager.php");
 
-$recipe = new Recipe(1, $_POST["recipeTitle"], $_POST["recipeContent"], $_POST["recipeImage"], date('Y-m-d'), date('Y-m-d'), $_POST['recipeCategory']);
+session_start();
+
+$recipe = new Recipe($_SESSION['userId'], $_POST["recipeTitle"], $_POST["recipeContent"], $_POST["recipeImage"], date('Y-m-d'), date('Y-m-d'), $_POST['recipeCategory']);
 $recipeManager = new RecipeManager(); 
 $recipeId = $recipeManager->insertRecipe($recipe);
 $recipe = $recipeManager->getRecipeById($recipeId);
@@ -35,3 +37,5 @@ foreach($ingredientData as $id => $data)
         $iwManager->insertIngredientWeight($iw);     
     }
 }
+
+header('Location: ../template/listeRecette.php');
