@@ -15,7 +15,7 @@
         <link rel="stylesheet" href="../../assets/styles/style.css">
         <link rel="stylesheet" href="../../assets/styles/NavBar.css">
     </head>
-    <?php include('header.php');?>
+        <?php include('header.php');?>
 
         <div class="Content">
             <div>
