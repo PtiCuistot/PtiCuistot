@@ -10,6 +10,20 @@ class CategoryManager extends Manager
         parent::__construct();
     }
 
+    public function getCategories() 
+    {
+        $categories = [];
+
+        foreach($this->pdo->query("SELECT * FROM PC_CATEGORY") as $row)
+        {
+            $cat = new Category($row["CAT_TITLE"], $row["CAT_DESCRIPTION"], $row["CAT_STATUT"]);
+            $cat->setId($row["CAT_ID"]); 
+            array_push($categories, [$cat]);
+        }
+
+        return $categories;
+    }
+
     public function getCategoryById(int $id)
     {
         foreach($this->pdo->query("SELECT * FROM PC_CATEGORY WHERE CAT_STATUT = ".$id) as $row)

@@ -6,7 +6,6 @@
         <link rel="stylesheet" href="../../assets/styles/style.css">
         <link rel="stylesheet" href="../../assets/styles/NavBar.css">
     </head>
-    <body>
         <?php include('header.php');?>
         
         <form action="../treatment/treatment_registration.php" method="post">
@@ -26,5 +25,3 @@
         </form>
 
         <?php include('footer.php');?>
-    </body>
-</html>

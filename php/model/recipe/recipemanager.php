@@ -1,9 +1,5 @@
 <?php
 
-include_once("manager.php");
-include_once('recipe.php');
-
-
 class RecipeManager extends Manager
 {
     public function construct()
@@ -63,18 +59,23 @@ class RecipeManager extends Manager
             $recipe->getImage(),
             intval($recipe->getCatId())
         ]);
+
+        foreach($this->pdo->query("SELECT MAX(REP_ID) max FROM PC_RECIPE") as $row)
+        {
+            return intval($row['max']);
+        }
+    
     }
 
     public function updateRecipe(Recipe $recipe)
     {
-        $query = "UPDATE PC_RECIPE SET REP_ID = ?, REP_TITLE = ?, REP_IMAGE = ?, REP_CREATED = ?, REP_UPDATED = ?, REP_STATUS = ?, REP_CAT_ID = ? WHERE REP_ID = '".$recipe->getId()."'";
+        $query = "UPDATE PC_RECIPE SET REP_ID = ?, REP_TITLE = ?, REP_IMAGE = ?, REP_UPDATED = NOW(), REP_STATUS = ?, REP_CAT_ID = ? WHERE REP_ID = '".$recipe->getId()."'";
         $statement = $this->pdo->prepare($query);
         $statement->execute([
             $recipe->getTitle(),
             $recipe->getContent(), 
             $recipe->getImage(),
-            $recipe->getCreated(), 
-            $recipe->getUpdated(),
+
             $recipe->getStatut(),
             $recipe->getCatId()
         ]);
@@ -102,4 +103,5 @@ class RecipeManager extends Manager
         return $tagArray;
     }
 }
+
 ?>
