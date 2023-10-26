@@ -21,6 +21,8 @@ $ingManager = new IngredientManager();
 foreach($ingredientData as $id => $data)
 {
 
+    echo $id;
+
     if (ctype_digit($id))
     {
         echo 'passed';
