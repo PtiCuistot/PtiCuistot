@@ -1,14 +1,20 @@
 <?php
-    echo "AAA";
+    include_once("../model/recipe/recipe.php");
+    include_once("../model/recipe/recipemanager.php");
 
-include_once("manager.php");
-include_once("ingredient/ingredientmanager.php");
-include_once("ingredient/ingredient.php");
+    include_once("../model/tag/tag.php");
+    include_once("../model/tag/tagmanager.php");
 
-$apple = new Ingredient("Apple", "A juicy red fruit");
-$ingManager = new IngredientManager();  
+    $tag = new Tag("Désert", 1);
+    $tagManager = new TagManager(); 
 
-$apple = $ingManager->getIngredientByName("Apple");
+    $tagManager->insertTag($tag);
+    $tag = $tagManager->getTagByName("Désert"); 
 
-echo $apple->getDescription();
+    $recipeManager = new RecipeManager(); 
+    $recipe = $recipeManager->getRecipeById(1); 
+
+    $recipeManager->addTag($recipe, $tag);
+    
+    print_r($recipeManager->getTag($recipe));
 ?>

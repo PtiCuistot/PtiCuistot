@@ -1,23 +1,65 @@
 <?php
 class Recipe
 {
+    private int $userId;
     private string $title; 
     private string $content; 
     private string $image; 
-    private string $created; 
-    private string $updated;
+    private DateTime $created; 
+    private DateTime $updated;
     private int $statut;
     private ?int $id;
+    private int $catId;
 
-    public function __construct($title, $content, $image, $created, $updated)
+    public function __construct($userId, $title, $content, $image, $created, $updated, $catId = 1)
     {
+        $this->userId = $userId;
         $this->title = $title; 
         $this->content = $content; 
         $this->image = $image;
-        $this->created = $created; 
-        $this->updated = $updated;
+        $this->created = new DateTime($created);
+        $this->updated = new DateTime($updated);
         $this->statut = 1;
         $this->id = 1;
+        $this->catId = $catId;
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set the value of id
+     */
+    public function setId($id): self
+    {
+        $this->id = $id;
+        return $this;
+    }
+
+    /**
+     * Get the value of statut
+     *
+     * @return int
+     */
+    public function getStatut(): int
+    {
+        return $this->statut;
+    }
+
+    /**
+     * Set the value of statut
+     *
+     * @param int $statut
+     *
+     * @return self
+     */
+    public function setStatut(int $statut): self
+    {
+        $this->statut = $statut;
+
+        return $this;
     }
 
     /**
@@ -95,9 +137,9 @@ class Recipe
     /**
      * Get the value of created
      *
-     * @return string
+     * @return DateTime
      */
-    public function getCreated(): string
+    public function getCreated(): DateTime
     {
         return $this->created;
     }
@@ -105,11 +147,11 @@ class Recipe
     /**
      * Set the value of created
      *
-     * @param string $created
+     * @param DateTime $created
      *
      * @return self
      */
-    public function setCreated(string $created): self
+    public function setCreated(DateTime $created): self
     {
         $this->created = $created;
 
@@ -119,9 +161,9 @@ class Recipe
     /**
      * Get the value of updated
      *
-     * @return string
+     * @return DateTime
      */
-    public function getUpdated(): string
+    public function getUpdated(): DateTime
     {
         return $this->updated;
     }
@@ -129,58 +171,61 @@ class Recipe
     /**
      * Set the value of updated
      *
-     * @param string $updated
+     * @param DateTime $updated
      *
      * @return self
      */
-    public function setUpdated(string $updated): self
+    public function setUpdated(DateTime $updated): self
     {
         $this->updated = $updated;
 
         return $this;
     }
 
-    public function getId()
-    {
-        return $this->id;
-    }
-
     /**
-     * Set the value of id
-     */
-    public function setId($id): self
-    {
-        if($this->id == null)
-        {
-            $this->id = $id;
-            return $this;
-        }
-        else
-        {
-            throw new Exception("Cannot redifined ID");
-        }
-    }
-
-    /**
-     * Get the value of statut
+     * Get the value of cat_Id
      *
      * @return int
      */
-    public function getStatut(): int
+    public function getCatId(): int
     {
-        return $this->statut;
+        return $this->catId;
     }
 
     /**
-     * Set the value of statut
+     * Set the value of cat_Id
      *
-     * @param int $statut
+     * @param int $cat_Id
      *
      * @return self
      */
-    public function setStatut(int $statut): self
+    public function setCatId(int $catId): self
     {
-        $this->statut = $statut;
+        $this->catId = $catId;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of userId
+     *
+     * @return int
+     */
+    public function getUserId(): int
+    {
+        return $this->userId;
+    }
+
+    /**
+     * Set the value of userId
+     *
+     * @param int $userId
+     *
+     * @return self
+     */
+    public function setUserId(int $userId): self
+    {
+        $this->userId = $userId;
 
         return $this;
     }
