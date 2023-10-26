@@ -69,6 +69,7 @@
                     </div>
                 </div>
                 <div class="form-group has-warning has-feedback">
+                    <input type="text" id="ingredientName" placeholder="Nom de l'ingrédient" hidden>
                     <label class="control-label" for="ingredientWeightUnity">Unité :</label>
                     <input type="text" name="ingredientWeightUnity" class="form-control ingredientWeightUnity" id="ingredientWeightUnity" aria-describedby="inputWarning2Status" placeholder="Unité">
                     <span class="glyphicon glyphicon-warning-sign form-control-feedback" aria-hidden="true"></span>
