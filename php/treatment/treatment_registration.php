@@ -55,8 +55,10 @@
 
         if($um->getUserByMail($mail) == NULL ){
             try{
-                $um->insertUser($newUser);
-                header('Location: ../template/registration.php');
+                $newUser = $um->getUserById(intval($um->insertUser($newUser)));
+                session_start();
+                $_SESSION['userId'] = $newUser->getId();
+                header('Location: ../template/index.php');
             }catch(Exception $e){
                 echo $e;
             }

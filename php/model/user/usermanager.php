@@ -61,6 +61,11 @@ class UserManager extends Manager
         $query = "INSERT INTO PC_USER(UT_ID, US_USERNAME, US_EMAIL, US_PASSWORD, US_FIRSTNAME, US_LASTNAME, US_STATUT) VALUES(1, ?, ?, ?, ?, ?, 1)";
         $statement = $this->pdo->prepare($query);
         $statement->execute([$user->getUsername(), $user->getEmail(), $user->getPassword(), $user->getFirstname(), $user->getLastname()]);
+
+        foreach($this->pdo->query("SELECT MAX(US_ID) max FROM PC_USER") as $row)
+        {
+            return intval($row['max']);
+        }
     }
 
     public function updateUser(User $user)
