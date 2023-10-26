@@ -3,6 +3,8 @@
 include_once("../model/manager.php");
 include_once("../model/recipe/recipe.php");
 include_once("../model/recipe/recipemanager.php");
+include_once("../model/ingredient/ingredient.php");
+include_once("../model/ingredient/ingredientmanager.php");
 include_once("../model/ingredientWeight/ingredientweight.php");
 include_once("../model/ingredientWeight/ingredientweightmanager.php");
 
@@ -11,37 +13,25 @@ $recipeManager = new RecipeManager();
 $recipeId = $recipeManager->insertRecipe($recipe);
 $recipe = $recipeManager->getRecipeById($recipeId);
 
-$ingredientData = array();
-echo $recipe->getId();
+$ingredientData = json_decode($_POST['ingredientData'], true);
 
+$iwManager = new IngredientWeightManager();
+$ingManager = new IngredientManager();
 
-foreach ($_POST as $key => $value) {
-    if (strpos($key, 'ingredient_') === 0) {
-        $id = substr($key, strlen('ingredient_'));
+foreach($ingredientData as $id => $data)
+{
 
-        if (!isset($ingredientData[$id])) {
-            $ingredientData[$id] = array(
-                'quantity' => null,
-                'unity' => null,
-            );
-        }
-
-        if (strpos($key, '_unity') === false) {
-            $ingredientData[$id]['quantity'] = $value;
-        } else {
-            $ingredientData[$id]['unity'] = $value;
-        }
+    if (ctype_digit($id))
+    {
+        echo 'passed';
+        $iw = new IngredientWeight($recipeId, $id, intval($data['quantity']), $data['unity']); 
+        $iwManager->insertIngredientWeight($iw);
     }
-}
-
-foreach ($ingredientData as $id => $data) {
-    $id = $id;
-    $weight = $data['quantity'];
-    $weightUnity = $data['unity'];
-
-
-
-    $ingredient = new IngredientWeight($recipeId, $id, $weight, "g"); 
-    $ingredientManager = new IngredientWeightManager(); 
-    $ingredientManager->insertIngredientWeight($ingredient);
+    else
+    {
+        $ing = new Ingredient($id);
+        $ingId = $ingManager->insertIngredient($ing);   
+        $iw = new IngredientWeight($recipeId, $ingId, intval($data['quantity']), $data['unity']); 
+        $iwManager->insertIngredientWeight($iw);     
+    }
 }

@@ -14,7 +14,7 @@ class IngredientManager extends Manager
 
         $ingredients = [];
 
-        foreach($this->pdo->query("SELECT * FROM PC_INGREDIENTS") as $row)
+        foreach($this->pdo->query("SELECT * FROM PC_INGREDIENTS ORDER BY ING_NAME") as $row)
         {
 
             $ing = new Ingredient(
@@ -69,9 +69,15 @@ class IngredientManager extends Manager
     
     public function insertIngredient(Ingredient $ingredient)
     {
-        $request = "INSERT INTO PC_INGREDIENTS(ING_NAME) VALUES (?, ?)";
+        $request = "INSERT INTO PC_INGREDIENTS(ING_NAME) VALUES (?)";
         $statement = $this->pdo->prepare($request);
         $statement->execute([$ingredient->getName()]); 
+
+        foreach($this->pdo->query("SELECT MAX(ING_ID) max FROM PC_INGREDIENTS") as $row)
+        {
+            return intval($row['max']);
+        }
+    
     }
 }
 
