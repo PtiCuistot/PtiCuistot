@@ -39,6 +39,7 @@
             </div>
         </div>
 
+        <script src="../../assets/scripts/scriptRecipe.js"></script>
         <?php include('footer.php');?>
     </body>
 </html>
