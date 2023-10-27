@@ -11,20 +11,22 @@
             <form action="../treatment/treatment_recipe.php" id="recipeForm" method="POST" class="needs-validation" novalidate>
                 <h1>Création de recettes</h1>
                 <h2>Informations de la recette</h2>
+                
                 <div class="form-group">
                     <label class="control-label" for="recipeTitle">Nom de la recette :</label>
-                    <input type="text" name="recipeTitle" class="form-control RecipeTitle" placeholder="Nom de la recette" id="recipeTitle" aria-describedby="inputWarning2Status" placeholder="Unité">
-                    <div class="valid-tooltip">Looks good!</div>
-                    <div class="invalid-tooltip">Choose a name</div>
+                    <input type="text" name="recipeTitle" class="form-control RecipeTitle" placeholder="Nom de la recette" id="recipeTitle" aria-describedby="inputWarning2Status" placeholder="Unité" required>
                 </div>
+                
                 <div class="form-outline mb-4">
                     <label class="form-label" for="form6Example7">Additional information</label>
-                    <textarea name="recipeContent" id="recipeContent" class="form-control RecipeContent" id="form6Example7" rows="4" placeholder="Description de la recette"></textarea>
+                    <textarea name="recipeContent" id="recipeContent" class="form-control RecipeContent" id="form6Example7" rows="4" placeholder="Description de la recette" required></textarea>
                 </div>
+                
                 <div class="form-outline">
                     <label class="form-label" for="typeURL">URL input</label>
-                    <input type="url" name="recipeImage" id="recipeImage" class="form-control RecipeImage" placeholder="URL de l'image"/>
+                    <input type="url" name="recipeImage" id="recipeImage" class="form-control RecipeImage" placeholder="URL de l'image" required/>
                 </div>
+
                 <h2>Tags et catégories</h2>
                 <div class="form-group">
                     <select class="custom-select" required>
@@ -40,8 +42,8 @@
                             }
                         ?>
                     </select>
-                    <div class="valid-tooltip">Looks good!</div>
                 </div>
+                
                 <h2>Ingrédients de la recette</h2>
                 <label for="ingredientsInput">Ajouter un ingrédient</label>
                 <div class="form-row">
@@ -62,25 +64,29 @@
                                 <option>Créer un ingrédient</option>
                             </select>
                         </div>
-                        <div class="valid-tooltip">Looks good!</div>
                     </div>
-                    <div class="col">
-                        <div class="form-outline">
-                            <input type="number" name="ingredientWeight" id="ingredientWeight"  class="form-control IngredientWeight" placeholder="Quantité"/>
+
+                    <div class="col" id="ingredientNameCol">
+                        <div class="form-group">
+                            <input type="text" id="ingredientName" placeholder="Nom de l'ingrédient" class="form-control" required>
                         </div>
                     </div>
+                    
                     <div class="col">
-                        <div class="form-group has-warning has-feedback">
-                            <input type="text" id="ingredientName" placeholder="Nom de l'ingrédient" hidden>
-                            <input type="text" name="ingredientWeightUnity" class="form-control ingredientWeightUnity" id="ingredientWeightUnity" aria-describedby="inputWarning2Status" placeholder="Unité">
-                            <span class="glyphicon glyphicon-warning-sign form-control-feedback" aria-hidden="true"></span>
-                            <span id="ingredientWeightUnityStatus" class="sr-only">(warning)</span>
+                        <div class="form-outline">
+                            <input type="number" name="ingredientWeight" id="ingredientWeight"  class="form-control IngredientWeight" placeholder="Quantité" required min="0" step="0.01"/>
+                        </div>
+                    </div>
+
+                    <div class="col">
+                        <div class="form-group">
+                            <input type="text" name="ingredientWeightUnity" class="form-control ingredientWeightUnity" id="ingredientWeightUnity" placeholder="Unité" required>
                         </div>
                     </div>
                 </div>
                 
                 <div class="py-5 text-right"><a href="#" class="btn btn-dark px-5 py-3 text-uppercase" id="addIngredientButton">Ajouter un ingrédient</a></div>
-                <div>
+                <div id="ingredientListDiv">
                     <h4>Liste des ingrédients</h4>
                     <div id="ingredientList">
                     </div>

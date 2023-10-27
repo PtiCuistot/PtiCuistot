@@ -65,11 +65,11 @@ recipeIngredients.addEventListener('change', function()
 {
     if(this.value == 'Créer un ingrédient')
     {
-        ingredientName.hidden = false;
+        document.getElementById("ingredientNameCol").style.display = "block";
     }
     else
     {
-        ingredientName.hidden = true; 
+        document.getElementById("ingredientNameCol").style.display = "none";
     }
 })
 
@@ -107,7 +107,18 @@ addIngredientButton.addEventListener("click", ()=>
     let ingredientDiv = document.createElement('p'); 
     ingredientDiv.innerText = `${ingredientText} : ${ingredientWeight}${ingredientWeightUnity}`;
 
+    document.getElementById("ingredientListDiv").style.display = "block";
     ingredientList.appendChild(ingredientDiv);
-    ingredientName.hidden = true;
+    document.getElementById("ingredientNameCol").style.display = "none";
     recipeIngredients.value = '1';
 });
+
+var textarea = document.getElementById("recipeContent");
+
+textarea.addEventListener('input', function () {
+    this.style.height = 'auto';
+    this.style.height = (this.scrollHeight) + 'px';
+});
+
+document.getElementById("ingredientNameCol").style.display = "none";
+document.getElementById("ingredientListDiv").style.display = "none";

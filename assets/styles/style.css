@@ -114,9 +114,12 @@ footer{
 }
 
 #recipeForm{
-    width: 50%;
+    width: 70%;
 }
 
+#recipeContent{
+    resize: none;
+}
 
 @media screen and (max-width: 999px) {
 
