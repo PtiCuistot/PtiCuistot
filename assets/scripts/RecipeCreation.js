@@ -75,8 +75,9 @@ recipeIngredients.addEventListener('change', function()
 
 addIngredientButton.addEventListener("click", ()=>
 {
+    event.preventDefault();
 
-    let ingredientId; 
+    let ingredientId;
     let ingredientText;
 
     if(ingredientName.hidden  == false)

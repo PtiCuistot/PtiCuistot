@@ -121,6 +121,17 @@ footer{
     resize: none;
 }
 
+.CreateRecipeTitle{
+    margin-top: 25px;
+    margin-bottom: 25px;
+    font-size: 60px;
+}
+
+.h2Recipe{
+    margin-top: 60px;
+    margin-bottom: 10px;
+}
+
 @media screen and (max-width: 999px) {
 
     .Content > .TwoRow {
