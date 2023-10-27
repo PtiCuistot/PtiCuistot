@@ -113,6 +113,10 @@ footer{
     transform: translateY(0);
 }
 
+#recipeForm{
+    width: 50%;
+}
+
 
 @media screen and (max-width: 999px) {
 
