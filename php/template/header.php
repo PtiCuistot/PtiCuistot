@@ -20,7 +20,23 @@
                         <li><a href="#">Ingrédients</a></li>
                     </ul>
                 </li>
-                <li><a href="registration.php">Connexion</a></li>
+                <?php
+
+                    include_once("../model/manager.php");
+                    include_once("../model/user/usermanager.php");
+                    include_once("../model/user/user.php");
+
+                    if(isset($_SESSION['userId']))
+                    {
+                        $um = new UserManager();
+                        echo '<li><a href="registration.php">'.$um->getUserById(intval($_SESSION['userId']))->getUsername().'</a></li>';
+                    }
+                    else 
+                    {
+                        echo '<li><a href="registration.php">Login</a></li>';
+                    }
+                ?>
+          
             </ul>
         </nav>
     </header>
