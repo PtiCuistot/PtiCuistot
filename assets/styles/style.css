@@ -121,6 +121,11 @@ footer{
     resize: none;
 }
 
+#addIngredientButton{
+    width: inherit;
+    height: inherit;
+}
+
 @media screen and (max-width: 999px) {
 
     .Content > .TwoRow {
