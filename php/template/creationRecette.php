@@ -52,7 +52,6 @@
 
                         <div class="row">
                             <div class="col">
-                                <!-- Name input -->
                                 <div class="form-group">
                                     <select name="recipeIngredients" id="recipeIngredients" aria-placeholder="Selectionner un ingrédient" class="custom-select RecipeIngredients">
                                         <option value="">Sélectionner un ingrédient</option>
