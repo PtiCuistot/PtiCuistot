@@ -110,21 +110,32 @@ addIngredientButton.addEventListener("click", ()=>
 
 
     var ingredientDiv = document.createElement("tr");
+    ingredientDiv.id = `LineIngredient${IngredientNumber}`;
     ingredientDiv.innerHTML = `
-    <tr>
+    <tr id="LineIngredient${IngredientNumber}">
         <th scope="row">${IngredientNumber}</th>
         <td>${ingredientText}</td>
         <td>${ingredientWeight}</td>
         <td>${ingredientWeightUnity}</td>
         <td>
-            <button class="btn btn-danger">Supprimer</button>
-            <button class="btn btn-success ms-1">Modifier</button>
+            <button type="button" class="btn btn-danger" id="buttonDelete${IngredientNumber}">Supprimer</button>
+            <button type="button" class="btn btn-success ms-1" id="buttonModify${IngredientNumber}">Modifier</button>
         </td>
     </tr>
     `;
+    document.getElementById("ingredientArray").appendChild(ingredientDiv);
+
+    let currentIngredientNumber = IngredientNumber;
+
+    document.getElementById(`buttonDelete${currentIngredientNumber}`).addEventListener('click', function () {
+        document.getElementById(`LineIngredient${currentIngredientNumber}`).remove();
+    });
+
+    document.getElementById(`buttonModify${currentIngredientNumber}`).addEventListener('click', function () {
+
+    });
 
     document.getElementById("ingredientListDiv").style.display = "block";
-    document.getElementById("ingredientArray").appendChild(ingredientDiv);
     document.getElementById("ingredientNameCol").style.display = "none";
     document.getElementById("ingredientArrayGlobal").style.display = "inline-table";
     recipeIngredients.value = '1';
@@ -132,7 +143,6 @@ addIngredientButton.addEventListener("click", ()=>
 });
 
 var textarea = document.getElementById("recipeContent");
-
 textarea.addEventListener('input', function () {
     this.style.height = 'auto';
     this.style.height = (this.scrollHeight) + 'px';
