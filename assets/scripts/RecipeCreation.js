@@ -119,7 +119,6 @@ addIngredientButton.addEventListener("click", ()=>
         <td>${ingredientWeightUnity}</td>
         <td>
             <button type="button" class="btn btn-danger" id="buttonDelete${IngredientNumber}">Supprimer</button>
-            <button type="button" class="btn btn-success ms-1" id="buttonModify${IngredientNumber}">Modifier</button>
         </td>
     </tr>
     `;
@@ -128,11 +127,13 @@ addIngredientButton.addEventListener("click", ()=>
     let currentIngredientNumber = IngredientNumber;
 
     document.getElementById(`buttonDelete${currentIngredientNumber}`).addEventListener('click', function () {
+        console.log(document.getElementById(`LineIngredient${currentIngredientNumber}`).parentNode.childElementCount)
+        console.log(this.parentNode.parentNode.parentNode)
+        console.log(this.parentNode.parentNode.parentNode.parentNode)
+        if (this.parentNode.parentNode.parentNode.childElementCount === 1) {
+            this.parentNode.parentNode.parentNode.parentNode.style.display = "none";
+        }
         document.getElementById(`LineIngredient${currentIngredientNumber}`).remove();
-    });
-
-    document.getElementById(`buttonModify${currentIngredientNumber}`).addEventListener('click', function () {
-
     });
 
     document.getElementById("ingredientListDiv").style.display = "block";
