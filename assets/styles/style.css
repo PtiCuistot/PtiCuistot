@@ -18,7 +18,6 @@ body {
   font-family: 'Calibri';
   margin: 0;
   color: var(--blue);
-  font-size: var(--font);
   background-color: var(--base);
 }
 
@@ -113,10 +112,6 @@ footer{
     transform: translateY(0);
 }
 
-#recipeForm{
-    width: 70%;
-}
-
 #recipeContent{
     resize: none;
 }
@@ -126,10 +121,20 @@ footer{
     height: inherit;
 }
 
+#recipeForm > .form-outline{
+    margin-bottom: 30px;
+}
+
 .CreateRecipeTitle{
     margin-top: 25px;
     margin-bottom: 25px;
     font-size: 60px;
+}
+
+.submitButtonCreationRecipe{
+    font-size: 45px;
+    border: none !important;
+    margin-top: 60px;
 }
 
 .h2Recipe{

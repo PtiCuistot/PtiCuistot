@@ -4,6 +4,7 @@ let ingredientList = this.document.getElementById("ingredientList");
 let recipeForm = this.document.getElementById("recipeForm");    
 let ingredientName = this.document.getElementById("ingredientName");
 let weightArray = [];
+let IngredientNumber = 1;
 
 function createHiddenInput(name, value) {
     let input = document.createElement('input');
@@ -105,13 +106,26 @@ addIngredientButton.addEventListener("click", ()=>
         {id : parseInt(ingredientId), weight : parseFloat(ingredientWeight), weightUnity : ingredientWeightUnity}
     );
 
-    let ingredientDiv = document.createElement('p'); 
-    ingredientDiv.innerText = `${ingredientText} : ${ingredientWeight}${ingredientWeightUnity}`;
+    var ingredientDiv = document.createElement("tr");
+    ingredientDiv.innerHTML = `
+    <tr>
+        <th scope="row">${IngredientNumber}</th>
+        <td>${ingredientText}</td>
+        <td>${ingredientWeight}</td>
+        <td>${ingredientWeightUnity}</td>
+        <td>
+            <button class="btn btn-danger">Supprimer</button>
+            <button class="btn btn-success ms-1">Modifier</button>
+        </td>
+    </tr>
+    `;
 
     document.getElementById("ingredientListDiv").style.display = "block";
-    ingredientList.appendChild(ingredientDiv);
+    document.getElementById("ingredientArray").appendChild(ingredientDiv);
     document.getElementById("ingredientNameCol").style.display = "none";
+    document.getElementById("ingredientArrayGlobal").style.display = "inline-table";
     recipeIngredients.value = '1';
+    IngredientNumber++;
 });
 
 var textarea = document.getElementById("recipeContent");
@@ -123,3 +137,4 @@ textarea.addEventListener('input', function () {
 
 document.getElementById("ingredientNameCol").style.display = "none";
 document.getElementById("ingredientListDiv").style.display = "none";
+document.getElementById("ingredientArrayGlobal").style.display = "none";
