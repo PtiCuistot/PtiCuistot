@@ -26,6 +26,8 @@
                     include_once("../model/user/usermanager.php");
                     include_once("../model/user/user.php");
 
+                    $_SESSION['admin'] = true; //TODO : Changer ce paramètre en attendant la connexion 
+
                     if(isset($_SESSION['userId']))
                     {
                         $um = new UserManager();
@@ -34,6 +36,11 @@
                     else 
                     {
                         echo '<li><a href="registration.php">Login</a></li>';
+                    }
+
+                    if(isset($_SESSION['admin']) && $_SESSION['admin'] == true)
+                    {
+                        echo '<li><a href="admin.php">Admin</a></li>';
                     }
                 ?>
           
