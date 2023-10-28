@@ -113,6 +113,12 @@ footer{
     transform: translateY(0);
 }
 
+.highMargin
+{
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
 #recipeForm{
     width: 70%;
 }
