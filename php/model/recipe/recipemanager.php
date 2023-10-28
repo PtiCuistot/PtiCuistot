@@ -21,6 +21,7 @@ class RecipeManager extends Manager
                 $row['REP_IMAGE'],
                 $row['REP_CREATED'],
                 $row['REP_UPDATED'],
+                $row['REP_VALIDATE'],
                 $row['CAT_ID']);
             $r->setId($row['REP_ID']);
 
@@ -29,6 +30,28 @@ class RecipeManager extends Manager
 
         return $recipes;
     }
+
+    public function getUnvalidateRecipe()
+    {
+        $recipes = []; 
+        foreach($this->pdo->query("SELECT * FROM PC_RECIPE WHERE REP_VALIDATE = 0") as $row)
+        {
+            $r = new Recipe(
+                $row['US_ID'],
+                $row['REP_TITLE'],
+                $row['REP_CONTENT'],
+                $row['REP_IMAGE'],
+                $row['REP_CREATED'],
+                $row['REP_UPDATED'],
+                $row['REP_VALIDATE'],
+                $row['CAT_ID']);
+            $r->setId($row['REP_ID']);
+
+            array_push($recipes, $r);
+        }
+        return $recipes;
+    }
+
 
     public function getRecipeById(int $id)
     {
@@ -41,6 +64,7 @@ class RecipeManager extends Manager
                 $row['REP_IMAGE'],
                 $row['REP_CREATED'],
                 $row['REP_UPDATED'],
+                $row['REP_VALIDATE'],
                 $row['CAT_ID']);
             $r->setId($row['REP_ID']);
             return $r;
@@ -50,13 +74,14 @@ class RecipeManager extends Manager
 
     public function insertRecipe(Recipe $recipe)
     {
-        $query = "INSERT INTO PC_RECIPE(US_ID, REP_TITLE, REP_CONTENT, REP_IMAGE, REP_STATUT, CAT_ID) VALUES(?, ?, ?, ?, 1, ?)";
+        $query = "INSERT INTO PC_RECIPE(US_ID, REP_TITLE, REP_CONTENT, REP_IMAGE, REP_VALIDATE, REP_STATUT, CAT_ID) VALUES(?, ?, ?, ?, ?, 1, ?)";
         $statement = $this->pdo->prepare($query);
         $statement->execute([
             intval($recipe->getUserId()),
             $recipe->getTitle(),
             $recipe->getContent(),
             $recipe->getImage(),
+            $recipe->getValidate(),
             intval($recipe->getCatId())
         ]);
 
@@ -69,15 +94,15 @@ class RecipeManager extends Manager
 
     public function updateRecipe(Recipe $recipe)
     {
-        $query = "UPDATE PC_RECIPE SET REP_ID = ?, REP_TITLE = ?, REP_IMAGE = ?, REP_UPDATED = NOW(), REP_STATUS = ?, REP_CAT_ID = ? WHERE REP_ID = '".$recipe->getId()."'";
+        $query = "UPDATE PC_RECIPE SET REP_ID = ?, REP_TITLE = ?, REP_IMAGE = ?, REP_UPDATED = NOW(), REP_VALIDATE, REP_STATUS = ?, REP_CAT_ID = ? WHERE REP_ID = '".$recipe->getId()."'";
         $statement = $this->pdo->prepare($query);
         $statement->execute([
             $recipe->getTitle(),
             $recipe->getContent(), 
             $recipe->getImage(),
-
+            $recipe->getValidate(),
             $recipe->getStatut(),
-            $recipe->getCatId()
+            intval($recipe->getCatId())
         ]);
     }
 

@@ -95,16 +95,19 @@ addIngredientButton.addEventListener("click", ()=>
     let ingredientWeight = this.document.getElementById("ingredientWeight").value; 
     let ingredientWeightUnity = this.document.getElementById("ingredientWeightUnity").value;
 
-    if(parseInt(ingredientId) == 'Nan')
+    if(isNaN(parseInt(ingredientId)))
     {
         weightArray.push(
             {id :ingredientId , weight : parseFloat(ingredientWeight), weightUnity : ingredientWeightUnity}
         );
     }
+    else
+    {
+        weightArray.push(
+            {id : parseInt(ingredientId), weight : parseFloat(ingredientWeight), weightUnity : ingredientWeightUnity}
+        );
+    }
 
-    weightArray.push(
-        {id : parseInt(ingredientId), weight : parseFloat(ingredientWeight), weightUnity : ingredientWeightUnity}
-    );
 
     var ingredientDiv = document.createElement("tr");
     ingredientDiv.innerHTML = `

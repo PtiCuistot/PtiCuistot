@@ -7,11 +7,12 @@ class Recipe
     private string $image; 
     private DateTime $created; 
     private DateTime $updated;
+    private int $validate;
     private int $statut;
     private ?int $id;
     private int $catId;
 
-    public function __construct($userId, $title, $content, $image, $created, $updated, $catId = 1)
+    public function __construct($userId, $title, $content, $image, $created, $updated, $validate = 0, $catId = 1)
     {
         $this->userId = $userId;
         $this->title = $title; 
@@ -19,6 +20,7 @@ class Recipe
         $this->image = $image;
         $this->created = new DateTime($created);
         $this->updated = new DateTime($updated);
+        $this->validate = $validate;
         $this->statut = 1;
         $this->id = 1;
         $this->catId = $catId;
@@ -226,6 +228,30 @@ class Recipe
     public function setUserId(int $userId): self
     {
         $this->userId = $userId;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of validate
+     *
+     * @return int
+     */
+    public function getValidate(): int
+    {
+        return $this->validate;
+    }
+
+    /**
+     * Set the value of validate
+     *
+     * @param int $validate
+     *
+     * @return self
+     */
+    public function setValidate(int $validate): self
+    {
+        $this->validate = $validate;
 
         return $this;
     }

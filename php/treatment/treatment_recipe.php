@@ -8,7 +8,9 @@ include_once("../model/ingredient/ingredientmanager.php");
 include_once("../model/ingredientWeight/ingredientweight.php");
 include_once("../model/ingredientWeight/ingredientweightmanager.php");
 
-$recipe = new Recipe(1, $_POST["recipeTitle"], $_POST["recipeContent"], $_POST["recipeImage"], date('Y-m-d'), date('Y-m-d'), $_POST['recipeCategory']);
+session_start();
+
+$recipe = new Recipe($_SESSION['userId'], $_POST["recipeTitle"], $_POST["recipeContent"], $_POST["recipeImage"], date('Y-m-d'), date('Y-m-d'), $_POST['recipeCategory']);
 $recipeManager = new RecipeManager(); 
 $recipeId = $recipeManager->insertRecipe($recipe);
 $recipe = $recipeManager->getRecipeById($recipeId);
@@ -21,12 +23,10 @@ $ingManager = new IngredientManager();
 foreach($ingredientData as $id => $data)
 {
 
-    echo $id;
-
-    if (ctype_digit($id))
+    if (intval($id) != 0)
     {
         echo 'passed';
-        $iw = new IngredientWeight($recipeId, $id, intval($data['quantity']), $data['unity']); 
+        $iw = new IngredientWeight($recipeId, intval($id), intval($data['quantity']), $data['unity']); 
         $iwManager->insertIngredientWeight($iw);
     }
     else
@@ -37,3 +37,5 @@ foreach($ingredientData as $id => $data)
         $iwManager->insertIngredientWeight($iw);     
     }
 }
+
+header('Location: ../template/listeRecette.php');
