@@ -127,12 +127,10 @@ addIngredientButton.addEventListener("click", ()=>
     let currentIngredientNumber = IngredientNumber;
 
     document.getElementById(`buttonDelete${currentIngredientNumber}`).addEventListener('click', function () {
-        console.log(document.getElementById(`LineIngredient${currentIngredientNumber}`).parentNode.childElementCount)
-        console.log(this.parentNode.parentNode.parentNode)
-        console.log(this.parentNode.parentNode.parentNode.parentNode)
         if (this.parentNode.parentNode.parentNode.childElementCount === 1) {
             this.parentNode.parentNode.parentNode.parentNode.style.display = "none";
         }
+        weightArray.splice(currentIngredientNumber - 1, 1);
         document.getElementById(`LineIngredient${currentIngredientNumber}`).remove();
     });
 

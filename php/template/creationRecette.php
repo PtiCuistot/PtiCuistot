@@ -18,7 +18,7 @@
                         <h2 class="h2Recipe">Informations de la recette</h2>
 
                         <div class="form-outline">
-                            <input type="text" id="recipeTitle" class="form-control" required>
+                            <input name="recipeTitle"type="text" id="recipeTitle" class="form-control" required>
                             <label class="form-label" for="form8Example4">Nom de la recette</label>
                         </div>
 
@@ -34,7 +34,7 @@
 
                         <h2 class="h2Recipe">Tags et catégories</h2>
                         <div class="form-group">
-                            <select class="custom-select" aria-placeholder="Selectionner une catégorie" name="selectCategorie" required>
+                            <select class="custom-select" aria-placeholder="Selectionner une catégorie" id="recipeCategory" name="selectCategorie" required>
                                 <option value="">Sélectionner une catégorie pour votre recette</option>
                                 <?php
                                 include_once("../model/manager.php");
