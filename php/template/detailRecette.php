@@ -87,14 +87,16 @@ if (isset($_GET['id'])) {
 
         <?php if (intval($_SESSION['userId']) != intval($recipe->getUserId())) : ?>
             <h4>Action créateur</h4>
-            <form action="updateRecipe">
+            <form>
+                <input name = 'recipeId' value="<?php echo $recipe->getId() ?>" hidden>
                 <input class="btn btn-success" type="submit" value="Mettre à jour ma recette">
             </form>
         <?php endif; ?>
 
         <?php if ($_SESSION['admin']) : ?>
             <h4>Action Administrateur</h4>
-            <form action="updateRecipe">
+            <form method="POST" action="../treatment/accept_recipe.php">
+                <input name = 'recipeId' value="<?php echo $recipe->getId() ?>" hidden>
                 <input class="btn btn-success" type="submit" value="Valider la recette">
             </form>
         <?php endif; ?>

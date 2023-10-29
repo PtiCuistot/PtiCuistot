@@ -94,16 +94,18 @@ class RecipeManager extends Manager
 
     public function updateRecipe(Recipe $recipe)
     {
-        $query = "UPDATE PC_RECIPE SET REP_ID = ?, REP_TITLE = ?, REP_IMAGE = ?, REP_UPDATED = NOW(), REP_VALIDATE, REP_STATUS = ?, REP_CAT_ID = ? WHERE REP_ID = '".$recipe->getId()."'";
-        $statement = $this->pdo->prepare($query);
-        $statement->execute([
-            $recipe->getTitle(),
-            $recipe->getContent(), 
-            $recipe->getImage(),
-            $recipe->getValidate(),
-            $recipe->getStatut(),
-            intval($recipe->getCatId())
-        ]);
+        $query = "UPDATE PC_RECIPE SET REP_TITLE = ?, REP_CONTENT = ?, REP_IMAGE = ?, REP_UPDATED = CURRENT_TIMESTAMP(), REP_VALIDATE = ?, REP_STATUT = ?, REP_CAT_ID = ? WHERE REP_ID = ?";
+        $title = $this->pdo->quote($recipe->getTitle());
+        $content = $this->pdo->quote($recipe->getContent());
+        $image = $this->pdo->quote($recipe->getImage());
+        $validate = intval($recipe->getValidate());
+        $statut = intval($recipe->getStatut());
+        $catId = intval($recipe->getCatId());
+        $id = $recipe->getId();
+
+        $query = "UPDATE PC_RECIPE SET REP_TITLE = $title, REP_CONTENT = $content, REP_IMAGE = $image, REP_UPDATED = CURRENT_TIMESTAMP(), REP_VALIDATE = $validate, REP_STATUT = $statut, CAT_ID = $catId WHERE REP_ID = $id";
+
+        $this->pdo->query($query);
     }
 
     public function addTag(Recipe $recipe, Tag $tag)
