@@ -48,37 +48,34 @@ if (isset($_GET['id'])) {
         <h3><i>Une recette de <?php echo $um->getUserById($recipe->getUserId())->getUsername(); ?></i></h3>
         <p>Dernière Mise à jour : <?php echo $recipe->getUpdated()->format('d/m/Y') ?> </p>
         <div class="container">
-            <div class="row">
-                <div class="col-md">
-                    <h4>Recette</h4>
-                    <p class="RecipeContent"><?php echo $recipe->getContent(); ?></p>
-                </div>
-                <div class="col-md">
-                    <h4>Liste des ingrédients</h4>
-                    <table class="table mb-4" id="ingredientArrayGlobal">
-                        <thead>
-                            <tr>
-                                <th scope="col">Nom</th>
-                                <th scope="col">Quantité</th>
-                                <th scope="col">Unités</th>
-                            </tr>
-                        </thead>
-                        <tbody id="ingredientArray">
-                            <?php
-                            foreach($rm->getRecipeIngredients($recipe) as $row)
-                            {
-                                echo '
-                                <tr>
-                                    <td>'.$row['ing_name'].'</td>
-                                    <td>'.$row['iw_weight'].'</td>
-                                    <td>'.$row['iw_unity'].'</td>
-                                </tr>';
-                            }
-                            ?>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+    
+            <h4>Liste des ingrédients</h4>
+            <table class="table mb-4" id="ingredientArrayGlobal">
+                <thead>
+                    <tr>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Quantité</th>
+                        <th scope="col">Unités</th>
+                    </tr>
+                </thead>
+                <tbody id="ingredientArray">
+                    <?php
+                    foreach($rm->getRecipeIngredients($recipe) as $row)
+                    {
+                        echo '
+                        <tr>
+                            <td>'.$row['ing_name'].'</td>
+                            <td>'.$row['iw_weight'].'</td>
+                            <td>'.$row['iw_unity'].'</td>
+                        </tr>';
+                    }
+                    ?>
+                </tbody>
+            </table>
+
+            <h4>Recette</h4>
+            <p class="RecipeContent"><?php echo $recipe->getContent(); ?></p>
+    
         </div>
 
 
