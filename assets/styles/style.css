@@ -293,3 +293,89 @@ footer{
         height: 50%;
     }
 }
+
+/* POPUP */
+.modal-btn{
+    padding: 100px 14px;
+    font-size: 18px;
+    margin: 100px auto;
+    display: block;
+    min-width: 150px;
+    cursor: pointer;
+}
+
+.modalContainer{
+    visibility: hidden;
+    position: fixed;
+    top:0;
+    width: 100vw;
+    height: 100vh;
+    transition: visibility 0.4s ;
+}
+
+.modalContainer.active{
+    visibility: visible;
+}
+
+.ov{
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #333333d3;
+    transition: opacity 0.4s 0.2s ease-out;
+}
+
+.modalContainer.active .ov {
+    opacity: 1;
+    transition: opacity 0.4s ease-out;
+}
+
+.popup{
+    opacity: 0;
+    width: 95%;
+    max-width: 500px;
+    min-width: 30px;
+    padding: 30px;
+    background: #fff;
+    border-radius: 5px;
+    position: absolute;
+    top:40%;
+    left: 50%;
+    transform: translate(-50%, calc(-50% - 50px));
+    transition: opacity 0.4s ease-out,
+    transform 0.4s ease-out;
+}
+
+.modalContainer.active .popup {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.4s 0.2s ease-out,
+    transform 0.4s 0.2s ease-out;
+}
+
+.close-modal{
+    padding: 8px 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    background: #ff365e;
+    color: #fff;
+}
+
+.popup h1{
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.popup p{
+    list-style: none;
+    line-height: 1.4;
+    margin-bottom: 16px;
+}
+
+/* END POPUP */
