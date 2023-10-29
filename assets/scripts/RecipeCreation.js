@@ -100,18 +100,18 @@ addIngredientButton.addEventListener("click", ()=>
     console.log(ingredientId)
     console.log(parseInt(ingredientId));
 
-    if(isNaN(parseInt(ingredientId)))
-    {
-        weightArray.push(
-            {id :ingredientId , weight : parseFloat(ingredientWeight), weightUnity : ingredientWeightUnity}
-        );
-    }
-    else
-    {
-        weightArray.push(
-            {id : parseInt(ingredientId), weight : parseFloat(ingredientWeight), weightUnity : ingredientWeightUnity}
-        );
-    }
+        if(isNaN(parseInt(ingredientId)))
+        {
+            weightArray.push(
+                {id :ingredientId , weight : parseFloat(ingredientWeight), weightUnity : ingredientWeightUnity}
+            );
+        }
+        else
+        {
+            weightArray.push(
+                {id : parseInt(ingredientId), weight : parseFloat(ingredientWeight), weightUnity : ingredientWeightUnity}
+            );
+        }
 
 
     var ingredientDiv = document.createElement("tr");

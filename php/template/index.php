@@ -18,7 +18,9 @@
     </head>
         <?php include('header.php');?>
 
+
         <div class="Content">
+            
             <div>
                 
             </div>
@@ -48,5 +50,4 @@
                 </div>
             </div>
         </div>
-
         <?php include('footer.php');?>
