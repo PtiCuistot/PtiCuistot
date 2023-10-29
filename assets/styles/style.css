@@ -30,6 +30,7 @@ header {
     position: sticky;
 }
 
+/* Index */
 .Content {
     height: 100vh;
     width: 100%;
@@ -50,17 +51,18 @@ header {
     height: 70%;
     width: 96%;
     display: flex;
-    border: 1px solid var(--grey);
 }
 
 .Content > .TwoRow > div {
     height: 100%;
     width: 50%;
     border: 1px solid var(--grey);
-}
-
-.Content > .TwoRow > .DernieresRecettes > div {
+    border-radius: 25px;
+    margin: 1%;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1%;
 }
 
 .Content > .TwoRow > .Edito {
@@ -81,6 +83,84 @@ img {
     align-items: center;
     justify-content: center;
 }
+
+.scrollable-div {
+    width: 100%;
+    border: 1px solid #ccc;
+    overflow: auto;
+}
+
+.inner-div {
+    background-color: #f0f0f0;
+    margin: 1%;
+    width: 98%;
+    height: 31%;
+}
+/* END of Index */
+
+/* 404 */
+.glitch-wrapper {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #000000;
+ }
+ 
+ .glitch {
+    position: relative;
+    font-size: 6vw;
+    font-weight: bold;
+    color: #FFFFFF;
+    letter-spacing: 3px;
+    z-index: 1;
+ }
+ 
+ .glitch:before,
+ .glitch:after {
+    display: block;
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.8;
+ }
+ 
+ .glitch:before {
+    animation: glitch-it 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+    color: #00FFFF;
+    z-index: -1;
+ }
+ 
+ .glitch:after {
+    animation: glitch-it 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
+    color: #FF00FF;
+    z-index: -2;
+ }
+ 
+ @keyframes glitch-it {
+    0% {
+       transform: translate(0);
+    }
+    20% {
+       transform: translate(-2px, 2px);
+    }
+    40% {
+       transform: translate(-2px, -2px);
+    }
+    60% {
+       transform: translate(2px, 2px);
+    }
+    80% {
+       transform: translate(2px, -2px);
+    }
+    to {
+       transform: translate(0);
+    }
+ }
+ /* END of 404 */
 
 footer{
     margin-top: 50px;
