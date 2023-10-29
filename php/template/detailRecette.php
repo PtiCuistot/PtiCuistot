@@ -14,12 +14,18 @@ if (isset($_GET['id'])) {
     $um = new UserManager();
 
     $recipe = $rm->getRecipeById(intval($_GET['id']));
-    if ($recipe->getValidate() == false) {
-        if (isset($_SESSION['userId'])) {
-            if (intval($_SESSION['userId']) != intval($recipe->getUserId()) && !$_SESSION['admin']) {
-                $recipe = null;
+    if($recipe != null){
+        if ($recipe->getValidate() == false) {
+            if (isset($_SESSION['userId'])) {
+                if (intval($_SESSION['userId']) != intval($recipe->getUserId()) && !$_SESSION['admin']) {
+                    $recipe = null;
+                    include('404.php');
+                }
             }
         }
+    }
+    else{
+        include('404.php');
     }
 }
 
