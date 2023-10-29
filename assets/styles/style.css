@@ -107,6 +107,7 @@ img {
     justify-content: center;
     text-align: center;
     background-color: #000000;
+    flex-direction: column;
  }
  
  .glitch {
@@ -159,6 +160,30 @@ img {
     to {
        transform: translate(0);
     }
+ }
+
+ .citation{
+    background-color: #514b4b;
+    color: white;
+    border-radius: 25px;
+    width: 80%;
+    font-size: 2vw;
+ }
+
+ .italic{
+    font-style: italic;
+    font-size: 1.5vw;
+ }
+
+ .Button404{
+    width: 59%;
+    height: 10%;
+    margin: 40px;
+    font-size: 1.5vw;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
  }
  /* END of 404 */
 
