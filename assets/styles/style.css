@@ -86,8 +86,8 @@ img {
 
 .scrollable-div {
     width: 100%;
-    border: 1px solid #ccc;
     overflow: auto;
+    height: 100%;
 }
 
 .inner-div {
