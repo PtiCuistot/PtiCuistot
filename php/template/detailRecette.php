@@ -1,7 +1,6 @@
 <?php session_start(); ?>
 <?php
 if (isset($_GET['id'])) {
-
     $_SESSION['userId'] = 1; //TODO : Changer quand page de connexion faîtes !
 
     include_once("../model/manager.php");
@@ -9,100 +8,97 @@ if (isset($_GET['id'])) {
     include_once("../model/recipe/recipemanager.php");
     include_once("../model/user/usermanager.php");
 
-
     $rm = new RecipeManager();
     $um = new UserManager();
 
     $recipe = $rm->getRecipeById(intval($_GET['id']));
-    if($recipe != null){
+    if ($recipe != null) {
         if ($recipe->getValidate() == false) {
             if (isset($_SESSION['userId'])) {
                 if (intval($_SESSION['userId']) != intval($recipe->getUserId()) && !$_SESSION['admin']) {
                     $recipe = null;
-                    include('404.php');
                 }
             }
         }
     }
-    else{
-        include('404.php');
-    }
 }
-
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
+<?php if ($recipe != null) : ?>
+    <!DOCTYPE html>
+    <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <?php
-    if ($recipe != null) {
-        echo '<title>' . $recipe->getTitle() . '</title>';
-    } else {
-        echo '<title>Recette non trouvée</title>';
-    }
-    ?>
+    <head>
+        <meta charset="UTF-8">
+        <?php
+        if ($recipe != null) {
+            echo '<title>' . $recipe->getTitle() . '</title>';
+        }
+        ?>
+        <?php include('link.php'); ?>
+    </head>
+    <?php include('header.php'); ?>
+    <section style="background-color: #eee;">
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="card rounded-3" style="text-align: center;">
+                    <div class="card-body p-4">
+                        <h1 class="display-3 RecipeTitle"><?php echo $recipe->getTitle(); ?></h1>
+                        <img src="<?php echo $recipe->getImage(); ?>" height="650px" class="imgRecipeDisplay" alt="Image de la recette">
+                        <h2 class="h2Recipe"><i>Une recette de <?php echo $um->getUserById($recipe->getUserId())->getUsername(); ?></i></h2>
+                        <p>Dernière Mise à jour : <?php echo $recipe->getUpdated()->format('d/m/Y') ?> </p>
+                        <div class="container">
+                            <h2 class="h2Recipe">Liste des ingrédients</h2>
+                            <table class="table mb-4" id="ingredientArrayGlobal">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Nom</th>
+                                        <th scope="col">Quantité</th>
+                                        <th scope="col">Unités</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="ingredientArray">
+                                    <?php
+                                    foreach ($rm->getRecipeIngredients($recipe) as $row) {
+                                        echo '
+                                        <tr>
+                                            <td>' . $row['ing_name'] . '</td>
+                                            <td>' . $row['iw_weight'] . '</td>
+                                            <td>' . $row['iw_unity'] . '</td>
+                                        </tr>';
+                                    }
+                                    ?>
+                                </tbody>
+                            </table>
 
-    <?php include('link.php'); ?>
-</head>
-<?php include('header.php'); ?>
-<div class="Recipe">
-    <?php if ($recipe != null) : ?>
-        <img src="<?php echo $recipe->getImage(); ?>" height="650px" class="img-fluid rounded" alt="Image de la recette">
-        <h1 class="display-3 RecipeTitle"><?php echo $recipe->getTitle(); ?></h1>
-        <h3><i>Une recette de <?php echo $um->getUserById($recipe->getUserId())->getUsername(); ?></i></h3>
-        <p>Dernière Mise à jour : <?php echo $recipe->getUpdated()->format('d/m/Y') ?> </p>
-        <div class="container">
-    
-            <h4>Liste des ingrédients</h4>
-            <table class="table mb-4" id="ingredientArrayGlobal">
-                <thead>
-                    <tr>
-                        <th scope="col">Nom</th>
-                        <th scope="col">Quantité</th>
-                        <th scope="col">Unités</th>
-                    </tr>
-                </thead>
-                <tbody id="ingredientArray">
-                    <?php
-                    foreach($rm->getRecipeIngredients($recipe) as $row)
-                    {
-                        echo '
-                        <tr>
-                            <td>'.$row['ing_name'].'</td>
-                            <td>'.$row['iw_weight'].'</td>
-                            <td>'.$row['iw_unity'].'</td>
-                        </tr>';
-                    }
-                    ?>
-                </tbody>
-            </table>
+                            <h2 class="h2Recipe">Recette</h2>
+                            <div class="bg-white rounded shadow-sm p-4" style="border: 1px solid black;">
+                                <p class="RecipeContent"><?php echo $recipe->getContent(); ?></p>
+                            </div>
+                        </div>
 
-            <h4>Recette</h4>
-            <p class="RecipeContent"><?php echo $recipe->getContent(); ?></p>
-    
+
+                        <?php if (intval($_SESSION['userId']) != intval($recipe->getUserId())) : ?>
+                            <h2 class="h2Recipe">Action créateur</h2>
+                            <form>
+                                <input name='recipeId' value="<?php echo $recipe->getId() ?>" hidden>
+                                <input class="btn btn-success" type="submit" value="Mettre à jour ma recette">
+                            </form>
+                        <?php endif; ?>
+
+                        <?php if ($_SESSION['admin']) : ?>
+                            <h2 class="h2Recipe">Action Administrateur</h2>
+                            <form method="POST" action="../treatment/accept_recipe.php">
+                                <input name='recipeId' value="<?php echo $recipe->getId() ?>" hidden>
+                                <input class="btn btn-success" type="submit" value="Valider la recette">
+                            </form>
+                    </div>
+                </div>
+            </div>
         </div>
-
-
-        <?php if (intval($_SESSION['userId']) != intval($recipe->getUserId())) : ?>
-            <h4>Action créateur</h4>
-            <form>
-                <input name = 'recipeId' value="<?php echo $recipe->getId() ?>" hidden>
-                <input class="btn btn-success" type="submit" value="Mettre à jour ma recette">
-            </form>
-        <?php endif; ?>
-
-        <?php if ($_SESSION['admin']) : ?>
-            <h4>Action Administrateur</h4>
-            <form method="POST" action="../treatment/accept_recipe.php">
-                <input name = 'recipeId' value="<?php echo $recipe->getId() ?>" hidden>
-                <input class="btn btn-success" type="submit" value="Valider la recette">
-            </form>
-        <?php endif; ?>
-    <?php else : ?>
-        <h1>Recette non trouvée</h1>
-    <?php endif; ?>
-</div>
-
-<?php include('footer.php'); ?>
+    </section>
+    <?php include('footer.php'); ?>
+<?php endif; ?>
+<?php else : ?>
+    <?php include('404.php'); ?>
+<?php endif; ?>

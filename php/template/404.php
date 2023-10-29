@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>404</title>
-    <link rel="stylesheet" href="../../assets/styles/style.css">
+    <?php include('link.php'); ?>
 </head>
 
 <body>
