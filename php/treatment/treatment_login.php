@@ -14,7 +14,7 @@
         if (password_verify($password, $user->getPassword())) {
             session_start();
             $_SESSION['userId'] = $user->getId();
-            header('Location: https://dev-baratin221.users.info.unicaen.fr/PtiCuistot/php/template/');
+            header('Location: index.php');
         }
         else {
             echo "can't connect";

@@ -36,5 +36,5 @@ foreach($ingredientData as $id => $data)
     }
 }
 
-header('Location: ../template/listeRecette.php');
+header('Location: recipe.php');
 ?>
