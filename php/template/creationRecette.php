@@ -24,7 +24,7 @@
 
                         <div class="form-outline">
                             <textarea class="form-control RecipeContent" id="recipeContent" rows="4" required></textarea>
-                            <label class="form-label" for="textAreaExample">Message</label>
+                            <label class="form-label" for="textAreaExample">Description de la recette</label>
                         </div>
 
                         <div class="form-outline">
@@ -106,12 +106,7 @@
                             <tbody id="ingredientArray">
                             </tbody>
                         </table>
-                        <div id="ingredientListDiv">
-                            <h4>Liste des ingrédients</h4>
-                            <div id="ingredientList">
-                            </div>
-                        </div>
-                        <input type="submit" value="Créer ma recette" id="submitButton" class="btn btn-success btn-lg btn-block px-5 py-3 submitButtonCreationRecipe"></input>
+                        <input type="submit" value="Créer ma recette" id="submitButton" class="btn btn-success btn-lg btn-block px-5 py-3 submitButtonCreationRecipe" disabled></input>
                     </form>
                 </div>
             </div>
