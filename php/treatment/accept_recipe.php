@@ -11,7 +11,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
     $recipe = $recipe->setValidate(1); 
     $recipe = $recipe->setTitle("Gateau à la cerise");
     $rm->updateRecipe($recipe);
-    header('location: ../template/index.php);
+    header('location: ../template/index.php');
 }
 else
 {

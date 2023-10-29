@@ -12,7 +12,7 @@ function initConfVar()
 {
     global $dbHost, $dbName, $dbUser, $dbPass;
 
-    $envFilePath = '../../.env';
+    $envFilePath = '.env';
 
     if (file_exists($envFilePath))
     {

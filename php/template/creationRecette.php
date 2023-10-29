@@ -37,9 +37,6 @@
                             <select class="custom-select" aria-placeholder="Selectionner une catégorie" id="recipeCategory" name="selectCategorie" required>
                                 <option value="">Sélectionner une catégorie pour votre recette</option>
                                 <?php
-                                include_once("../model/manager.php");
-                                include_once("../model/category/category.php");
-                                include_once("../model/category/categorymanager.php");
                                 $cm = new CategoryManager();
                                 foreach ($cm->getCategories() as $category) {
                                     echo "<option value=" . $category[0]->getId() . ">" . $category[0]->getTitle() . "</option>";
@@ -56,9 +53,6 @@
                                     <select name="recipeIngredients" id="recipeIngredients" aria-placeholder="Selectionner un ingrédient" class="custom-select RecipeIngredients">
                                         <option value="">Sélectionner un ingrédient</option>
                                         <?php
-                                        include_once("../model/manager.php");
-                                        include_once("../model/ingredient/ingredient.php");
-                                        include_once("../model/ingredient/ingredientmanager.php");
                                         $cm = new IngredientManager();
                                         foreach ($cm->getIngredients() as $ingredient) {
                                             echo "<option value=" . $ingredient->getId() . ">" . $ingredient->getName() . "</option>";

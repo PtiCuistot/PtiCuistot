@@ -9,9 +9,7 @@
             <form action="../treatment/treatment_recipe.php" id="recipeForm" method="POST">
                 <h1>Liste des recettes</h1>
                 <?php
-                    include_once("../model/manager.php");
-                    include_once("../model/recipe/recipe.php");
-                    include_once("../model/recipe/recipemanager.php");
+
                 
                     $rm = new RecipeManager(); 
                     $um = new UserManager();

@@ -12,7 +12,7 @@
 <!-- Google Fonts Roboto -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
 <!-- MDB -->
-<link rel="stylesheet" href="../../assets/mdb/css/mdb.min.css" />
+<link rel="stylesheet" href="Pticuistot/assets/mdb/css/mdb.min.css" />
 
-<link rel="stylesheet" href="../../assets/styles/style.css">
-<link rel="stylesheet" href="../../assets/styles/NavBar.css">
+<link rel="stylesheet" href="assets/styles/style.css">
+<link rel="stylesheet" href="assets/styles/NavBar.css">
