@@ -97,9 +97,6 @@ addIngredientButton.addEventListener("click", ()=>
     let ingredientWeight = this.document.getElementById("ingredientWeight").value; 
     let ingredientWeightUnity = this.document.getElementById("ingredientWeightUnity").value;
 
-    console.log(ingredientId)
-    console.log(parseInt(ingredientId));
-
     if(isNaN(parseInt(ingredientId)))
     {
         weightArray.push(
@@ -113,6 +110,12 @@ addIngredientButton.addEventListener("click", ()=>
         );
     }
 
+    var ingredientName2 = "";
+    if(document.getElementById("ingredientNameCol").style.display != "none"){
+        ingredientName2 = document.getElementById("ingredientName").value;
+    }else{
+        ingredientName2 = document.getElementById("recipeIngredients").value;
+    }
 
     var ingredientDiv = document.createElement("tr");
     ingredientDiv.id = `LineIngredient${IngredientNumber}`;
@@ -140,7 +143,12 @@ addIngredientButton.addEventListener("click", ()=>
     });
 
     document.getElementById("ingredientNameCol").style.display = "none";
+    document.getElementById("ingredientName").value = "";
+    document.getElementById("recipeIngredients").value = "";
+    document.getElementById("ingredientWeight").value = "";
+    document.getElementById("ingredientWeightUnity").value = "";
     document.getElementById("ingredientArrayGlobal").style.display = "inline-table";
+    document.getElementById("addIngredientButton").disabled = true;
     recipeIngredients.value = '1';
     IngredientNumber++;
 });
@@ -150,7 +158,6 @@ textarea.addEventListener('input', function () {
     this.style.height = 'auto';
     this.style.height = (this.scrollHeight) + 'px';
 });
-
 
 let AuMoinsUnIngredients = 0;
 const ingredientArray = document.getElementById("ingredientArray");
@@ -166,15 +173,12 @@ function checkTableChildren() {
         AuMoinsUnIngredients = 1;
         if(recipeForm.checkValidity()){
             document.getElementById("submitButton").disabled = false;
-            console.log("1")
         } else {
             document.getElementById("submitButton").disabled = true;
-            console.log("2")
         }
     } else {
         AuMoinsUnIngredients = 0;
         document.getElementById("submitButton").disabled = true;
-        console.log("3")
     }
 }
 checkTableChildren();
@@ -184,10 +188,8 @@ checkTableChildren();
 recipeForm.addEventListener("input", function () {
     if (recipeForm.checkValidity() && AuMoinsUnIngredients == 1) {
         document.getElementById("submitButton").disabled = false;
-        console.log("4")
     } else {
         document.getElementById("submitButton").disabled = true;
-        console.log("5")
     }
 });
 
@@ -196,6 +198,38 @@ recipeForm.addEventListener("submit", function (event) {
         event.preventDefault();
     }
 });
+
+const recipeIngredientsSelect = document.getElementById("recipeIngredients");
+const ingredientNameInput = document.getElementById("ingredientName");
+const ingredientWeightInput = document.getElementById("ingredientWeight");
+const ingredientWeightUnityInput = document.getElementById("ingredientWeightUnity");
+
+recipeIngredientsSelect.addEventListener("input", checkFormValidity);
+ingredientNameInput.addEventListener("input", checkFormValidity);
+ingredientWeightInput.addEventListener("input", checkFormValidity);
+ingredientWeightUnityInput.addEventListener("input", checkFormValidity);
+
+function checkFormValidity() {
+    const ingredientSelected = recipeIngredientsSelect.value !== "";
+    const ingredientName = ingredientNameInput.value.trim();
+    const ingredientWeight = parseFloat(ingredientWeightInput.value);
+    const ingredientWeightUnity = ingredientWeightUnityInput.value.trim();
+
+    if(document.getElementById("ingredientNameCol").style.display != "none"){
+        if (ingredientName && !isNaN(ingredientWeight) && ingredientWeight > 0 && ingredientWeightUnity) {
+            addIngredientButton.disabled = false;
+        } else {
+            addIngredientButton.disabled = true;
+        }
+    }else{
+        if (ingredientSelected && !isNaN(ingredientWeight) && ingredientWeight > 0 && ingredientWeightUnity) {
+            addIngredientButton.disabled = false;
+        } else {
+            addIngredientButton.disabled = true;
+        }
+    }
+}
+
 
 document.getElementById("ingredientNameCol").style.display = "none";
 document.getElementById("ingredientArrayGlobal").style.display = "none";

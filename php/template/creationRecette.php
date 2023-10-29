@@ -89,7 +89,7 @@
                             </div>
 
                             <div class="col">
-                                <button type="button" class="btn btn-info" id="addIngredientButton">Ajouter un ingrédient</button>
+                                <button type="button" class="btn btn-info" id="addIngredientButton" disabled>Ajouter un ingrédient</button>
                             </div>
                         </div>
 
