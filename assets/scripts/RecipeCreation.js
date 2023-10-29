@@ -139,7 +139,6 @@ addIngredientButton.addEventListener("click", ()=>
         document.getElementById(`LineIngredient${currentIngredientNumber}`).remove();
     });
 
-    document.getElementById("ingredientListDiv").style.display = "block";
     document.getElementById("ingredientNameCol").style.display = "none";
     document.getElementById("ingredientArrayGlobal").style.display = "inline-table";
     recipeIngredients.value = '1';
@@ -152,6 +151,45 @@ textarea.addEventListener('input', function () {
     this.style.height = (this.scrollHeight) + 'px';
 });
 
+
+let AuMoinsUnIngredients = 0;
+const ingredientArray = document.getElementById("ingredientArray");
+const submitButton = document.getElementById("submitButton");
+const observer = new MutationObserver(function (mutationsList) {
+    checkTableChildren();
+});
+const config = { childList: true, subtree: true };
+observer.observe(ingredientArray, config);
+function checkTableChildren() {
+    if (ingredientArray.children.length > 0) {
+        AuMoinsUnIngredients = 1;
+        if(recipeForm.checkValidity()){
+            document.getElementById("submitButton").disabled = false;
+        } else {
+            document.getElementById("submitButton").disabled = true;
+        }
+    } else {
+        AuMoinsUnIngredients = 0;
+        document.getElementById("submitButton").disabled = true;
+    }
+}
+checkTableChildren();
+
+
+
+recipeForm.addEventListener("input", function () {
+    if (recipeForm.checkValidity() && AuMoinsUnIngredients == 1) {
+        document.getElementById("submitButton").disabled = false;
+    } else {
+        document.getElementById("submitButton").disabled = true;
+    }
+});
+
+recipeForm.addEventListener("submit", function (event) {
+    if (document.getElementById("submitButton").disabled) {
+        event.preventDefault();
+    }
+});
+
 document.getElementById("ingredientNameCol").style.display = "none";
-document.getElementById("ingredientListDiv").style.display = "none";
 document.getElementById("ingredientArrayGlobal").style.display = "none";
