@@ -2,11 +2,10 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Nos Recettes</title>
+        <title>Liste des recettes</title>
         <?php include('link.php'); ?>
     </head>
         <?php include('header.php');?>
-        <div class="centerFormCreationRecette">
             <form action="../treatment/treatment_recipe.php" id="recipeForm" method="POST">
                 <h1>Liste des recettes</h1>
                 <?php

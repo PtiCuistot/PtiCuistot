@@ -1,10 +1,10 @@
 let addIngredientButton = this.document.getElementById("addIngredientButton");
 let recipeIngredients = this.document.getElementById("recipeIngredients");
-let ingredientList = this.document.getElementById("ingredientList");
 let recipeForm = this.document.getElementById("recipeForm");    
 let ingredientName = this.document.getElementById("ingredientName");
 let weightArray = [];
 let IngredientNumber = 1;
+let IngredientNameDisplay = false;
 
 function createHiddenInput(name, value) {
     let input = document.createElement('input');
@@ -67,10 +67,12 @@ recipeIngredients.addEventListener('change', function()
     if(this.value == 'Créer un ingrédient')
     {
         document.getElementById("ingredientNameCol").style.display = "block";
+        IngredientNameDisplay = true;
     }
     else
     {
         document.getElementById("ingredientNameCol").style.display = "none";
+        IngredientNameDisplay = false;
     }
 })
 
@@ -81,7 +83,7 @@ addIngredientButton.addEventListener("click", ()=>
     let ingredientId;
     let ingredientText;
 
-    if(ingredientName.hidden  == false)
+    if(IngredientNameDisplay == true)
     {
         ingredientId = ingredientName.value;
         ingredientText = ingredientName.value;
@@ -94,6 +96,9 @@ addIngredientButton.addEventListener("click", ()=>
 
     let ingredientWeight = this.document.getElementById("ingredientWeight").value; 
     let ingredientWeightUnity = this.document.getElementById("ingredientWeightUnity").value;
+
+    console.log(ingredientId)
+    console.log(parseInt(ingredientId));
 
     if(isNaN(parseInt(ingredientId)))
     {
