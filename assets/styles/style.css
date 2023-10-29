@@ -96,6 +96,7 @@ img {
     width: 98%;
     height: 31%;
 }
+
 /* END of Index */
 
 /* 404 */
@@ -238,7 +239,13 @@ footer{
 
 .RecipeContent
 {
-    text-justify: auto !important;
+    text-align: justify;
+}
+
+.imgRecipeDisplay{
+    border: 1px solid black;
+    height: 32%;
+    border-radius: 30px;
 }
 
 #recipeContent{
