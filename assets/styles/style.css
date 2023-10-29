@@ -97,6 +97,34 @@ img {
     height: 31%;
 }
 
+.svg-wrapper {
+    width: 520px;  
+  }
+  .shape {
+    stroke-dasharray: 140 540;
+    stroke-dashoffset: -60;
+    stroke-width: 8px;
+    fill: transparent;
+    stroke: #2a3990;
+    border-bottom: 5px solid black;
+    transition: stroke-width 1s, stroke-dashoffset 1s, stroke-dasharray 1s;
+  }
+  .text {
+    font-family: 'Roboto Condensed';
+    font-size: 22px;
+    line-height: 32px;
+    letter-spacing: 8px;
+    color: #2a3990;
+    top: -48px;
+    position: relative;
+    text-align: center;
+  }
+  .svg-wrapper:hover .shape {
+    stroke-width: 5px;
+    stroke-dashoffset:500;
+    stroke-dasharray: 1660;
+  }
+
 /* END of Index */
 
 /* 404 */
@@ -257,8 +285,12 @@ footer{
     height: inherit;
 }
 
-#recipeForm > .form-outline{
+#recipeForm > .bg-white > .form-outline{
     margin-bottom: 30px;
+}
+
+#recipeForm > .form-outline > input{
+    border: 1px solid black;
 }
 
 .CreateRecipeTitle{
@@ -276,6 +308,10 @@ footer{
 .h2Recipe{
     margin-top: 60px;
     margin-bottom: 10px;
+}
+
+#submitButton, #addIngredientButton{
+    color: white !important;
 }
 
 @media screen and (max-width: 999px) {
