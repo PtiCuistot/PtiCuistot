@@ -127,6 +127,19 @@ class RecipeManager extends Manager
         }   
         return $tagArray;
     }
+
+    public function getRecipeIngredients(Recipe $recipe)
+    {
+        $ingArray = []; 
+        foreach($this->pdo->query("SELECT ing.ing_name, iw_weight, iw_unity FROM PC_INGREDIENTS_WEIGHT 
+        JOIN PC_INGREDIENTS ing USING(ING_ID) 
+        JOIN PC_RECIPE USING(REP_ID) 
+        WHERE REP_ID = ".$recipe->getId()) as $row)
+        {
+            array_push($ingArray, $row);
+        }   
+        return $ingArray;
+    }
 }
 
 ?>
