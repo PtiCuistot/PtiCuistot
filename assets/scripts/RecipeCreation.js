@@ -155,17 +155,21 @@ const observer = new MutationObserver(function (mutationsList) {
 });
 const config = { childList: true, subtree: true };
 observer.observe(ingredientArray, config);
+
 function checkTableChildren() {
     if (ingredientArray.children.length > 0) {
         AuMoinsUnIngredients = 1;
         if(recipeForm.checkValidity()){
             document.getElementById("submitButton").disabled = false;
+            console.log("1")
         } else {
             document.getElementById("submitButton").disabled = true;
+            console.log("2")
         }
     } else {
         AuMoinsUnIngredients = 0;
         document.getElementById("submitButton").disabled = true;
+        console.log("3")
     }
 }
 checkTableChildren();
@@ -175,8 +179,10 @@ checkTableChildren();
 recipeForm.addEventListener("input", function () {
     if (recipeForm.checkValidity() && AuMoinsUnIngredients == 1) {
         document.getElementById("submitButton").disabled = false;
+        console.log("4")
     } else {
         document.getElementById("submitButton").disabled = true;
+        console.log("5")
     }
 });
 

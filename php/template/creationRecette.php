@@ -76,8 +76,8 @@
                             </div>
                             <div class="col">
                                 <div class="form-outline">
-                                    <input type="number" name="ingredientWeight" id="ingredientWeight" class="form-control IngredientWeight" min="0" step="0.01" />
-                                    <label class="form-label" for="form8Example5">Quantité</label>
+                                    <input type="number" name="ingredientWeight" id="ingredientWeight" class="form-control IngredientWeight" min="0" step="0.01"/>
+                                    <label class="form-label" for="form8Example6">Quantité</label>
                                 </div>
                             </div>
 
