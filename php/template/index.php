@@ -17,7 +17,7 @@
     <div class="TwoRow">
         <div class="DernieresRecettes">
             <div class="svg-wrapper">
-                <svg height="60" width="500" xmlns="http://www.w3.org/2000/svg">
+                <svg height="60" width="500" xmlns="http://www.w3.org/2000/svg" style="z-index: 5;">
                     <rect class="shape" height="60" width="500" />
                     <div class="text">LES DERNIÈRES RECETTES</div>
                 </svg>
