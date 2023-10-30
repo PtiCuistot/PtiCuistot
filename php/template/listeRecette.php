@@ -25,6 +25,16 @@
                 $rm = new RecipeManager();
                 $um = new UserManager();
 
+
+                if(isset($_GET['limit']))
+                {
+                    $limit = intval($_GET['limit']);
+                }
+                else 
+                {
+                    $limit = 10;
+                }
+
                 foreach ($rm->getRecipes() as $recipe) {
                     echo '
                     <div id="DivRecipe0" class="col-xl-3 col-lg-4 col-md-6 mb-4 fade-in show" style="">
@@ -51,7 +61,7 @@
                 ?>
             </div>
 
-            <div class="py-5 text-right"><a href="#" class="btn btn-dark px-5 py-3 text-uppercase" id="ButtonShowMoreRecipe">Show me more</a></div>
+            <div class="py-5 text-right"><a href="listeRecette.php?limit=<?php echo $limit+20?>" class="btn btn-dark px-5 py-3 text-uppercase" id="ButtonShowMoreRecipe">Show me more</a></div>
         </div>
     </div>
 </form>
