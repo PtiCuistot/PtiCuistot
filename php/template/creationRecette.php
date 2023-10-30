@@ -78,6 +78,12 @@
                                             <p class="textSpecialSelect">Miam</p>
                                             <p class="textSpecialSelect">C</p>
                                             <p class="textSpecialSelect">D</p>
+                                            <?php
+                                                $tag = new $recipeManager();
+                                                foreach ($tag->getTag() as $tags) {
+                                                    echo '<p class="textSpecialSelect" id =' . $tags->getId() . ">" . $ingredient->getName() . "</p>";
+                                                }
+                                            ?>
                                         </div>
                                         <div class="DivInputsSpecialSelect Bottom">
                                             <label class="LabelSpecialSelect" for="LabelSpecialSelect">Créer un tag</label>
