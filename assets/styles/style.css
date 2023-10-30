@@ -295,28 +295,6 @@ footer{
 }
 
 /* POPUP */
-.modal-btn{
-    padding: 100px 14px;
-    font-size: 18px;
-    margin: 100px auto;
-    display: block;
-    min-width: 150px;
-    cursor: pointer;
-}
-
-.modalContainer{
-    visibility: hidden;
-    position: fixed;
-    top:0;
-    width: 100vw;
-    height: 100vh;
-    transition: visibility 0.4s ;
-}
-
-.modalContainer.active{
-    visibility: visible;
-}
-
 .ov{
     opacity: 0;
     position: absolute;
@@ -324,11 +302,6 @@ footer{
     height: 100%;
     background: #333333d3;
     transition: opacity 0.4s 0.2s ease-out;
-}
-
-.modalContainer.active .ov {
-    opacity: 1;
-    transition: opacity 0.4s ease-out;
 }
 
 .popup{
@@ -347,12 +320,6 @@ footer{
     transform 0.4s ease-out;
 }
 
-.modalContainer.active .popup {
-    opacity: 1;
-    transform: translate(-50%, -50%);
-    transition: opacity 0.4s 0.2s ease-out,
-    transform 0.4s 0.2s ease-out;
-}
 
 .close-modal{
     padding: 8px 10px;
@@ -376,6 +343,84 @@ footer{
     list-style: none;
     line-height: 1.4;
     margin-bottom: 16px;
+}
+
+/* modal category */
+.modalContainerCategory{
+    visibility: hidden;
+    position: fixed;
+    top:0;
+    width: 100vw;
+    height: 100vh;
+    transition: visibility 0.4s ;
+}
+
+.modalContainerCategory.active{
+    visibility: visible;
+}
+
+.modalContainerCategory.active .popup {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.4s 0.2s ease-out,
+    transform 0.4s 0.2s ease-out;
+}
+
+.modalContainerCategory.active .ov {
+    opacity: 1;
+    transition: opacity 0.4s ease-out;
+}
+
+/* modal title */
+.modalContainerTitle{
+    visibility: hidden;
+    position: fixed;
+    top:0;
+    width: 100vw;
+    height: 100vh;
+    transition: visibility 0.4s ;
+}
+
+.modalContainerTitle.active{
+    visibility: visible;
+}
+
+.modalContainerTitle.active .popup {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.4s 0.2s ease-out,
+    transform 0.4s 0.2s ease-out;
+}
+
+.modalContainerTitle.active .ov {
+    opacity: 1;
+    transition: opacity 0.4s ease-out;
+}
+
+/* modal ingredient */
+.modalContainerIngredient{
+    visibility: hidden;
+    position: fixed;
+    top:0;
+    width: 100vw;
+    height: 100vh;
+    transition: visibility 0.4s ;
+}
+
+.modalContainerIngredient.active{
+    visibility: visible;
+}
+
+.modalContainerIngredient.active .popup {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.4s 0.2s ease-out,
+    transform 0.4s 0.2s ease-out;
+}
+
+.modalContainerIngredient.active .ov {
+    opacity: 1;
+    transition: opacity 0.4s ease-out;
 }
 
 /* END POPUP */
