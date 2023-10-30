@@ -1,8 +1,6 @@
 <?php session_start(); ?>
 <?php
 if (isset($_GET['id'])) {
-    $_SESSION['userId'] = 1; //TODO : Changer quand page de connexion faîtes !
-
     include_once("../model/manager.php");
     include_once("../model/recipe/recipe.php");
     include_once("../model/recipe/recipemanager.php");

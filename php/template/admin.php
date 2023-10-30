@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -12,11 +11,7 @@
         <div class = "highMargin">
             <div class="list-group">
 
-            <?php 
-                include_once("../model/manager.php");
-                include_once("../model/recipe/recipe.php");
-                include_once("../model/recipe/recipemanager.php");
-            
+            <?php             
                 $rm = new RecipeManager(); 
                 $um = new UserManager();
 

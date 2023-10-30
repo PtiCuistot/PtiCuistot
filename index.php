@@ -1,5 +1,5 @@
 <?php 
-    require_once('php/controllers/homepage.php'); 
-    
-    homepage();
+    require_once('php/controllers/login.php'); 
+
+    login();
 ?>
