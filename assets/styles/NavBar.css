@@ -30,12 +30,22 @@
     text-decoration: none;
     display: flex;
     align-items: center;
-    padding-left: 5%;
     background-color: var(--blue);
+    justify-content: center;
   }
 
   .NavBar > ul > li > a > img {
     height: inherit;
+  }
+
+  .Logo:hover{
+    background-color: var(--blue) !important;
+    cursor: default !important;
+  }
+
+  .current{
+    background-color: var(--grey) !important;
+    color: var(--base);
   }
 
   .NavBar span {
