@@ -14,5 +14,5 @@
 <!-- MDB -->
 <link rel="stylesheet" href="assets/mdb/css/mdb.min.css" />
 
-<link rel="stylesheet" href="assets/styles/style.css">
-<link rel="stylesheet" href="assets/styles/NavBar.css">
+<link rel="stylesheet" href="../../assets/styles/style.css">
+<link rel="stylesheet" href="../../assets/styles/NavBar.css">
