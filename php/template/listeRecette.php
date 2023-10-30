@@ -1,18 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Liste des recettes</title>
-        <?php include('link.php'); ?>
-    </head>
-        <?php include('header.php');?>
-            <form action="../treatment/treatment_recipe.php" id="recipeForm" method="POST">
-                <h1>Liste des recettes</h1>
-                <?php
 
-                
-                    $rm = new RecipeManager(); 
-                    $um = new UserManager();
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des recettes</title>
+    <?php include('link.php'); ?>
+</head>
+<?php include('header.php'); ?>
+<form action="../treatment/treatment_recipe.php" id="recipeForm" method="POST">
+    <div class="container-fluid">
+        <div class="px-lg-5">
+            <div class="row py-5">
+                <div class="col-lg-12 mx-auto" style="color: white;">
+                    <div class="p-5 shadow-sm rounded banner">
+                        <h1 class="display-4">Nos Recettes</h1>
+                        <p class="lead">Voici une liste de toutes nos recettes</p>
+                        <p class="small">Classé de la plus récente a la plus ancienne</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" id="row">
+                <?php
+                $rm = new RecipeManager();
+                $um = new UserManager();
 
                 foreach ($rm->getRecipes() as $recipe) {
                     echo '
