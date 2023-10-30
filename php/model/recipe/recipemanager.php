@@ -12,7 +12,7 @@ class RecipeManager extends Manager
 
         $recipes = [];
 
-        foreach($this->pdo->query("SELECT * FROM PC_RECIPE LIMIT ".$limit) as $row)
+        foreach($this->pdo->query("SELECT * FROM PC_RECIPE WHERE REP_VALIDATE = 1 LIMIT ".$limit) as $row)
         {
             $r = new Recipe(
                 $row['US_ID'],
