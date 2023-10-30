@@ -53,6 +53,31 @@
                                 }
                                 ?>
                             </select>
+
+                            <div class="TagsDivGlobal" id="SpecialSelectGlobalDiv">
+                                <div class="Tags" id="Tags"></div>
+                                <div class="SpecialSelect" name="SpecialSelect">
+                                    <p class="text">Selectionner un tag</p>
+                                    <div class="Elements">
+                                        <div class="DivInputsSpecialSelect">
+                                            <label class="LabelSpecialSelect" for="LabelSpecialSelect">Chercher un tag</label>
+                                            <input name="LabelSpecialSelect" type="text" class="InputSpecialSelect" id="searchInput">
+                                        </div>
+                                        <div class="TextDiv" id="Elements">
+                                            <p class="text">Trop bon</p>
+                                            <p class="text">Bon</p>
+                                            <p class="text">Miam</p>
+                                            <p class="text">C</p>
+                                            <p class="text">D</p>
+                                        </div>
+                                        <div class="DivInputsSpecialSelect Bottom">
+                                            <label class="LabelSpecialSelect" for="LabelSpecialSelect">Créer un tag</label>
+                                            <input name="LabelSpecialSelect" type="text" class="InputSpecialSelect" id="CreateTag">
+                                            <button type="button" class="btn btn-info ButtonSpecialSelect" id="addTagsButton" disabled>Ajouter un ingrédient</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="svg-wrapper wrapperFormCreateRecipeTitle" style="width: auto;">

@@ -228,6 +228,116 @@ function checkFormValidity() {
     }
 }
 
+const specialSelect = document.querySelector('.SpecialSelect');
+const children = specialSelect.children;
+
+for (let i = 1; i < children.length; i++) {
+  children[i].style.display = 'none';
+}
+
+specialSelect.addEventListener('click', function() {
+  const children = this.children;
+  for (let i = 1; i < children.length; i++) {
+    children[i].style.display = 'block';
+  }
+
+  children[0].style.backgroundColor = "rgb(106, 101, 94)";
+  children[0].style.color = "#ffffff";
+});
+
+document.addEventListener('click', function(event) {
+  if (!document.getElementById("SpecialSelectGlobalDiv").contains(event.target)) {
+    const children = specialSelect.children;
+    for (let i = 1; i < children.length; i++) {
+      children[i].style.display = 'none';
+    }
+
+    children[0].style.backgroundColor = "transparent";
+    children[0].style.color = "#000000";
+  }
+});
+
+specialSelect.addEventListener('focus', function() {
+  // Le menu déroulant est en cours d'ouverture
+  // Vous pouvez appliquer des styles ou effectuer d'autres actions ici
+});
+
+specialSelect.addEventListener('blur', function() {
+  // Le menu déroulant est en cours de fermeture
+  // Vous pouvez réinitialiser les styles ou effectuer d'autres actions ici
+});
+
+const searchInput = document.getElementById("searchInput");
+
+searchInput.addEventListener("input", function () {
+  const textElements = document.querySelectorAll(".Elements .text");
+  const searchText = searchInput.value.toLowerCase();
+
+  textElements.forEach((element) => {
+    const text = element.textContent.toLowerCase();
+    if (text.includes(searchText)) {
+      element.style.display = "block";
+    } else {
+      element.style.display = "none";
+    }
+  });
+});
+
+const childrenElements = document.getElementById("Elements").children;
+for (let i = 1; i < childrenElements.length; i++) {
+  if(childrenElements[i].classList.contains("text")){
+    childrenElements[i].addEventListener('click', function(event) {
+      let contenu = document.createElement('p');
+      contenu.innerText = this.innerText;
+      console.log(this.innerText)
+      document.getElementById('Tags').appendChild(contenu);
+
+      contenu.addEventListener('click', function() {
+        this.remove();
+      });
+    });
+  }
+}
+
+document.getElementById("CreateTag").addEventListener('input', function() {
+  if(this.value != ""){
+    document.getElementById("addTagsButton").disabled = false;
+  }else{
+    document.getElementById("addTagsButton").disabled = true;
+  }
+});
+
+document.getElementById("addTagsButton").addEventListener('click', function() {
+  var newParagraph = document.createElement('p');
+  newParagraph.classList.add("text");
+  newParagraph.textContent = document.getElementById("CreateTag").value;
+
+  newParagraph.addEventListener('click', function(event) {
+    let contenu = document.createElement('p');
+    contenu.innerText = this.innerText;
+    document.getElementById('Tags').appendChild(contenu);
+
+    contenu.addEventListener('click', function() {
+      this.remove();
+    });
+  });
+  document.getElementById('Elements').insertBefore(newParagraph, document.getElementById('Elements').lastChild);
+  trierElementsAlphabetiquement();
+});
+
+function trierElementsAlphabetiquement() {
+  const elementsDiv = document.getElementById("Elements");
+  const elements = Array.from(elementsDiv.querySelectorAll(".text"));
+  elements.sort((a, b) => a.textContent.localeCompare(b.textContent));
+  while (elementsDiv.firstChild) {
+    elementsDiv.removeChild(elementsDiv.firstChild);
+  }
+  elements.forEach((element) => {
+    elementsDiv.appendChild(element);
+  });
+}
+
+trierElementsAlphabetiquement();
 
 document.getElementById("ingredientNameCol").style.display = "none";
 document.getElementById("ingredientArrayGlobal").style.display = "none";
