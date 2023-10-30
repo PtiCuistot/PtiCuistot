@@ -9,6 +9,23 @@ class TagManager extends Manager
         parent::__construct();
     }
 
+    public function getTags()
+    {
+        $tags = [];
+        foreach($this->pdo->query("SELECT * FROM PC_TAGS") as $row)
+        {
+            $tag = new Tag( 
+                $row["TA_CONTENT"], 
+                $row["TA_STATUT"]
+            );
+            
+            $tag->setId($row["TA_ID"]);
+
+            array_push($tags, $tag);
+        }
+        return $tags;
+    }
+
     public function getTagById(int $id)
     {
         foreach($this->pdo->query("SELECT * FROM PC_TAGS WHERE TA_ID = ".$id) as $row)
