@@ -499,3 +499,195 @@ i:hover{
         height: 50%;
     }
 }
+
+/* POPUP */
+.ov{
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #333333d3;
+    transition: opacity 0.4s 0.2s ease-out;
+}
+
+.popup{
+    opacity: 0;
+    width: 95%;
+    max-width: 500px;
+    min-width: 30px;
+    padding: 30px;
+    background: #fff;
+    border-radius: 5px;
+    position: absolute;
+    top:40%;
+    left: 50%;
+    transform: translate(-50%, calc(-50% - 50px));
+    transition: opacity 0.4s ease-out,
+    transform 0.4s ease-out;
+}
+
+
+.close-modal{
+    padding: 8px 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    background: #ff365e;
+    color: #fff;
+}
+
+.popup h1{
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.popup p{
+    list-style: none;
+    line-height: 1.4;
+    margin-bottom: 16px;
+}
+
+/* modal category */
+.modalContainerCategory{
+    visibility: hidden;
+    position: fixed;
+    top:0;
+    width: 100vw;
+    height: 100vh;
+    transition: visibility 0.4s ;
+}
+
+.modalContainerCategory.active{
+    visibility: visible;
+}
+
+.modalContainerCategory.active .popup {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.4s 0.2s ease-out,
+    transform 0.4s 0.2s ease-out;
+}
+
+.modalContainerCategory.active .ov {
+    opacity: 1;
+    transition: opacity 0.4s ease-out;
+}
+
+/* modal title */
+.modalContainerTitle{
+    visibility: hidden;
+    position: fixed;
+    top:0;
+    width: 100vw;
+    height: 100vh;
+    transition: visibility 0.4s ;
+}
+
+.modalContainerTitle.active{
+    visibility: visible;
+}
+
+.modalContainerTitle.active .popup {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.4s 0.2s ease-out,
+    transform 0.4s 0.2s ease-out;
+}
+
+.modalContainerTitle.active .ov {
+    opacity: 1;
+    transition: opacity 0.4s ease-out;
+}
+
+/* modal ingredient */
+.modalContainerIngredient{
+    visibility: hidden;
+    position: fixed;
+    top:0;
+    width: 100vw;
+    height: 100vh;
+    transition: visibility 0.4s ;
+}
+
+.modalContainerIngredient.active{
+    visibility: visible;
+}
+
+.modalContainerIngredient.active .popup {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.4s 0.2s ease-out,
+    transform 0.4s 0.2s ease-out;
+}
+
+.modalContainerIngredient.active .ov {
+    opacity: 1;
+    transition: opacity 0.4s ease-out;
+}
+
+/* END POPUP */
+
+/* saerchBar */
+
+.searchBox{
+    border-radius:  5px;
+    background: #becfcf;
+    
+}
+
+.row{
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.autocomplete{
+    flex: 1;
+    height: 50px;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.searchButton{
+    background: transparent;
+    border: 0;
+    border-top: 2px solid #000000;
+    outline: 0;
+}
+
+.searchButton .fa-solid{
+    width: 25px;
+    color: #555;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.resultBox ul{
+    border-top: 1px solid #999;
+    padding: 15px 10px;
+    color: #000000;
+}
+
+.resultBox ul li{ 
+    list-style: none;
+    border-radius: 3px;
+    padding: 15px 10px;
+    cursor: pointer;
+}
+
+.resultBox ul li:hover{ 
+    background: #4c5c5c;
+}
+
+.resultBox {
+    max-height: 300px;
+    overflow-y:scroll ;
+}
+/* END saerchBar */

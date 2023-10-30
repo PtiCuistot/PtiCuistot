@@ -5,14 +5,12 @@
         <meta charset="UTF-8">
         <title>Accueil</title>
         <?php include('link.php');?>
-
     </head>
-        <?php include('header.php');?>
-
+<?php include('header.php'); ?>
+<?php include('popup.php'); ?>
 
 <div class="Content">
     <div>
-
     </div>
     <div class="TwoRow">
         <div class="DernieresRecettes">
