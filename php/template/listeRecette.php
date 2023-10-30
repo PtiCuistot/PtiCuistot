@@ -21,7 +21,7 @@
             </div>
 
             <div class="row" id="row">
-                <?php
+            <?php
                 include_once("../model/manager.php");
                 include_once("../model/recipe/recipe.php");
                 include_once("../model/recipe/recipemanager.php");
