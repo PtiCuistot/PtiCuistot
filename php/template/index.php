@@ -16,7 +16,12 @@
     </div>
     <div class="TwoRow">
         <div class="DernieresRecettes">
-            <h1>LES DERNIÈRES RECETTES</h1>
+            <div class="svg-wrapper">
+                <svg height="60" width="500" xmlns="http://www.w3.org/2000/svg">
+                    <rect class="shape" height="60" width="500" />
+                    <div class="text">LES DERNIÈRES RECETTES</div>
+                </svg>
+            </div>
             <div class="scrollable-div">
                 <div class="inner-div">
                     <img src="" alt="Image Recette">

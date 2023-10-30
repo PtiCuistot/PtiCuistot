@@ -183,8 +183,6 @@ function checkTableChildren() {
 }
 checkTableChildren();
 
-
-
 recipeForm.addEventListener("input", function () {
     if (recipeForm.checkValidity() && AuMoinsUnIngredients == 1) {
         document.getElementById("submitButton").disabled = false;

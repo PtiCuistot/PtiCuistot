@@ -16,20 +16,21 @@
                     <form action="../treatment/treatment_recipe.php" id="recipeForm" method="POST" class="needs-validation" novalidate>
                         <h1 class="CreateRecipeTitle">Création de recettes</h1>
                         <h2 class="h2Recipe">Informations de la recette</h2>
+                        <div class="bg-white rounded shadow-sm p-4" style="border: 1px solid black;">
+                            <div class="form-outline">
+                                <input name="recipeTitle" type="text" id="recipeTitle" class="form-control" required>
+                                <label class="form-label" for="form8Example4">Nom de la recette</label>
+                            </div>
 
-                        <div class="form-outline">
-                            <input name="recipeTitle"type="text" id="recipeTitle" class="form-control" required>
-                            <label class="form-label" for="form8Example4">Nom de la recette</label>
-                        </div>
+                            <div class="form-outline">
+                                <textarea class="form-control RecipeContent" id="recipeContent" rows="4" required></textarea>
+                                <label class="form-label" for="textAreaExample">Description de la recette</label>
+                            </div>
 
-                        <div class="form-outline">
-                            <textarea class="form-control RecipeContent" id="recipeContent" rows="4" required></textarea>
-                            <label class="form-label" for="textAreaExample">Description de la recette</label>
-                        </div>
-
-                        <div class="form-outline">
-                            <input type="url" name="recipeImage" id="recipeImage" class="form-control RecipeImage" required />
-                            <label class="form-label" for="typeURL">URL de l'image de la recette</label>
+                            <div class="form-outline">
+                                <input type="url" name="recipeImage" id="recipeImage" class="form-control RecipeImage" required />
+                                <label class="form-label" for="typeURL">URL de l'image de la recette</label>
+                            </div>
                         </div>
 
                         <h2 class="h2Recipe">Tags et catégories</h2>
@@ -47,7 +48,7 @@
 
                         <h2 class="text-center my-3 pb-3 h2Recipe">List des ingrédients</h2>
 
-                        <div class="row">
+                        <div class="row bg-white rounded shadow-sm p-4" style="border: 1px solid black;">
                             <div class="col">
                                 <div class="form-group">
                                     <select name="recipeIngredients" id="recipeIngredients" aria-placeholder="Selectionner un ingrédient" class="custom-select RecipeIngredients">
@@ -70,7 +71,7 @@
                             </div>
                             <div class="col">
                                 <div class="form-outline">
-                                    <input type="number" name="ingredientWeight" id="ingredientWeight" class="form-control IngredientWeight" min="0" step="0.01"/>
+                                    <input type="number" name="ingredientWeight" id="ingredientWeight" class="form-control IngredientWeight" min="0" step="0.01" />
                                     <label class="form-label" for="form8Example6">Quantité</label>
                                 </div>
                             </div>
@@ -85,21 +86,22 @@
                             <div class="col">
                                 <button type="button" class="btn btn-info" id="addIngredientButton" disabled>Ajouter un ingrédient</button>
                             </div>
+
+                            <table class="table table-striped" id="ingredientArrayGlobal">
+                                <thead>
+                                    <tr class="table-dark">
+                                        <th scope="col">Numéro</th>
+                                        <th scope="col">Nom</th>
+                                        <th scope="col">Quantité</th>
+                                        <th scope="col">Unités</th>
+                                        <th scope="col">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="ingredientArray">
+                                </tbody>
+                            </table>
                         </div>
 
-                        <table class="table mb-4" id="ingredientArrayGlobal">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Numéro</th>
-                                    <th scope="col">Nom</th>
-                                    <th scope="col">Quantité</th>
-                                    <th scope="col">Unités</th>
-                                    <th scope="col">Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody id="ingredientArray">
-                            </tbody>
-                        </table>
                         <input type="submit" value="Créer ma recette" id="submitButton" class="btn btn-success btn-lg btn-block px-5 py-3 submitButtonCreationRecipe" disabled></input>
                     </form>
                 </div>
