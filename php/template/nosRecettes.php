@@ -11,8 +11,6 @@
 
 <div class="container-fluid">
     <div class="px-lg-5">
-
-        <!-- For demo purpose -->
         <div class="row py-5">
             <div class="col-lg-12 mx-auto" style="color: white;">
                 <div class="p-5 shadow-sm rounded banner">
@@ -22,7 +20,6 @@
                 </div>
             </div>
         </div>
-        <!-- End -->
 
         <div class="row" id="row">
         </div>

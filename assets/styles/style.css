@@ -99,6 +99,9 @@ img {
 
 .svg-wrapper {
     width: 520px;  
+    display: flex;
+  flex-direction: column;
+  align-items: center;
   }
   .shape {
     stroke-dasharray: 140 540;
@@ -119,7 +122,7 @@ img {
     position: relative;
     text-align: center;
   }
-  .svg-wrapper:hover .shape {
+  .svg-wrapper > svg:hover .shape {
     stroke-width: 5px;
     stroke-dashoffset:500;
     stroke-dasharray: 1660;
@@ -294,8 +297,13 @@ footer{
 }
 
 .CreateRecipeTitle{
-    margin-top: 25px;
-    margin-bottom: 25px;
+    margin: 25px;
+    font-size: 60px;
+    color: #000000;
+}
+
+.CreateRecipeTitleDiv{
+    display: block ruby;
     font-size: 60px;
 }
 
@@ -308,6 +316,34 @@ footer{
 .h2Recipe{
     margin-top: 60px;
     margin-bottom: 10px;
+}
+
+.RecipeImg{
+    height: 300px;
+}
+
+.wrapperFormCreateRecipeTitle{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 70px;
+}
+
+i{
+    transition: transform 0.3s ease-in-out;
+}
+
+i:hover{
+    animation: sautillement 0.5s infinite;
+}
+
+@keyframes sautillement {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px); /* Ajustez la distance du sautillement verticalement */
+    }
 }
 
 #submitButton, #addIngredientButton{
