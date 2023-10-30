@@ -29,15 +29,13 @@
                 $rm = new RecipeManager();
                 $um = new UserManager();
 
+                $limit = 10; 
 
                 if(isset($_GET['limit']))
                 {
                     $limit = intval($_GET['limit']);
                 }
-                else 
-                {
-                    $limit = 10;
-                }
+            
 
                 foreach ($rm->getRecipes($limit) as $recipe) {
                     echo '

@@ -7,12 +7,10 @@ class RecipeManager extends Manager
         parent::__construct();
     }
 
-    public function getRecipes(int $limit=10)
+    public function getRecipes($limit)
     {
 
         $recipes = [];
-
-        echo $limit;
 
         foreach($this->pdo->query("SELECT * FROM PC_RECIPE LIMIT ".$limit) as $row)
         {
