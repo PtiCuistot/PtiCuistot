@@ -282,7 +282,7 @@ searchInput.addEventListener("input", function () {
 });
 
 const childrenElements = document.getElementById("Elements").children;
-for (let i = 1; i < childrenElements.length; i++) {
+for (let i = 0; i < childrenElements.length; i++) {
   if(childrenElements[i].classList.contains("textSpecialSelect")){
     childrenElements[i].addEventListener('click', function(event) {
       let contenu = document.createElement('p');

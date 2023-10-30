@@ -71,17 +71,10 @@
                                             <input name="LabelSpecialSelect" type="text" class="InputSpecialSelect" id="searchInput">
                                         </div>
                                         <div class="TextDiv" id="Elements">
-                                            <p class="textSpecialSelect">Bon</p>
-                                            <p class="textSpecialSelect">Miam</p>
-                                            <p class="textSpecialSelect">Trop bon</p>
-                                            <p class="textSpecialSelect">Bon</p>
-                                            <p class="textSpecialSelect">Miam</p>
-                                            <p class="textSpecialSelect">C</p>
-                                            <p class="textSpecialSelect">D</p>
                                             <?php
-                                                $tag = new $recipeManager();
-                                                foreach ($tag->getTag() as $tags) {
-                                                    echo '<p class="textSpecialSelect" id =' . $tags->getId() . ">" . $ingredient->getName() . "</p>";
+                                                $tag = new TagManager();
+                                                foreach ($tag->getTags() as $tags) {
+                                                    echo '<p class="textSpecialSelect" id =' . $tags->getId() . ">" . $tags->getContent() . "</p>";
                                                 }
                                             ?>
                                         </div>
