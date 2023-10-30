@@ -24,7 +24,6 @@ foreach($ingredientData as $id => $data)
 
     if (intval($id) != 0)
     {
-        echo 'passed';
         $iw = new IngredientWeight($recipeId, intval($id), intval($data['quantity']), $data['unity']); 
         $iwManager->insertIngredientWeight($iw);
     }

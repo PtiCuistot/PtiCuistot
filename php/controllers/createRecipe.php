@@ -11,7 +11,23 @@ function createRecipe()
     include_once("php/model/ingredient/ingredient.php");
     include_once("php/model/ingredient/ingredientmanager.php");
 
-    require('php/template/creationRecette.php');
+
+    if(!isset($_SESSION))
+    {
+        session_start();
+        $_SESSION['userId'] = 1; //TODO : Changer
+
+    }
+
+    if(isset($_SESSION['userId']))
+    {
+        require('php/template/creationRecette.php');
+    }
+    else
+    {
+        require('php/template/login.php');
+    }
+
 }
 
 ?>

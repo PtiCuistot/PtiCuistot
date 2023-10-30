@@ -1,7 +1,8 @@
 <?php 
     require_once('php/controllers/createRecipe.php'); 
     require_once('php/controllers/listRecipe.php'); 
-
+    require_once('php/controllers/login.php'); 
+    require_once('php/controllers/detailRecipe.php'); 
     
     if(isset($_GET['action']))
     {
@@ -11,8 +12,13 @@
         }
     }
 
-    else
+
+    if(isset($_GET['id']))
     {
-        return listRecipe();
+        return detailRecipe();
     }
+
+
+    return listRecipe();
+        
 ?>

@@ -1,29 +1,3 @@
-<?php session_start(); ?>
-<?php
-if (isset($_GET['id'])) {
-    $_SESSION['userId'] = 1; //TODO : Changer quand page de connexion faîtes !
-
-    include_once("../model/manager.php");
-    include_once("../model/recipe/recipe.php");
-    include_once("../model/recipe/recipemanager.php");
-    include_once("../model/user/usermanager.php");
-
-    $rm = new RecipeManager();
-    $um = new UserManager();
-
-    $recipe = $rm->getRecipeById(intval($_GET['id']));
-    if ($recipe != null) {
-        if ($recipe->getValidate() == false) {
-            if (isset($_SESSION['userId'])) {
-                if (intval($_SESSION['userId']) != intval($recipe->getUserId()) && !$_SESSION['admin']) {
-                    $recipe = null;
-                }
-            }
-        }
-    }
-}
-?>
-
 <?php if ($recipe != null) : ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -86,19 +60,19 @@ if (isset($_GET['id'])) {
                             </form>
                         <?php endif; ?>
 
-                        <?php if ($_SESSION['admin']) : ?>
+                        <?php if ($_SESSION['admin'] && $recipe->getValidate() == 0) : ?>
                             <h2 class="h2Recipe">Action Administrateur</h2>
-                            <form method="POST" action="../treatment/accept_recipe.php">
+                            <form method="POST" action="php/treatment/accept_recipe.php">
                                 <input name='recipeId' value="<?php echo $recipe->getId() ?>" hidden>
                                 <input class="btn btn-success" type="submit" value="Valider la recette">
                             </form>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <?php include('footer.php'); ?>
-<?php endif; ?>
-<?php else : ?>
+<?php else: ?>
     <?php include('404.php'); ?>
 <?php endif; ?>

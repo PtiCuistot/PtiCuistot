@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -12,18 +11,14 @@
         <div class = "highMargin">
             <div class="list-group">
 
-            <?php 
-                include_once("../model/manager.php");
-                include_once("../model/recipe/recipe.php");
-                include_once("../model/recipe/recipemanager.php");
-            
+            <?php             
                 $rm = new RecipeManager(); 
                 $um = new UserManager();
 
 
                 foreach($rm->getUnvalidateRecipe() as $recipe)
                 {
-                    echo '<a href="https://dev-baratin221.users.info.unicaen.fr/PtiCuistot/php/template/detailRecette.php?id='.$recipe->getId().'" class="list-group-item list-group-item-action">
+                    echo '<a href="https://dev-baratin221.users.info.unicaen.fr/PtiCuistot/recipe.php?id='.$recipe->getId().'" class="list-group-item list-group-item-action">
                             <div class="d-flex w-100 justify-content-between">
                             <h5 class="mb-1">'.$recipe->getTitle().'</h5>
                             <small>Màj du : '.$recipe->getUpdated()->format('d/m/y').'</small>

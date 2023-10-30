@@ -12,7 +12,7 @@ class RecipeManager extends Manager
 
         $recipes = [];
 
-        foreach($this->pdo->query("SELECT * FROM PC_RECIPE LIMIT ".$limit) as $row)
+        foreach($this->pdo->query("SELECT * FROM PC_RECIPE WHERE REP_VALIDATE = 1 LIMIT ".$limit) as $row)
         {
             $r = new Recipe(
                 $row['US_ID'],
@@ -142,6 +142,71 @@ class RecipeManager extends Manager
         }   
         return $ingArray;
     }
-}
+    
+    public function getRecipesByCategory(Category $category)
+    {
+        $recipes = []; 
+        foreach($this->pdo->query("SELECT * FROM PC_RECIPE  WHERE CAT_ID = ".$category->getId()) as $row)
+        {
+            $r = new Recipe(
+                $row['US_ID'],
+                $row['REP_TITLE'],
+                $row['REP_CONTENT'],
+                $row['REP_IMAGE'],
+                $row['REP_CREATED'],
+                $row['REP_UPDATED'],
+                $row['REP_VALIDATE'],
+                $row['CAT_ID']);
+            $r->setId($row['REP_ID']);
 
+            array_push($recipes, $r);
+        }
+        return $recipes;
+    }
+
+    public function getRecipeByTitle(string $title)
+    {
+        $recipes = []; 
+        foreach($this->pdo->query("SELECT * FROM PC_RECIPE  WHERE REP_TITLE LIKE %".$title."%") as $row)
+        {
+            $r = new Recipe(
+                $row['US_ID'],
+                $row['REP_TITLE'],
+                $row['REP_CONTENT'],
+                $row['REP_IMAGE'],
+                $row['REP_CREATED'],
+                $row['REP_UPDATED'],
+                $row['REP_VALIDATE'],
+                $row['CAT_ID']);
+            $r->setId($row['REP_ID']);
+
+            array_push($recipes, $r);
+        }
+        return $recipes;
+    }
+
+    public function getRecipeByIngredients(array $ingListId)
+    {
+        $recipe = []; 
+        foreach($this->pdo->query("SELECT REP_ID, REP_TITLE, REP_CONTENT
+        FROM PC_RECIPE
+        INNER JOIN ingredients_recettes ON recettes.REP_ID = ingredients_recettes.REP_ID
+        WHERE ingredients_recettes.ING_ID IN (" . implode(",", $ingListId) . ")") as $row)
+        {
+            $r = new Recipe(
+                $row['US_ID'],
+                $row['REP_TITLE'],
+                $row['REP_CONTENT'],
+                $row['REP_IMAGE'],
+                $row['REP_CREATED'],
+                $row['REP_UPDATED'],
+                $row['REP_VALIDATE'],
+                $row['CAT_ID']);
+            $r->setId($row['REP_ID']);
+
+            array_push($recipes, $r);
+        }
+        return $recipes;
+    }
+}
 ?>

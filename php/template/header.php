@@ -22,8 +22,6 @@
                 </li>
                 <?php
 
-                    $_SESSION['admin'] = true; //TODO : Changer ce paramètre en attendant la connexion 
-
                     if(isset($_SESSION['userId']))
                     {
                         $um = new UserManager();
