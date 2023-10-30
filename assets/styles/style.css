@@ -30,6 +30,10 @@ header {
     position: sticky;
 }
 
+footer{
+    margin-top: 50px;
+}
+
 /* Index */
 .Content {
     height: 100vh;
@@ -100,9 +104,10 @@ img {
 .svg-wrapper {
     width: 520px;  
     display: flex;
-  flex-direction: column;
-  align-items: center;
+    flex-direction: column;
+    align-items: center;
   }
+
   .shape {
     stroke-dasharray: 140 540;
     stroke-dashoffset: -60;
@@ -110,7 +115,7 @@ img {
     fill: transparent;
     stroke: #2a3990;
     border-bottom: 5px solid black;
-    transition: stroke-width 1s, stroke-dashoffset 1s, stroke-dasharray 1s;
+    transition: stroke-width 0.7s, stroke-dashoffset 0.7s, stroke-dasharray 0.7s;
   }
   .text {
     font-family: 'Roboto Condensed';
@@ -219,36 +224,19 @@ img {
  }
  /* END of 404 */
 
-footer{
-    margin-top: 50px;
-}
-
+/* listeRecettes */
 .banner {
     background: #a770ef;
     background: -webkit-linear-gradient(to right, #a770ef, #cf8bf3, #fdb99b);
     background: linear-gradient(to right, #a770ef, #cf8bf3, #fdb99b);
 }
 
-.centerFormCreationRecette{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.RecipeImg{
+    height: 300px;
 }
+/* END of listeRecettes */
 
-.centerFormCreationRecette > form > h1, .centerFormCreationRecette >  form > h2 {
-    text-align: center;
-}
-
-.fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-}
-
-.fade-in.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
+/* Admin */
 .highMargin
 {
     margin-left: 20%;
@@ -263,6 +251,7 @@ footer{
     margin-top: 2%;
 }
 
+/* detailRecette */
 .RecipeTitle
 {
     margin-top: 2%;  
@@ -278,7 +267,9 @@ footer{
     height: 32%;
     border-radius: 30px;
 }
+/* END of detailRecette */
 
+/* creationRecette */
 #recipeContent{
     resize: none;
 }
@@ -299,10 +290,10 @@ footer{
 .CreateRecipeTitle{
     margin: 25px;
     font-size: 60px;
-    color: #000000;
 }
 
 .CreateRecipeTitleDiv{
+    color: var(--blue);
     display: block ruby;
     font-size: 60px;
 }
@@ -316,10 +307,6 @@ footer{
 .h2Recipe{
     margin-top: 60px;
     margin-bottom: 10px;
-}
-
-.RecipeImg{
-    height: 300px;
 }
 
 .wrapperFormCreateRecipeTitle{
@@ -337,6 +324,22 @@ i:hover{
     animation: sautillement 0.5s infinite;
 }
 
+#submitButton, #addIngredientButton{
+    color: white !important;
+}
+/* END of creationRecette */
+
+/* Animation */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 @keyframes sautillement {
     0%, 100% {
         transform: translateY(0);
@@ -345,10 +348,7 @@ i:hover{
         transform: translateY(-10px); /* Ajustez la distance du sautillement verticalement */
     }
 }
-
-#submitButton, #addIngredientButton{
-    color: white !important;
-}
+/* END of Animation */
 
 @media screen and (max-width: 999px) {
 
