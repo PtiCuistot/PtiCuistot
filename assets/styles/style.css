@@ -234,6 +234,10 @@ img {
 .RecipeImg{
     height: 300px;
 }
+
+#ButtonShowMoreRecipe, #CreateRecipeLinkButton{
+    width: 49%;
+}
 /* END of listeRecettes */
 
 /* Admin */
@@ -341,8 +345,10 @@ i:hover{
   
   .Tags > * {
     margin: 1%;
-    border: 1px solid #1c1919;
-    border-radius: 20px;
+    border-radius: 10px;
+    background-color: var(--blue);
+    border: 1px solid transparent;
+    color: var(--base);
     height: 40px;
     padding: 0.6%;
     display: flex;
@@ -352,8 +358,9 @@ i:hover{
   
   .Tags > *:hover {
     cursor: pointer;
-    background-color: #000000;
-    color: #ffffff;
+    background-color: transparent;
+    border: 1px solid var(--blue);
+    color: var(--blue);
   }
   
   .SpecialSelect{

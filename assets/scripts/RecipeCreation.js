@@ -259,12 +259,10 @@ document.addEventListener('click', function(event) {
 
 specialSelect.addEventListener('focus', function() {
   // Le menu déroulant est en cours d'ouverture
-  // Vous pouvez appliquer des styles ou effectuer d'autres actions ici
 });
 
 specialSelect.addEventListener('blur', function() {
   // Le menu déroulant est en cours de fermeture
-  // Vous pouvez réinitialiser les styles ou effectuer d'autres actions ici
 });
 
 const searchInput = document.getElementById("searchInput");
