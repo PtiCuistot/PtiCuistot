@@ -22,6 +22,7 @@
 
             <div class="row" id="row">
                 <?php
+
                 $rm = new RecipeManager();
                 $um = new UserManager();
 
@@ -61,7 +62,7 @@
                 ?>
             </div>
 
-            <div class="py-5 text-right"><a href="listeRecette.php?limit=<?php echo $limit+20?>" class="btn btn-dark px-5 py-3 text-uppercase" id="ButtonShowMoreRecipe">Show me more</a></div>
+            <div class="py-5 text-right"><a href="recipe.php?limit=<?php echo $limit+20?>" class="btn btn-dark px-5 py-3 text-uppercase" id="ButtonShowMoreRecipe">Show me more</a></div>
         </div>
     </div>
 </form>
