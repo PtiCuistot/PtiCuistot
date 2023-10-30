@@ -143,7 +143,7 @@ class RecipeManager extends Manager
         return $ingArray;
     }
     
-    public function getRecipesByCategory(Category $category)
+    public function getRecipeByCategory(Category $category)
     {
         $recipes = []; 
         foreach($this->pdo->query("SELECT * FROM PC_RECIPE  WHERE CAT_ID = ".$category->getId()) as $row)
