@@ -9,7 +9,7 @@
         </button>
         <nav class="NavBar" id="NavBar">
             <ul id="UlMenu">
-                <li><a><img src="assets/images/Logo.png" alt="Logo"></a></li>
+                <li><a class="Logo"><img src="assets/images/Logo.png" alt="Logo"></a></li>
                 <li><a href="index.php">Accueil</a></li>
                 <li><a href="recipe.php">Nos Recettes</a></li>
                 <li class="NavBarLiHasChildren">
