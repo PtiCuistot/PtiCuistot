@@ -1,7 +1,5 @@
 <?php 
 
-include_once('../database/connector.php');
-
 class Manager 
 {
 

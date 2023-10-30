@@ -13,7 +13,7 @@
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="card rounded-3" style="text-align: center;">
                 <div class="card-body p-4">
-                    <form action="../treatment/treatment_recipe.php" id="recipeForm" method="POST" class="needs-validation" novalidate>
+                    <form action="php/treatment/treatment_recipe.php" id="recipeForm" method="POST" class="needs-validation" novalidate>
                         <div class="CreateRecipeTitleDiv">
                             <i class="fa-solid fa-utensils"></i>
                             <h1 class="CreateRecipeTitle">Création de recettes</h1>
@@ -42,27 +42,17 @@
                             </div>
                         </div>
 
-                        <div class="svg-wrapper wrapperFormCreateRecipeTitle" style="width: auto;">
-                            <svg height="60" width="500" xmlns="http://www.w3.org/2000/svg" style="z-index: 5;">
-                                <rect class="shape" height="60" width="500" />
-                                <div class="text">Tags et catégories</div>
-                            </svg>
-                        </div>
-                        <div class="bg-white rounded shadow-sm p-4" style="border: 1px solid black;">
-                            <div class="form-group">
-                                <select class="custom-select" aria-placeholder="Selectionner une catégorie" id="recipeCategory" name="selectCategorie" required>
-                                    <option value="">Sélectionner une catégorie pour votre recette</option>
-                                    <?php
-                                    include_once("../model/manager.php");
-                                    include_once("../model/category/category.php");
-                                    include_once("../model/category/categorymanager.php");
-                                    $cm = new CategoryManager();
-                                    foreach ($cm->getCategories() as $category) {
-                                        echo "<option value=" . $category[0]->getId() . ">" . $category[0]->getTitle() . "</option>";
-                                    }
-                                    ?>
-                                </select>
-                            </div>
+                        <h2 class="h2Recipe">Tags et catégories</h2>
+                        <div class="form-group">
+                            <select class="custom-select" aria-placeholder="Selectionner une catégorie" id="recipeCategory" name="selectCategorie" required>
+                                <option value="">Sélectionner une catégorie pour votre recette</option>
+                                <?php
+                                $cm = new CategoryManager();
+                                foreach ($cm->getCategories() as $category) {
+                                    echo "<option value=" . $category[0]->getId() . ">" . $category[0]->getTitle() . "</option>";
+                                }
+                                ?>
+                            </select>
                         </div>
 
                         <div class="svg-wrapper wrapperFormCreateRecipeTitle" style="width: auto;">
@@ -78,9 +68,6 @@
                                     <select name="recipeIngredients" id="recipeIngredients" aria-placeholder="Selectionner un ingrédient" class="custom-select RecipeIngredients">
                                         <option value="">Sélectionner un ingrédient</option>
                                         <?php
-                                        include_once("../model/manager.php");
-                                        include_once("../model/ingredient/ingredient.php");
-                                        include_once("../model/ingredient/ingredientmanager.php");
                                         $cm = new IngredientManager();
                                         foreach ($cm->getIngredients() as $ingredient) {
                                             echo "<option value=" . $ingredient->getId() . ">" . $ingredient->getName() . "</option>";
@@ -136,5 +123,5 @@
         </div>
     </div>
 </section>
-<script src="../../assets/scripts/RecipeCreation.js"></script>
+<script src="assets/scripts/RecipeCreation.js"></script>
 <?php include_once('footer.php'); ?>

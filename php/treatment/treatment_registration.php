@@ -58,7 +58,7 @@
                 $newUser = $um->getUserById(intval($um->insertUser($newUser)));
                 session_start();
                 $_SESSION['userId'] = $newUser->getId();
-                header('Location: ../template/index.php');
+                header('Location: index.php');
             }catch(Exception $e){
                 echo $e;
             }

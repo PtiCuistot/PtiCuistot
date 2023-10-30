@@ -9,9 +9,9 @@
         </button>
         <nav class="NavBar" id="NavBar">
             <ul id="UlMenu">
-                <li><a class="Logo"><img src="../../assets/images/Logo.png" alt="Logo"></a></li>
+                <li><a><img src="assets/images/Logo.png" alt="Logo"></a></li>
                 <li><a href="index.php">Accueil</a></li>
-                <li><a href="nosRecettes.php">Nos Recettes</a></li>
+                <li><a href="recipe.php">Nos Recettes</a></li>
                 <li class="NavBarLiHasChildren">
                     <a href="creationRecette.php">Filtes<span>▼</span></a>
                     <ul class="SubMenu">
@@ -21,10 +21,6 @@
                     </ul>
                 </li>
                 <?php
-
-                    include_once("../model/manager.php");
-                    include_once("../model/user/usermanager.php");
-                    include_once("../model/user/user.php");
 
                     $_SESSION['admin'] = true; //TODO : Changer ce paramètre en attendant la connexion 
 
