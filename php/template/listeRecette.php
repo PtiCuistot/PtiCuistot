@@ -21,7 +21,7 @@
             </div>
 
             <div class="row" id="row">
-                <?php
+            <?php
                 include_once("../model/manager.php");
                 include_once("../model/recipe/recipe.php");
                 include_once("../model/recipe/recipemanager.php");
@@ -29,17 +29,15 @@
                 $rm = new RecipeManager();
                 $um = new UserManager();
 
+                $limit = 10; 
 
                 if(isset($_GET['limit']))
                 {
                     $limit = intval($_GET['limit']);
                 }
-                else 
-                {
-                    $limit = 10;
-                }
+            
 
-                foreach ($rm->getRecipes() as $recipe) {
+                foreach ($rm->getRecipes($limit) as $recipe) {
                     echo '
                     <div id="DivRecipe0" class="col-xl-3 col-lg-4 col-md-6 mb-4 fade-in show" style="">
                         <div class="RecipFirstChild bg-white rounded shadow-sm" style="border: 1px solid black;">
