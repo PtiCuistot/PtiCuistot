@@ -13,7 +13,7 @@
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="card rounded-3" style="text-align: center;">
                 <div class="card-body p-4">
-                    <form action="../treatment/treatment_recipe.php" id="recipeForm" method="POST" class="needs-validation" novalidate>
+                    <form action="php/treatment/treatment_recipe.php" id="recipeForm" method="POST" class="needs-validation" novalidate>
                         <div class="CreateRecipeTitleDiv">
                             <i class="fa-solid fa-utensils"></i>
                             <h1 class="CreateRecipeTitle">Création de recettes</h1>
@@ -123,5 +123,5 @@
         </div>
     </div>
 </section>
-<script src="../../assets/scripts/RecipeCreation.js"></script>
+<script src="assets/scripts/RecipeCreation.js"></script>
 <?php include_once('footer.php'); ?>

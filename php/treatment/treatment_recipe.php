@@ -1,5 +1,6 @@
 <?php 
 
+include_once("../database/connector.php");
 include_once("../model/manager.php");
 include_once("../model/recipe/recipe.php");
 include_once("../model/recipe/recipemanager.php");
@@ -8,7 +9,7 @@ include_once("../model/ingredient/ingredientmanager.php");
 include_once("../model/ingredientWeight/ingredientweight.php");
 include_once("../model/ingredientWeight/ingredientweightmanager.php");
 
-$recipe = new Recipe(1, $_POST["recipeTitle"], $_POST["recipeContent"], $_POST["recipeImage"], date('Y-m-d'), date('Y-m-d'), $_POST['recipeCategory']);
+$recipe = new Recipe(1, $_POST["recipeTitle"], $_POST["recipeContent"], $_POST["recipeImage"], date('Y-m-d'), date('Y-m-d'), 0, $_POST['recipeCategory']);
 $recipeManager = new RecipeManager(); 
 $recipeId = $recipeManager->insertRecipe($recipe);
 $recipe = $recipeManager->getRecipeById($recipeId);

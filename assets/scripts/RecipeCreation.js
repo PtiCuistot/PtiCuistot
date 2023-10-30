@@ -30,7 +30,7 @@ function createIngredientData(addedDatas) {
 
 function submitForm(postData) {
     let tempForm = document.createElement('form');
-    tempForm.action = '../treatment/treatment_recipe.php';
+    tempForm.action = 'php/treatment/treatment_recipe.php';
     tempForm.method = 'POST';
 
     for (let key in postData) {
@@ -47,7 +47,7 @@ recipeForm.addEventListener('submit', function(e) {
     let recipeTitle = document.querySelector('input[name="recipeTitle"]').value;
     let recipeContent = document.getElementById("recipeContent").value;
     let recipeImage = document.querySelector('input[name="recipeImage"]').value;
-    let recipeCategory = document.getElementById('recipeCategory').value;
+    let recipeCategory = document.getElementById('recipeCategory').value; 
 
     let addedDatas = weightArray;
 
