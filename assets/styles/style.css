@@ -104,9 +104,10 @@ img {
 .svg-wrapper {
     width: 520px;  
     display: flex;
-  flex-direction: column;
-  align-items: center;
+    flex-direction: column;
+    align-items: center;
   }
+
   .shape {
     stroke-dasharray: 140 540;
     stroke-dashoffset: -60;
@@ -114,7 +115,7 @@ img {
     fill: transparent;
     stroke: #2a3990;
     border-bottom: 5px solid black;
-    transition: stroke-width 1s, stroke-dashoffset 1s, stroke-dasharray 1s;
+    transition: stroke-width 0.7s, stroke-dashoffset 0.7s, stroke-dasharray 0.7s;
   }
   .text {
     font-family: 'Roboto Condensed';
@@ -289,10 +290,10 @@ img {
 .CreateRecipeTitle{
     margin: 25px;
     font-size: 60px;
-    color: #000000;
 }
 
 .CreateRecipeTitleDiv{
+    color: var(--blue);
     display: block ruby;
     font-size: 60px;
 }
