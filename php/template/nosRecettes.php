@@ -20,10 +20,8 @@
                 </div>
             </div>
         </div>
-
         <div class="row" id="row">
         </div>
-
         <div class="py-5 text-right"><a href="#" class="btn btn-dark px-5 py-3 text-uppercase" id="ButtonShowMoreRecipe">Show me more</a></div>
     </div>
 </div>

@@ -39,7 +39,7 @@
 
                 foreach ($rm->getRecipes($limit) as $recipe) {
                     echo '
-                    <div id="DivRecipe0" class="col-xl-3 col-lg-4 col-md-6 mb-4 fade-in show" style="">
+                    <div id="DivRecipe0" class="col-xl-3 col-lg-4 col-md-6 mb-4 fade-in show" style="display: none;">
                         <div class="RecipFirstChild bg-white rounded shadow-sm" style="border: 1px solid black;">
                             <img src="' . $recipe->getImage() . '" alt="" class="RecipeImg img-fluid card-img-top">
                             <div class="RecipeDiv p-4">
@@ -67,4 +67,5 @@
         </div>
     </div>
 </form>
+<script src="../../assets/scripts/scriptRecipe.js"></script>
 <?php include_once('footer.php'); ?>
