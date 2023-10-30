@@ -270,7 +270,7 @@ specialSelect.addEventListener('blur', function() {
 const searchInput = document.getElementById("searchInput");
 
 searchInput.addEventListener("input", function () {
-  const textElements = document.querySelectorAll(".Elements .text");
+  const textElements = document.querySelectorAll(".Elements .textSpecialSelect");
   const searchText = searchInput.value.toLowerCase();
 
   textElements.forEach((element) => {
@@ -285,7 +285,7 @@ searchInput.addEventListener("input", function () {
 
 const childrenElements = document.getElementById("Elements").children;
 for (let i = 1; i < childrenElements.length; i++) {
-  if(childrenElements[i].classList.contains("text")){
+  if(childrenElements[i].classList.contains("textSpecialSelect")){
     childrenElements[i].addEventListener('click', function(event) {
       let contenu = document.createElement('p');
       contenu.innerText = this.innerText;
@@ -309,7 +309,7 @@ document.getElementById("CreateTag").addEventListener('input', function() {
 
 document.getElementById("addTagsButton").addEventListener('click', function() {
   var newParagraph = document.createElement('p');
-  newParagraph.classList.add("text");
+  newParagraph.classList.add("textSpecialSelect");
   newParagraph.textContent = document.getElementById("CreateTag").value;
 
   newParagraph.addEventListener('click', function(event) {
@@ -327,7 +327,7 @@ document.getElementById("addTagsButton").addEventListener('click', function() {
 
 function trierElementsAlphabetiquement() {
   const elementsDiv = document.getElementById("Elements");
-  const elements = Array.from(elementsDiv.querySelectorAll(".text"));
+  const elements = Array.from(elementsDiv.querySelectorAll(".textSpecialSelect"));
   elements.sort((a, b) => a.textContent.localeCompare(b.textContent));
   while (elementsDiv.firstChild) {
     elementsDiv.removeChild(elementsDiv.firstChild);

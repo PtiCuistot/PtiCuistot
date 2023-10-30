@@ -331,7 +331,8 @@ i:hover{
 .TagsDivGlobal{
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 100%;
+    margin-top: 20px;
   }
   
   .Tags{
@@ -365,7 +366,7 @@ i:hover{
     width: 100%;
   }
   
-  .SpecialSelect > .text:first-child{
+  .SpecialSelect > .textSpecialSelect:first-child{
     border: 1px solid black;
     border-radius: 10px;
     color: #000000;
@@ -375,7 +376,7 @@ i:hover{
     margin: 0;
   }
   
-  .SpecialSelect > .text:first-child:hover{
+  .SpecialSelect > .textSpecialSelect:first-child:hover{
     background-color: rgb(106, 101, 94) !important;
     color: #ffffff !important;
     cursor: pointer;
@@ -427,13 +428,13 @@ i:hover{
     width: 20%;
   }
   
-  .SpecialSelect > .Elements > .TextDiv > .text{
+  .SpecialSelect > .Elements > .TextDiv > .textSpecialSelect{
     margin: 0;
     text-align: left;
     padding-left: 5%;
   }
   
-  .SpecialSelect > .Elements > .TextDiv > .text:hover{
+  .SpecialSelect > .Elements > .TextDiv > .textSpecialSelect:hover{
     background-color: rgb(154, 150, 144);
     cursor: pointer;
   }

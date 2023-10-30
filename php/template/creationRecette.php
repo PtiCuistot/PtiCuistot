@@ -41,33 +41,43 @@
                             </div>
                         </div>
 
-                        <h2 class="h2Recipe">Tags et catégories</h2>
-                        <div class="form-group">
-                            <select class="custom-select" aria-placeholder="Selectionner une catégorie" id="recipeCategory" name="selectCategorie" required>
-                                <option value="">Sélectionner une catégorie pour votre recette</option>
-                                <?php
-                                $cm = new CategoryManager();
-                                foreach ($cm->getCategories() as $category) {
-                                    echo "<option value=" . $category[0]->getId() . ">" . $category[0]->getTitle() . "</option>";
-                                }
-                                ?>
-                            </select>
+                        <div class="svg-wrapper wrapperFormCreateRecipeTitle" style="width: auto;">
+                            <svg height="60" width="500" xmlns="http://www.w3.org/2000/svg" style="z-index: 5;">
+                                <rect class="shape" height="60" width="500" />
+                                <div class="text">Tags et catégories</div>
+                            </svg>
+                        </div>
+
+                        <div class="bg-white rounded shadow-sm p-4" style="border: 1px solid black;">
+                            <div class="form-group">
+                                <select class="custom-select" aria-placeholder="Selectionner une catégorie" id="recipeCategory" name="selectCategorie" required>
+                                    <option value="">Sélectionner une catégorie pour votre recette</option>
+                                    <?php
+                                    $cm = new CategoryManager();
+                                    foreach ($cm->getCategories() as $category) {
+                                        echo "<option value=" . $category[0]->getId() . ">" . $category[0]->getTitle() . "</option>";
+                                    }
+                                    ?>
+                                </select>
+                            </div>
 
                             <div class="TagsDivGlobal" id="SpecialSelectGlobalDiv">
                                 <div class="Tags" id="Tags"></div>
                                 <div class="SpecialSelect" name="SpecialSelect">
-                                    <p class="text">Selectionner un tag</p>
+                                    <p class="textSpecialSelect">Selectionner un tag</p>
                                     <div class="Elements">
                                         <div class="DivInputsSpecialSelect">
                                             <label class="LabelSpecialSelect" for="LabelSpecialSelect">Chercher un tag</label>
                                             <input name="LabelSpecialSelect" type="text" class="InputSpecialSelect" id="searchInput">
                                         </div>
                                         <div class="TextDiv" id="Elements">
-                                            <p class="text">Trop bon</p>
-                                            <p class="text">Bon</p>
-                                            <p class="text">Miam</p>
-                                            <p class="text">C</p>
-                                            <p class="text">D</p>
+                                            <p class="textSpecialSelect">Bon</p>
+                                            <p class="textSpecialSelect">Miam</p>
+                                            <p class="textSpecialSelect">Trop bon</p>
+                                            <p class="textSpecialSelect">Bon</p>
+                                            <p class="textSpecialSelect">Miam</p>
+                                            <p class="textSpecialSelect">C</p>
+                                            <p class="textSpecialSelect">D</p>
                                         </div>
                                         <div class="DivInputsSpecialSelect Bottom">
                                             <label class="LabelSpecialSelect" for="LabelSpecialSelect">Créer un tag</label>
