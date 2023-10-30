@@ -1,3 +1,5 @@
+
+
 // modal category
 const modalContainerCategory = document.querySelector(".modalContainerCategory");
 const modalTriggerCategory = document.querySelectorAll(".triggerCategory");
