@@ -397,6 +397,7 @@ document.getElementById("ingredientArrayGlobal").style.display = "none";
 
 
 const rateLabels = document.querySelectorAll('.rate');
+let rating = 0;
 
 rateLabels.forEach(function(label, index) {
   label.addEventListener('mouseover', function() {
@@ -417,6 +418,8 @@ rateLabels.forEach(function(label, index) {
         starIcon.classList.remove('star-over');
       }
     }
+    rating = index+1;
+    console.log(rating)
   });
 
   label.addEventListener('click', function() {
