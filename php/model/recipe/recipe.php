@@ -19,7 +19,7 @@ class Recipe
         $this->title = $title; 
         $this->content = $content; 
         $this->image = $image;
-        $this->note = $int;
+        $this->note = $note;
         $this->created = new DateTime($created);
         $this->updated = new DateTime($updated);
         $this->validate = $validate;
