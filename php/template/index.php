@@ -23,26 +23,18 @@
                 </svg>
             </div>
             <div class="scrollable-div">
-                <div class="inner-div">
-                    <img src="" alt="Image Recette">
-                    <p>AAA</p>
-                </div>
-                <div class="inner-div">
-                    <img src="" alt="Image Recette">
-                    <p>AAA</p>
-                </div>
-                <div class="inner-div">
-                    <img src="" alt="Image Recette">
-                    <p>AAA</p>
-                </div>
-                <div class="inner-div">
-                    <img src="" alt="Image Recette">
-                    <p>AAA</p>
-                </div>
-                <div class="inner-div">
-                    <img src="" alt="Image Recette">
-                    <p>AAA</p>
-                </div>
+                <?php
+                    $rm = new RecipeManager();
+                    foreach ($rm->getRecipes(10) as $recipe) 
+                    {
+                        echo '
+                        <div class="inner-div">
+                            <img src="'.$recipe->getImage().'" alt="Image Recette">
+                            <p>'.$recipe->getTitle().'</p>
+                        </div>
+                        ';
+                    }
+                ?>
             </div>
         </div>
         <div class="Edito">
@@ -50,7 +42,17 @@
                 <img src="assets/images/Pticuisto.png" alt="PtiCuisto img">
             </div>
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer imperdiet congue neque non vulputate. Duis ultricies iaculis tincidunt. Vivamus a pellentesque sem. Nam tempus et metus in tempor. Nunc venenatis, risus fermentum sagittis vestibulum, eros nibh vehicula quam, in mattis augue lorem in magna. Nullam id nibh interdum, accumsan tellus sit amet, imperdiet turpis. Morbi ullamcorper dui ut ligula dignissim porttitor. Pellentesque quam libero, vehicula vitae fermentum eget, volutpat sit amet magna. Sed aliquet, purus non mattis semper, velit tortor dapibus mi, in tempor urna lacus sagittis ligula.
+<b>Salut à tou·te·s</b>,
+
+Bienvenue sur PtiCuisto, l'endroit idéal pour les amoureux·ses de la cuisine en quête d'inspiration. Ici, pas de formalités ni de recettes complexes, juste de la cuisine accessible à tou·te·s, quel que soit votre âge.
+
+Sur PtiCuisto, nous sommes tou·te·s là pour apprendre et partager sans crainte de la critique. C'est un espace où l'expérimentation est encouragée, les erreurs sont des opportunités d'apprentissage, et les succès sont à célébrer ensemble.
+
+Alors, prenez votre tablier, lancez-vous en cuisine, et rejoignez la communauté PtiCuisto pour un voyage culinaire rempli de découvertes, de plaisirs gustatifs et de partage. Nous avons hâte de voir vos créations et d'entendre vos idées, car PtiCuisto, c'est avant tout une grande famille de passionné·e·s de cuisine, curieux·ses et anonymes.
+
+Bonne cuisine et à bientôt sur PtiCuisto !
+
+L'équipe de PtiCuisto
             </p>
         </div>
     </div>
