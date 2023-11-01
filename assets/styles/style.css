@@ -355,6 +355,12 @@ i:hover{
     justify-content: center;
     animation : slide-in-top 0.5s normal;
 }
+
+.CheckListTags{
+    margin-right: 2%;
+    color: var(--blue);
+    visibility: hidden;
+}
   
 .SpecialSelect{
     display: flex;

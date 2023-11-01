@@ -254,6 +254,7 @@ document.addEventListener('click', function(event) {
     for(let i = 0; i < document.getElementById("Tags").children.length; i++){
       TagsArray.push([document.getElementById("Tags").children[i].id, document.getElementById("Tags").children[i].innerText]);
       console.log(TagsArray[i])
+      console.log(document.getElementById("Tags").children[i])
     }
 
     let cmpt = 0;
@@ -292,28 +293,31 @@ searchInput.addEventListener("input", function () {
 /* Add of Tags in the top*/
 const childrenElements = document.getElementById("Elements").children;
 for (let i = 0; i < childrenElements.length; i++) {
-  if(childrenElements[i].classList.contains("textSpecialSelect")){
-    childrenElements[i].addEventListener('click', function(event) {
-      let alreadyHere = 0;
-      for(let j = 0; j < document.getElementById('Tags').children.length; j++){
-        if(document.getElementById('Tags').children[j].id == childrenElements[i].id){
-          alreadyHere = 1; 
-        }
+  childrenElements[i].addEventListener('click', function() {
+    let alreadyHere = 0;
+    for(let j = 0; j < document.getElementById('Tags').children.length; j++){
+      if(document.getElementById('Tags').children[j].id == this.id){
+        alreadyHere = 1; 
       }
-      if(alreadyHere == 0){
-        let contenu = document.createElement('button');
-        contenu.classList.add("btn");
-        contenu.classList.add("btn-info");
-        contenu.innerText = this.innerText;
-        contenu.id = childrenElements[i].id;
-        document.getElementById('Tags').appendChild(contenu);
-  
-        contenu.addEventListener('click', function() {
-          this.remove();
-        });
-      }
-    });
-  }
+    }
+
+    if(alreadyHere == 0){
+      document.getElementById("CheckListTags" + this.id).style.visibility = "visible";
+
+      let contenu = document.createElement('button');
+      contenu.classList.add("btn");
+      contenu.classList.add("btn-info");
+      contenu.innerText = this.innerText;
+      contenu.id = this.id;
+      document.getElementById('Tags').appendChild(contenu);
+
+      contenu.addEventListener('click', function(event) {
+        document.getElementById("CheckListTags" + this.id).style.visibility = "hidden";
+        event.stopPropagation();
+        this.remove();
+      });
+    }
+  });
 }
 
 /* Disable or Enable button Add Tags if input is void or not*/
@@ -331,6 +335,10 @@ document.getElementById("addTagsButton").addEventListener('click', function() {
   newParagraph.id = document.getElementById("CreateTag").value;
   newParagraph.classList.add("textSpecialSelect");
   newParagraph.textContent = document.getElementById("CreateTag").value;
+  const icon = document.createElement('i');
+  icon.className = 'fa-regular fa-circle-check CheckListTags';
+  icon.id = "CheckListTags" + document.getElementById("CreateTag").value;
+  newParagraph.insertBefore(icon, newParagraph.firstChild);
 
   newParagraph.addEventListener('click', function(event) {
     let alreadyHere = 0;
@@ -340,14 +348,19 @@ document.getElementById("addTagsButton").addEventListener('click', function() {
       }
     }
     if(alreadyHere == 0){
+      console.log("CheckListTags" + this.id);
+      document.getElementById("CheckListTags" + this.id).style.visibility = "visible";
+
       let contenu = document.createElement('button');
       contenu.classList.add("btn");
       contenu.classList.add("btn-info");
-      contenu.innerText = this.innerText;
+      contenu.innerText = newParagraph.innerText;
       contenu.id = newParagraph.innerText;
       document.getElementById('Tags').appendChild(contenu);
 
-      contenu.addEventListener('click', function() {
+      contenu.addEventListener('click', function(event) {
+        document.getElementById("CheckListTags" + this.id).style.visibility = "hidden";
+        event.stopPropagation();
         this.remove();
       });
     }

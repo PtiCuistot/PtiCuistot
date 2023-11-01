@@ -74,7 +74,7 @@
                                             <?php
                                                 $tag = new TagManager();
                                                 foreach ($tag->getTags() as $tags) {
-                                                    echo '<p class="textSpecialSelect" id =' . $tags->getId() . ">" . $tags->getContent() . "</p>";
+                                                    echo '<p class="textSpecialSelect" id =' . $tags->getId() . '><i class="fa-regular fa-circle-check CheckListTags" id="CheckListTags' . $tags->getId() . '"></i>' . $tags->getContent() . "</p>";
                                                 }
                                             ?>
                                         </div>
