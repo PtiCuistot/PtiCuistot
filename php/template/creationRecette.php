@@ -64,7 +64,7 @@
                             <div class="TagsDivGlobal" id="SpecialSelectGlobalDiv">
                                 <div class="Tags" id="Tags"></div>
                                 <div class="SpecialSelect" name="SpecialSelect">
-                                    <p class="textSpecialSelect">Selectionner un tag</p>
+                                    <button type="button" class="btn btn-info textSpecialSelect">Selectionner un tag</button>
                                     <div class="Elements">
                                         <div class="DivInputsSpecialSelect">
                                             <label class="LabelSpecialSelect" for="LabelSpecialSelect">Chercher un tag</label>

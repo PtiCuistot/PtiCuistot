@@ -229,44 +229,45 @@ function checkFormValidity() {
 }
 
 const specialSelect = document.querySelector('.SpecialSelect');
-const children = specialSelect.children;
 
-for (let i = 1; i < children.length; i++) {
-  children[i].style.display = 'none';
-}
-
+/* OnClick display children */
 specialSelect.addEventListener('click', function() {
-  const children = this.children;
-  for (let i = 1; i < children.length; i++) {
-    children[i].style.display = 'block';
+  let cmpt = 0;
+  specialSelect.children[1].style.display = 'block';
+  let childrenOpen = specialSelect.children[1].children;
+  for (let i = 0; i < childrenOpen.length; i++) {
+    cmpt++;
+    childrenOpen[i].style.animation = "slide-in-top " + (cmpt+1)/15 + "s cubic-bezier(.25,.46,.45,.94) both"
+    let childrenOpen2 = childrenOpen[i].children;
+    for (let j = 0; j < childrenOpen2.length; j++) {
+      cmpt++;
+      childrenOpen2[j].style.animation = "slide-in-top " + (cmpt+1)/15 + "s cubic-bezier(.25,.46,.45,.94) both"
+    }
   }
-
-  children[0].style.backgroundColor = "rgb(106, 101, 94)";
-  children[0].style.color = "#ffffff";
 });
 
+/* On exterior Click animate display none of children for smooth exit*/
 document.addEventListener('click', function(event) {
   if (!document.getElementById("SpecialSelectGlobalDiv").contains(event.target)) {
-    const children = specialSelect.children;
-    for (let i = 1; i < children.length; i++) {
-      children[i].style.display = 'none';
+    let cmpt = 0;
+    let childrenExit = specialSelect.children[1].children;
+    for (let i = 0; i < childrenExit.length; i++) {
+      cmpt++;
+      childrenExit[i].style.animation = "slide-out-top " + (cmpt+1)/15 + "s cubic-bezier(.55,.085,.68,.53) both"
+      let childrenExit2 = childrenExit[i].children;
+      for (let j = 0; j < childrenExit2.length; j++) {
+        cmpt++;
+        childrenExit2[j].style.animation = "slide-out-top " + (cmpt+1)/15 + "s cubic-bezier(.55,.085,.68,.53) both"
+      }
     }
-
-    children[0].style.backgroundColor = "transparent";
-    children[0].style.color = "#000000";
+    setTimeout(() => {
+      specialSelect.children[1].style.display = 'none';
+    }, ((cmpt+1)/15) * 1000);
   }
 });
 
-specialSelect.addEventListener('focus', function() {
-  // Le menu déroulant est en cours d'ouverture
-});
-
-specialSelect.addEventListener('blur', function() {
-  // Le menu déroulant est en cours de fermeture
-});
-
+/* SearchInput Scripts*/
 const searchInput = document.getElementById("searchInput");
-
 searchInput.addEventListener("input", function () {
   const textElements = document.querySelectorAll(".Elements .textSpecialSelect");
   const searchText = searchInput.value.toLowerCase();
@@ -281,13 +282,15 @@ searchInput.addEventListener("input", function () {
   });
 });
 
+/* Add of Tags in the top*/
 const childrenElements = document.getElementById("Elements").children;
 for (let i = 0; i < childrenElements.length; i++) {
   if(childrenElements[i].classList.contains("textSpecialSelect")){
     childrenElements[i].addEventListener('click', function(event) {
-      let contenu = document.createElement('p');
+      let contenu = document.createElement('button');
+      contenu.classList.add("btn");
+      contenu.classList.add("btn-info");
       contenu.innerText = this.innerText;
-      console.log(this.innerText)
       document.getElementById('Tags').appendChild(contenu);
 
       contenu.addEventListener('click', function() {
@@ -297,6 +300,7 @@ for (let i = 0; i < childrenElements.length; i++) {
   }
 }
 
+/* Disable or Enable button Add Tags if input is void or not*/
 document.getElementById("CreateTag").addEventListener('input', function() {
   if(this.value != ""){
     document.getElementById("addTagsButton").disabled = false;
@@ -305,13 +309,16 @@ document.getElementById("CreateTag").addEventListener('input', function() {
   }
 });
 
+/* Create a new Tags in the list with the button CreateTags*/
 document.getElementById("addTagsButton").addEventListener('click', function() {
   var newParagraph = document.createElement('p');
   newParagraph.classList.add("textSpecialSelect");
   newParagraph.textContent = document.getElementById("CreateTag").value;
 
   newParagraph.addEventListener('click', function(event) {
-    let contenu = document.createElement('p');
+    let contenu = document.createElement('button');
+    contenu.classList.add("btn");
+    contenu.classList.add("btn-info");
     contenu.innerText = this.innerText;
     document.getElementById('Tags').appendChild(contenu);
 
@@ -319,10 +326,11 @@ document.getElementById("addTagsButton").addEventListener('click', function() {
       this.remove();
     });
   });
-  document.getElementById('Elements').insertBefore(newParagraph, document.getElementById('Elements').lastChild);
+  document.getElementById('Elements').appendChild(newParagraph);
   trierElementsAlphabetiquement();
 });
 
+/* Sort List*/
 function trierElementsAlphabetiquement() {
   const elementsDiv = document.getElementById("Elements");
   const elements = Array.from(elementsDiv.querySelectorAll(".textSpecialSelect"));
@@ -335,7 +343,13 @@ function trierElementsAlphabetiquement() {
   });
 }
 
+/* Start do not display children */
+let children = specialSelect.children;
+for (let i = 1; i < children.length; i++) {
+  children[i].style.display = 'none';
+}
 trierElementsAlphabetiquement();
+
 
 document.getElementById("ingredientNameCol").style.display = "none";
 document.getElementById("ingredientArrayGlobal").style.display = "none";
