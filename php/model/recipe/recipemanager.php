@@ -19,6 +19,7 @@ class RecipeManager extends Manager
                 $row['REP_TITLE'],
                 $row['REP_CONTENT'],
                 $row['REP_IMAGE'],
+                $row['REP_NOTE'], 
                 $row['REP_CREATED'],
                 $row['REP_UPDATED'],
                 $row['REP_VALIDATE'],
@@ -41,6 +42,7 @@ class RecipeManager extends Manager
                 $row['REP_TITLE'],
                 $row['REP_CONTENT'],
                 $row['REP_IMAGE'],
+                $row['REP_NOTE'], 
                 $row['REP_CREATED'],
                 $row['REP_UPDATED'],
                 $row['REP_VALIDATE'],
@@ -62,6 +64,7 @@ class RecipeManager extends Manager
                 $row['REP_TITLE'],
                 $row['REP_CONTENT'],
                 $row['REP_IMAGE'],
+                $row['REP_NOTE'], 
                 $row['REP_CREATED'],
                 $row['REP_UPDATED'],
                 $row['REP_VALIDATE'],
@@ -74,13 +77,14 @@ class RecipeManager extends Manager
 
     public function insertRecipe(Recipe $recipe)
     {
-        $query = "INSERT INTO PC_RECIPE(US_ID, REP_TITLE, REP_CONTENT, REP_IMAGE, REP_VALIDATE, REP_STATUT, CAT_ID) VALUES(?, ?, ?, ?, ?, 1, ?)";
+        $query = "INSERT INTO PC_RECIPE(US_ID, REP_TITLE, REP_CONTENT, REP_IMAGE, REP_NOTE, REP_VALIDATE, REP_STATUT, CAT_ID) VALUES(?, ?, ?, ?, ?, ?, 1, ?)";
         $statement = $this->pdo->prepare($query);
         $statement->execute([
             intval($recipe->getUserId()),
             $recipe->getTitle(),
             $recipe->getContent(),
             $recipe->getImage(),
+            $recipe->getNote(),
             $recipe->getValidate(),
             intval($recipe->getCatId())
         ]);
@@ -94,7 +98,7 @@ class RecipeManager extends Manager
 
     public function updateRecipe(Recipe $recipe)
     {
-        $query = "UPDATE PC_RECIPE SET REP_TITLE = ?, REP_CONTENT = ?, REP_IMAGE = ?, REP_UPDATED = CURRENT_TIMESTAMP(), REP_VALIDATE = ?, REP_STATUT = ?, REP_CAT_ID = ? WHERE REP_ID = ?";
+        $query = "UPDATE PC_RECIPE SET REP_TITLE = ?, REP_CONTENT = ?, REP_IMAGE = ?, REP_NOTE = ?, REP_UPDATED = CURRENT_TIMESTAMP(), REP_VALIDATE = ?, REP_STATUT = ?, REP_CAT_ID = ? WHERE REP_ID = ?";
         $title = $this->pdo->quote($recipe->getTitle());
         $content = $this->pdo->quote($recipe->getContent());
         $image = $this->pdo->quote($recipe->getImage());
@@ -103,7 +107,7 @@ class RecipeManager extends Manager
         $catId = intval($recipe->getCatId());
         $id = $recipe->getId();
 
-        $query = "UPDATE PC_RECIPE SET REP_TITLE = $title, REP_CONTENT = $content, REP_IMAGE = $image, REP_UPDATED = CURRENT_TIMESTAMP(), REP_VALIDATE = $validate, REP_STATUT = $statut, CAT_ID = $catId WHERE REP_ID = $id";
+        $query = "UPDATE PC_RECIPE SET REP_TITLE = $title, REP_CONTENT = $content, REP_IMAGE = $image, REP_NOTE = ".$recipe->getNote()." REP_UPDATED = CURRENT_TIMESTAMP(), REP_VALIDATE = $validate, REP_STATUT = $statut, CAT_ID = $catId WHERE REP_ID = $id";
 
         $this->pdo->query($query);
     }
@@ -160,6 +164,7 @@ class RecipeManager extends Manager
                 $row['REP_TITLE'],
                 $row['REP_CONTENT'],
                 $row['REP_IMAGE'],
+                $row['REP_NOTE'],
                 $row['REP_CREATED'],
                 $row['REP_UPDATED'],
                 $row['REP_VALIDATE'],
@@ -181,6 +186,7 @@ class RecipeManager extends Manager
                 $row['REP_TITLE'],
                 $row['REP_CONTENT'],
                 $row['REP_IMAGE'],
+                $row['REP_NOTE'],
                 $row['REP_CREATED'],
                 $row['REP_UPDATED'],
                 $row['REP_VALIDATE'],
@@ -205,6 +211,7 @@ class RecipeManager extends Manager
                 $row['REP_TITLE'],
                 $row['REP_CONTENT'],
                 $row['REP_IMAGE'],
+                $row['REP_NOTE'],
                 $row['REP_CREATED'],
                 $row['REP_UPDATED'],
                 $row['REP_VALIDATE'],

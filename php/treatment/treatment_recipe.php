@@ -11,7 +11,7 @@ include_once("../model/ingredientWeight/ingredientweightmanager.php");
 include_once("../model/tag/tag.php");
 include_once("../model/tag/tagmanager.php");
 
-$recipe = new Recipe(1, $_POST["recipeTitle"], $_POST["recipeContent"], $_POST["recipeImage"], date('Y-m-d'), date('Y-m-d'), 0, $_POST['recipeCategory']);
+$recipe = new Recipe(1, $_POST["recipeTitle"], $_POST["recipeContent"], $_POST["recipeImage"], 3, date('Y-m-d'), date('Y-m-d'), 0, $_POST['recipeCategory']); //TODO UPDATE WHEN NOTE IMPLEMENTSw
 $recipeManager = new RecipeManager(); 
 $recipeId = $recipeManager->insertRecipe($recipe);
 $recipe = $recipeManager->getRecipeById($recipeId);
