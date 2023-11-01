@@ -69,7 +69,7 @@ class TagManager extends Manager
         $request = "INSERT INTO PC_TAGS(TA_CONTENT, TA_STATUT) VALUES (?, ?)";
         $statement = $this->pdo->prepare($request); 
         $statement->execute([$tag->getContent(), $tag->getStatut()]);
-        foreach($this->pdo->query("SELECT MAX(TAG_ID) max FROM PC_TAGS") as $row)
+        foreach($this->pdo->query("SELECT MAX(TA_ID) max FROM PC_TAGS") as $row)
         {
             return intval($row['max']);
         }

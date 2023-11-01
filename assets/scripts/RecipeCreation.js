@@ -50,13 +50,15 @@ recipeForm.addEventListener('submit', function(e) {
     let recipeCategory = document.getElementById('recipeCategory').value; 
 
     let addedDatas = weightArray;
+    let addedTag = TagsArray;
 
     let postData = {
         recipeTitle: recipeTitle,
         recipeContent: recipeContent,
         recipeImage: recipeImage,
         recipeCategory: recipeCategory,
-        ingredientData: createIngredientData(addedDatas)
+        ingredientData: createIngredientData(addedDatas), 
+        tagData:  JSON.stringify(addedTag)
     };
 
     submitForm(postData);
