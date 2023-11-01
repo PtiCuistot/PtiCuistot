@@ -324,10 +324,6 @@ i{
     transition: transform 0.3s ease-in-out;
 }
 
-i:hover{
-    animation: sautillement 0.5s infinite;
-}
-
 #submitButton, #addIngredientButton{
     color: white !important;
 }
@@ -436,47 +432,6 @@ i:hover{
     cursor: pointer;
 }
 
-@keyframes slide-in-top {
-0% {
-    -webkit-transform: translateY(10%);
-            transform: translateY(10%);
-            -webkit-filter: blur(12px);
-            filter: blur(12px);
-    opacity: 0;
-}
-100% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-            -webkit-filter: blur(0px);
-            filter: blur(0px);
-    opacity: 1;
-}
-}
-
-@keyframes slide-out-top {
-0% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-    opacity: 1;
-}
-100% {
-    -webkit-transform: translateY(10%);
-            transform: translateY(10%);
-    opacity: 0;
-}
-}
-@keyframes text-focus-in {
-0% {
-    -webkit-filter: blur(12px);
-            filter: blur(12px);
-    opacity: 0;
-}
-100% {
-    -webkit-filter: blur(0px);
-            filter: blur(0px);
-    opacity: 1;
-}
-}
 /* END of creationRecette */
 
 /* Animation */
@@ -514,6 +469,49 @@ i:hover{
         transform: translateY(-10px); /* Ajustez la distance du sautillement verticalement */
     }
 }
+
+
+@keyframes slide-in-top {
+    0% {
+        -webkit-transform: translateY(10%);
+                transform: translateY(10%);
+                -webkit-filter: blur(12px);
+                filter: blur(12px);
+        opacity: 0;
+    }
+    100% {
+        -webkit-transform: translateY(0);
+                transform: translateY(0);
+                -webkit-filter: blur(0px);
+                filter: blur(0px);
+        opacity: 1;
+    }
+    }
+    
+    @keyframes slide-out-top {
+    0% {
+        -webkit-transform: translateY(0);
+                transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        -webkit-transform: translateY(10%);
+                transform: translateY(10%);
+        opacity: 0;
+    }
+    }
+    @keyframes text-focus-in {
+    0% {
+        -webkit-filter: blur(12px);
+                filter: blur(12px);
+        opacity: 0;
+    }
+    100% {
+        -webkit-filter: blur(0px);
+                filter: blur(0px);
+        opacity: 1;
+    }
+    }
 /* END of Animation */
 
 @media screen and (max-width: 999px) {
