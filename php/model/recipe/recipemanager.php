@@ -112,11 +112,18 @@ class RecipeManager extends Manager
     {
         $query = "INSERT INTO PC_TAG_REFERENCE (REP_ID, TA_ID, TA_CONTENT) VALUES (?, ?, ?)"; 
         $statement = $this->pdo->prepare($query);
-        $statement->execute([
-            $recipe->getId(), 
-            $tag->getId(), 
-            $tag->getContent()
-        ]);
+        
+        try
+        {
+            $statement->execute([
+                $recipe->getId(), 
+                $tag->getId(), 
+                $tag->getContent()
+            ]);
+        }catch(PDOException $e)
+        {
+            return;
+        }
     }
 
     public function getTag(Recipe $recipe)

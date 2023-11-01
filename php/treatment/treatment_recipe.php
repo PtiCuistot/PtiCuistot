@@ -43,8 +43,6 @@ foreach($ingredientData as $id => $data)
 foreach($tagData as $id => $data)
 {
 
-    print_r($data);
-
     if(intval($data[0]) != 0)
     {
         $t = $tagManager->getTagById(intval($data[0])); 
@@ -52,12 +50,12 @@ foreach($tagData as $id => $data)
     }
     else
     {
-        echo $data[0];
+
         $t = new Tag($data[0], 1); 
         $t = $tagManager->getTagById($tagManager->insertTag($t));
         $recipeManager->addTag($recipe, $t);                
     }
 }
 
-header('Location: recipe.php');
+header('Location: ../../recipe.php');
 ?>
