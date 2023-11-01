@@ -72,10 +72,10 @@
                                         </div>
                                         <div class="TextDiv" id="Elements">
                                             <?php
-                                                $tag = new TagManager();
-                                                foreach ($tag->getTags() as $tags) {
-                                                    echo '<p class="textSpecialSelect" id =' . $tags->getId() . '><i class="fa-regular fa-circle-check CheckListTags" id="CheckListTags' . $tags->getId() . '"></i>' . $tags->getContent() . "</p>";
-                                                }
+                                            $tag = new TagManager();
+                                            foreach ($tag->getTags() as $tags) {
+                                                echo '<p class="textSpecialSelect" id =' . $tags->getId() . '><i class="fa-regular fa-circle-check CheckListTags" id="CheckListTags' . $tags->getId() . '"></i>' . $tags->getContent() . "</p>";
+                                            }
                                             ?>
                                         </div>
                                         <div class="DivInputsSpecialSelect Bottom">
@@ -147,6 +147,39 @@
                                 <tbody id="ingredientArray">
                                 </tbody>
                             </table>
+                        </div>
+
+                        <div class="svg-wrapper wrapperFormCreateRecipeTitle" style="width: auto;">
+                            <svg height="60" width="500" xmlns="http://www.w3.org/2000/svg" style="z-index: 5;">
+                                <rect class="shape" height="60" width="500" />
+                                <div class="text">Notation de la recette</div>
+                            </svg>
+                        </div>
+                        <div class="bg-white rounded shadow-sm p-4" style="border: 1px solid black;">
+                            <div class="wrap">
+                                <div class="stars" id="Rating">
+                                    <label class="rate">
+                                        <p class="face">Très Simple</p>
+                                        <i class="far fa-star star one-star"></i>
+                                    </label>
+                                    <label class="rate">
+                                        <p class="face">Simple</p>
+                                        <i class="far fa-star star two-star"></i>
+                                    </label>
+                                    <label class="rate">
+                                        <p class="face">Medium</p>
+                                        <i class="far fa-star star three-star"></i>
+                                    </label>
+                                    <label class="rate">
+                                        <p class="face">Difficile</p>
+                                        <i class="far fa-star star four-star"></i>
+                                    </label>
+                                    <label class="rate">
+                                        <p class="face">Très Difficile</p>
+                                        <i class="far fa-star star five-star"></i>
+                                    </label>
+                                </div>
+                            </div>
                         </div>
 
                         <input type="submit" value="Créer ma recette" id="submitButton" class="btn btn-success btn-lg btn-block px-5 py-3 submitButtonCreationRecipe" disabled></input>

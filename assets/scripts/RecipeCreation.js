@@ -394,3 +394,44 @@ trierElementsAlphabetiquement();
 
 document.getElementById("ingredientNameCol").style.display = "none";
 document.getElementById("ingredientArrayGlobal").style.display = "none";
+
+
+const rateLabels = document.querySelectorAll('.rate');
+
+rateLabels.forEach(function(label, index) {
+  label.addEventListener('mouseover', function() {
+    for (let i = 0; i < index + 1; i++) {
+      const prevLabel = rateLabels[i];
+      const starIcon = prevLabel.querySelector('i');
+      if (!starIcon.classList.contains("fa-solid")) {
+        starIcon.classList.add('star-over');
+      }
+    }
+  });
+
+  label.addEventListener('mouseout', function() {
+    for (let i = 0; i < index + 1; i++) {
+      const prevLabel = rateLabels[i];
+      const starIcon = prevLabel.querySelector('i');
+      if (starIcon) {
+        starIcon.classList.remove('star-over');
+      }
+    }
+  });
+
+  label.addEventListener('click', function() {
+    const starElements = document.querySelectorAll('.star');
+    starElements.forEach(function(starElement) {
+      starElement.classList.remove('fa-solid');
+    });
+
+    for (let i = 0; i < index + 1; i++) {
+      const prevLabel = rateLabels[i];
+      const starIcon = prevLabel.querySelector('i');
+      if (starIcon) {
+        starIcon.classList.add('fa-solid');
+      }
+    }
+  });
+});
+
