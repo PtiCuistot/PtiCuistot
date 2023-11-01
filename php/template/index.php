@@ -42,9 +42,7 @@
                 <img src="assets/images/Pticuisto.png" alt="PtiCuisto img">
             </div>
             <p>
-            Bien sûr, voici l'édito pour le site PtiCuisto avec une écriture inclusive :
-
-Salut à tou·te·s,
+<b>Salut à tou·te·s</b>,
 
 Bienvenue sur PtiCuisto, l'endroit idéal pour les amoureux·ses de la cuisine en quête d'inspiration. Ici, pas de formalités ni de recettes complexes, juste de la cuisine accessible à tou·te·s, quel que soit votre âge.
 
