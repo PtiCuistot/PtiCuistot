@@ -252,7 +252,8 @@ const TagsArray = [];
 document.addEventListener('click', function(event) {
   if (!document.getElementById("SpecialSelectGlobalDiv").contains(event.target)) {
     for(let i = 0; i < document.getElementById("Tags").children.length; i++){
-      TagsArray.push([i, document.getElementById("Tags").children[i].innerText]);
+      TagsArray.push([document.getElementById("Tags").children[i].id, document.getElementById("Tags").children[i].innerText]);
+      console.log(TagsArray[i])
     }
 
     let cmpt = 0;
@@ -293,15 +294,24 @@ const childrenElements = document.getElementById("Elements").children;
 for (let i = 0; i < childrenElements.length; i++) {
   if(childrenElements[i].classList.contains("textSpecialSelect")){
     childrenElements[i].addEventListener('click', function(event) {
-      let contenu = document.createElement('button');
-      contenu.classList.add("btn");
-      contenu.classList.add("btn-info");
-      contenu.innerText = this.innerText;
-      document.getElementById('Tags').appendChild(contenu);
-
-      contenu.addEventListener('click', function() {
-        this.remove();
-      });
+      let alreadyHere = 0;
+      for(let j = 0; j < document.getElementById('Tags').children.length; j++){
+        if(document.getElementById('Tags').children[j].id == childrenElements[i].id){
+          alreadyHere = 1; 
+        }
+      }
+      if(alreadyHere == 0){
+        let contenu = document.createElement('button');
+        contenu.classList.add("btn");
+        contenu.classList.add("btn-info");
+        contenu.innerText = this.innerText;
+        contenu.id = childrenElements[i].id;
+        document.getElementById('Tags').appendChild(contenu);
+  
+        contenu.addEventListener('click', function() {
+          this.remove();
+        });
+      }
     });
   }
 }
@@ -318,19 +328,29 @@ document.getElementById("CreateTag").addEventListener('input', function() {
 /* Create a new Tags in the list with the button CreateTags*/
 document.getElementById("addTagsButton").addEventListener('click', function() {
   var newParagraph = document.createElement('p');
+  newParagraph.id = document.getElementById("CreateTag").value;
   newParagraph.classList.add("textSpecialSelect");
   newParagraph.textContent = document.getElementById("CreateTag").value;
 
   newParagraph.addEventListener('click', function(event) {
-    let contenu = document.createElement('button');
-    contenu.classList.add("btn");
-    contenu.classList.add("btn-info");
-    contenu.innerText = this.innerText;
-    document.getElementById('Tags').appendChild(contenu);
+    let alreadyHere = 0;
+    for(let i = 0; i < document.getElementById('Tags').children.length; i++){
+      if(document.getElementById('Tags').children[i].id == newParagraph.innerText){
+        alreadyHere = 1; 
+      }
+    }
+    if(alreadyHere == 0){
+      let contenu = document.createElement('button');
+      contenu.classList.add("btn");
+      contenu.classList.add("btn-info");
+      contenu.innerText = this.innerText;
+      contenu.id = newParagraph.innerText;
+      document.getElementById('Tags').appendChild(contenu);
 
-    contenu.addEventListener('click', function() {
-      this.remove();
-    });
+      contenu.addEventListener('click', function() {
+        this.remove();
+      });
+    }
   });
   document.getElementById('Elements').appendChild(newParagraph);
   trierElementsAlphabetiquement();
