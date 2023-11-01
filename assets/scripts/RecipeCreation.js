@@ -246,9 +246,15 @@ specialSelect.addEventListener('click', function() {
   }
 });
 
+const TagsArray = [];
+
 /* On exterior Click animate display none of children for smooth exit*/
 document.addEventListener('click', function(event) {
   if (!document.getElementById("SpecialSelectGlobalDiv").contains(event.target)) {
+    for(let i = 0; i < document.getElementById("Tags").children.length; i++){
+      TagsArray.push([i, document.getElementById("Tags").children[i].innerText]);
+    }
+
     let cmpt = 0;
     let childrenExit = specialSelect.children[1].children;
     for (let i = 0; i < childrenExit.length; i++) {
