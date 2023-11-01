@@ -56,6 +56,7 @@ recipeForm.addEventListener('submit', function(e) {
         recipeTitle: recipeTitle,
         recipeContent: recipeContent,
         recipeImage: recipeImage,
+        recipeNote: rating,
         recipeCategory: recipeCategory,
         ingredientData: createIngredientData(addedDatas), 
         tagData:  JSON.stringify(addedTag)
