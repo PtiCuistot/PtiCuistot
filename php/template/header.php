@@ -25,11 +25,11 @@
                     if(isset($_SESSION['userId']))
                     {
                         $um = new UserManager();
-                        echo '<li><a href="registration.php">'.$um->getUserById(intval($_SESSION['userId']))->getUsername().'</a></li>';
+                        echo '<li><a href="login.php">'.$um->getUserById(intval($_SESSION['userId']))->getUsername().'</a></li>';
                     }
                     else 
                     {
-                        echo '<li><a href="registration.php">Login</a></li>';
+                        echo '<li><a href="registration.php">Créer un compte</a></li>';
                     }
 
                     if(isset($_SESSION['admin']) && $_SESSION['admin'] == true)
