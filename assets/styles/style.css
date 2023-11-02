@@ -36,7 +36,7 @@ footer{
 
 /* Index */
 .Content {
-    height: 100vh;
+    height: 100%;
     width: 100%;
     display: block;
 }
@@ -58,7 +58,6 @@ footer{
 }
 
 .Content > .TwoRow > div {
-    height: 100%;
     width: 50%;
     border: 1px solid var(--grey);
     border-radius: 25px;
@@ -66,6 +65,7 @@ footer{
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     padding: 1%;
 }
 
@@ -75,7 +75,7 @@ footer{
 }
 
 .Content > .TwoRow > .Edito > .center {
-    height: 60%;
+    height: 50%;
 }
 
 img {
@@ -139,7 +139,7 @@ img {
   }
 
   .carouselOpacity:hover{
-    color: var(--blue);
+    background-color: rgba(255, 255, 255, 0.1);
   }
 
   #carouselMaterialStyle{
@@ -152,6 +152,9 @@ img {
     border-radius: 10px;
   }
 
+  .center > img{
+    width: 80%;
+    }
 /* END of Index */
 
 /* 404 */
@@ -250,10 +253,6 @@ img {
     background: linear-gradient(to right, #a770ef, #cf8bf3, #fdb99b);
 }
 
-.RecipeImg{
-    height: 300px;
-}
-
 #ButtonShowMoreRecipe, #CreateRecipeLinkButton{
     width: 49%;
 }
@@ -293,6 +292,11 @@ img {
 /* END of detailRecette */
 
 /* creationRecette */
+
+.margin-bottom{
+    margin-bottom: 1rem !important;
+}
+
 #recipeContent{
     resize: none;
 }
@@ -349,6 +353,10 @@ i{
 
 #addTagsButton{
     color: white;
+}
+
+.form-group {
+    margin-bottom: 0;
 }
   
 .TagsDivGlobal{
@@ -520,6 +528,10 @@ i{
 .rate:hover .face {
 	opacity: 1;
 }
+
+.SelectIngredient > .col{
+    margin-bottom: 20px;
+}
 /* END of creationRecette */
 
 /* Animation */
@@ -615,6 +627,79 @@ i{
     .Content > .TwoRow > div {
         width: 100%;
         height: 50%;
+    }
+
+    .container{
+        max-width: 100% !important;
+        padding: 0 !important;
+    }
+
+    .CreateRecipeTitleDiv {
+        display: flex;
+        font-size: 5vw;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .CreateRecipeTitle {
+        font-size: 7vw;
+    }
+
+    .SelectIngredient{
+        flex-direction: column;
+    }
+
+    #submitButton{
+        font-size: 7vw;
+        margin-bottom: 25px;
+    }
+
+    .table {
+        margin: 0;
+    }
+    
+    .table th,
+    .table td {
+        padding: 3px;
+        font-size: 2vw;
+    }
+
+    #buttonDelete1{
+        font-size: 2vw;
+        padding: 5px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .svg-wrapper > svg{
+        display: none;
+    }
+    
+    .text {
+        top: 0;
+        margin-bottom: 20px;
+        font-size: 6vw;
+        letter-spacing: 5px;
+        line-height: 25px;
+    }
+
+    .card-body {
+        padding: 0 !important;
+    }
+
+    .center > img{
+        width: 80%;
+    }
+
+    .DernieresRecettes > .svg-wrapper > .text{
+        font-size: 4vw;
+        margin-top: 30px;
+        margin-bottom: 10px;
+    }
+
+    #carouselMaterialStyle {
+        margin-bottom: 10px;
     }
 }
 

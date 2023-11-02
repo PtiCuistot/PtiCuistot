@@ -7,7 +7,7 @@
     <?php include('link.php'); ?>
 </head>
 <?php include('header.php'); ?>
-<section style="background-color: #eee;">
+<section style="background-color: #eee;overflow: hidden;">
     <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="card rounded-3" style="text-align: center;">
@@ -49,7 +49,7 @@
                         </div>
 
                         <div class="bg-white rounded shadow-sm p-4" style="border: 1px solid black;">
-                            <div class="form-group">
+                            <div class="form-group margin-bottom">
                                 <select class="custom-select" aria-placeholder="Selectionner une catégorie" id="recipeCategory" name="selectCategorie" required>
                                     <option value="">Sélectionner une catégorie pour votre recette</option>
                                     <?php
@@ -95,7 +95,7 @@
                             </svg>
                         </div>
 
-                        <div class="row bg-white rounded shadow-sm p-4" style="border: 1px solid black;">
+                        <div class="row bg-white rounded shadow-sm p-4 SelectIngredient" style="border: 1px solid black;">
                             <div class="col">
                                 <div class="form-group">
                                     <select name="recipeIngredients" id="recipeIngredients" aria-placeholder="Selectionner un ingrédient" class="custom-select RecipeIngredients">

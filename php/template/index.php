@@ -67,7 +67,7 @@
             <div class="center">
                 <img src="assets/images/Pticuisto.png" alt="PtiCuisto img">
             </div>
-            <p>
+            <p style="font-size: 14px;">
                 <b>Salut à tou·te·s</b>,
 
                 Bienvenue sur PtiCuisto, l'endroit idéal pour les amoureux·ses de la cuisine en quête d'inspiration. Ici, pas de formalités ni de recettes complexes, juste de la cuisine accessible à tou·te·s, quel que soit votre âge.
