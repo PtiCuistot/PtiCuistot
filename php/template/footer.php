@@ -46,9 +46,9 @@
 <!-- MDB -->
 <script type="text/javascript" src="assets/mdb/js/mdb.min.js"></script>
 
-<script src="../../assets/scripts/script.js"></script>
-<script src="../../assets/scripts/NavBar.js"></script>
-<script src="../../assets/scripts/popup.js"></script>
-<script src="../../assets/scripts/autocomplete.js"></script>
+<script src="assets/scripts/script.js"></script>
+<script src="assets/scripts/NavBar.js"></script>
+<script src="assets/scripts/popup.js"></script>
+<script src="assets/scripts/autocomplete.js"></script>
 </body>
 </html>
