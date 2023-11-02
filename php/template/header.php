@@ -29,7 +29,7 @@
                     }
                     else 
                     {
-                        echo '<li><a href="registration.php">Créer un compte</a></li>';
+                        echo '<li><a href="login.php">Se connecter</a></li>';
                     }
 
                     if(isset($_SESSION['admin']) && $_SESSION['admin'] == true)
