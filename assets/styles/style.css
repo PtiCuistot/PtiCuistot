@@ -133,6 +133,25 @@ img {
     stroke-dasharray: 1660;
   }
 
+  .carouselOpacity{
+    opacity: 1 !important;
+    transition: all .3s ease-in-out;;
+  }
+
+  .carouselOpacity:hover{
+    color: var(--blue);
+  }
+
+  #carouselMaterialStyle{
+    border: 1px solid black;
+    border-radius: 10px;
+  }
+
+  .carousel-caption{
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+  }
+
 /* END of Index */
 
 /* 404 */
