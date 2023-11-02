@@ -13,7 +13,7 @@
             <?php
                 $cm = new CategoryManager();
                    foreach ($cm->getCategories() as $category) {
-                       echo "<option value=".$category[0]->getId().">".$category[0]->getTitle()."</option>";
+                       echo "<option name=\"category\" value=".$category[0]->getId().">".$category[0]->getTitle()."</option>";
                 }
             ?> 
         </select>
