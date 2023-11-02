@@ -1,5 +1,6 @@
 <?php
 
+    include_once("../database/connector.php");
     include_once("../model/manager.php");
     include_once("../model/user/usermanager.php");
     include_once("../model/user/user.php");
@@ -14,7 +15,7 @@
         if (password_verify($password, $user->getPassword())) {
             session_start();
             $_SESSION['userId'] = $user->getId();
-            header('Location: index.php');
+            header('Location: ../../index.php');
         }
         else {
             echo "can't connect";

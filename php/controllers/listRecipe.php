@@ -9,6 +9,8 @@
         include_once("php/model/recipe/recipe.php");
         include_once("php/model/recipe/recipemanager.php");
 
+        session_start();
+        
         require('php/template/listeRecette.php');
     }
 ?>

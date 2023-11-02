@@ -13,13 +13,8 @@ function createRecipe()
     include_once("php/model/tag/tagmanager.php");
     include_once("php/model/tag/tag.php");
 
-
-    if(!isset($_SESSION))
-    {
-        session_start();
-        $_SESSION['userId'] = 1; //TODO : Changer
-
-    }
+    session_start();
+        
 
     if(isset($_SESSION['userId']))
     {
