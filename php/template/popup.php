@@ -9,9 +9,13 @@
         <label for="categorySelect">Categorie:</label>
         <select name="category" id="categorySelect">
             <option value="">--Selectionnez une categorie--</option>
-            <option value="starter">Entrée</option>
-            <option value="dish">Plat</option>
-            <option value="dessert">Dessert</option>
+            <?php
+                include_once("../model/category/categorymanager.php");
+                $cm = new CategoryManager();
+                    foreach ($cm->getCategories() as $category) {
+                        echo "<option value=".$category[0]->getId().">".$category[0]->getTitle()."</option>";
+                }
+            ?>
         </select>
     </div>
 </div>

@@ -2,7 +2,6 @@
 
 include_once("category.php");
 
-
 class CategoryManager extends Manager
 {
     public function __construct()

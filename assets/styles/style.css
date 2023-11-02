@@ -553,6 +553,7 @@ i:hover{
 
 /* modal category */
 .modalContainerCategory{
+    z-index: 99;
     visibility: hidden;
     position: fixed;
     top:0;
@@ -579,6 +580,7 @@ i:hover{
 
 /* modal title */
 .modalContainerTitle{
+    z-index: 99;
     visibility: hidden;
     position: fixed;
     top:0;
@@ -605,6 +607,7 @@ i:hover{
 
 /* modal ingredient */
 .modalContainerIngredient{
+    z-index: 99;
     visibility: hidden;
     position: fixed;
     top:0;
