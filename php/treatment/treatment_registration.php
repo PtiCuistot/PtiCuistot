@@ -1,4 +1,6 @@
 <?php 
+    include_once("../database/connector.php");
+
     include_once("../model/manager.php");
     include_once("../model/user/usermanager.php");
     include_once("../model/user/user.php");
