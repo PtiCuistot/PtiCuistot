@@ -15,9 +15,9 @@
                 <li class="NavBarLiHasChildren">
                     <a href="creationRecette.php">Filtes<span>▼</span></a>
                     <ul class="SubMenu">
-                        <li><a href="#">Catégories</a></li>
-                        <li><a href="#">Titre</a></li>
-                        <li><a href="#">Ingrédients</a></li>
+                        <li><a class="triggerCategory" href="#">Catégories</a></li>
+                        <li><a class="triggerTitle" href="#">Titre</a></li>
+                        <li><a class="triggerIngredient" href="#">Ingrédients</a></li>
                     </ul>
                 </li>
                 <?php
