@@ -7,7 +7,7 @@
         <p id="dialogDesc">Selectionnez votre filtre</p>
 
         <form method="POST" action="php/template/filterCategoryDisplay.php">
-        <label for="categorySelect">Categorie:</label>
+        <label for="categorySelect">Categories:</label>
         <select name="category" id="categorySelect">
             <option value="">--Selectionnez une categorie--</option>
             <?php
@@ -48,5 +48,19 @@
         <button aria-label="close modal" class="close-modal triggerIngredient">X</button>
         <h1 id="modalTitle">Filtrer par ingrédient</h1>
         <p id="dialogDesc">Selectionnez votre filtre</p>
+
+        <form method="POST" action="php/template/filterIngredientDisplay.php">
+        <label for="ingredientSelect">Ingredients:</label>
+        <select name="ingredient" id="ingredientSelect">
+            <option value="">--Selectionnez un ingredient--</option>
+            <?php
+                $im = new IngredientManager();
+                   foreach ($im->getIngredients() as $ingredient) {
+                       echo "<option name=\"ingredient\" value=".$ingredient->getId().">".$ingredient->getName()."(".$ingredient->getId().")"."</option>";
+                }
+            ?> 
+        </select>
+        <input type="submit" value="Rechercher">
+        </form>
     </div>
 </div>

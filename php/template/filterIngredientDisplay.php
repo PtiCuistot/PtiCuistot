@@ -22,21 +22,16 @@
 ?>
     <div class="row" id="row">
     <?php
-    $categoryID = $_POST["category"];
-    $categoryID = intval($categoryID);
-    $cm = new CategoryManager();
+    $ingredientID = $_POST["ingredient"];
+    $ingredientID = intval($ingredientID);
+    // echo $ingredientID;
+    $im = new IngredientManager();
 
-    // echo "ID_input: ".$categoryID."<br>";
-    $category = $cm->getCategoryById($categoryID);
-    // echo "titre categorie(ID): ".$category->getTitle()."(".$category->getId().")<br>";
-    // echo "description categorie: ".$category->getDescription()."<br>";
+    $ingredientIdArray = array ($ingredientID);
     $rm = new RecipeManager();
     $um = new UserManager();
 
-    // $test = $rm->getRecipeByCategory($category);
-    // echo "NB recette: ".count($test)."<br>";
-
-    foreach ($rm->getRecipeByCategory($category) as $recipe) {
+    foreach ($rm->getRecipeByIngredients($ingredientIdArray) as $recipe) {
         echo '
         <div id="DivRecipe0" class="col-xl-3 col-lg-4 col-md-6 mb-4 fade-in show">
         <div class="RecipFirstChild bg-white rounded shadow-sm" style="border: 1px solid black;">

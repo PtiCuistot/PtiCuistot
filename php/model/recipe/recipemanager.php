@@ -188,10 +188,11 @@ class RecipeManager extends Manager
     public function getRecipeByIngredients(array $ingListId)
     {
         $recipe = []; 
-        foreach($this->pdo->query("SELECT REP_ID, REP_TITLE, REP_CONTENT
+        $ingList = implode(",", $ingListId);
+        foreach($this->pdo->query("SELECT *
         FROM PC_RECIPE
-        INNER JOIN ingredients_recettes ON recettes.REP_ID = ingredients_recettes.REP_ID
-        WHERE ingredients_recettes.ING_ID IN (" . implode(",", $ingListId) . ")") as $row)
+        INNER JOIN PC_INGREDIENTS_WEIGHT ON PC_RECIPE.REP_ID = PC_RECIPE.REP_ID
+        WHERE PC_INGREDIENTS_WEIGHT.ING_ID IN (" . $ingList . ")") as $row)
         {
             $r = new Recipe(
                 $row['US_ID'],
