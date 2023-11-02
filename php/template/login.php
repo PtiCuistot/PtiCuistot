@@ -19,5 +19,26 @@
 
         <?php include('header.php');?>
 
+        <div class="sign">
+
+            <div class="content">
+
+                <h1>Connexion</h1>
+
+                <form action="../treatment/treatment_login.php" method="post">
+                    <label for="email_input">Email</label>
+                    <input type="email" name="email_input" id="email_input" required></input>
+                    <label for="password_input">Mot de passe</label>
+                    <input type="password" name="password_input" id="password_input" required></input>
+
+                    <p>Pas de compte ? <a href="registration.php">Créer un compte ici</a></p>
+
+                    <button type="submit">Se connecter</button>
+                </form>
+
+            </div>
+
+        </div>
         
         <?php include('footer.php');?>
+ 
