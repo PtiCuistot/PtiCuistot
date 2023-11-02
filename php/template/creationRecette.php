@@ -36,7 +36,7 @@
                             </div>
 
                             <div class="form-outline">
-                                <input type="url" name="recipeImage" id="recipeImage" class="form-control RecipeImage" required />
+                            <input type="url" name="recipeImage" id="recipeImage" class="form-control RecipeImage" required />
                                 <label class="form-label" for="typeURL">URL de l'image de la recette</label>
                             </div>
                         </div>

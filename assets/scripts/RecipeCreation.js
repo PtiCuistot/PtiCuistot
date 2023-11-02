@@ -439,3 +439,26 @@ rateLabels.forEach(function(label, index) {
   });
 });
 
+document.getElementById("recipeImage").addEventListener("change", function(event) {
+  const input = event.target;
+  const imageUrl = input.value;
+
+  if (imageUrl) {
+      const image = new Image();
+
+      image.onload = function() {
+          const aspectRatio = image.width / image.height;
+          if (Math.abs(aspectRatio - (16 / 9)) > 0.01) {
+              alert('Please provide a link to an image with a 16:9 aspect ratio.');
+              input.value = '';
+          }
+      };
+
+      image.onerror = function() {
+          alert('Failed to load the image from the provided URL.');
+          input.value = '';
+      };
+
+      image.src = imageUrl;
+  }
+});
