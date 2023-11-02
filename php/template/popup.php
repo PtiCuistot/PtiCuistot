@@ -6,6 +6,7 @@
         <h1 id="modalTitle">Filtrer par categorie</h1>
         <p id="dialogDesc">Selectionnez votre filtre</p>
 
+        <form method="POST" action="php/template/filterCategoryDisplay.php">
         <label for="categorySelect">Categorie:</label>
         <select name="category" id="categorySelect">
             <option value="">--Selectionnez une categorie--</option>
@@ -16,6 +17,8 @@
                 }
             ?> 
         </select>
+        <input type="submit" value="Rechercher">
+        </form>
     </div>
 </div>
 
