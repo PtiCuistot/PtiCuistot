@@ -60,6 +60,10 @@
                 $newUser = $um->getUserById(intval($um->insertUser($newUser)));
                 session_start();
                 $_SESSION['userId'] = $newUser->getId();
+                if($newUser->getAccountType()==2)
+                {
+                    $_SESSION['admin'] = true;
+                }
                 header('Location: index.php');
             }catch(Exception $e){
                 echo $e;
