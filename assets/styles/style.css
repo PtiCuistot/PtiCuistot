@@ -153,8 +153,10 @@ img {
   }
 
   .center > img{
-    width: 80%;
+    height: 80% !important;
     }
+
+
 /* END of Index */
 
 /* 404 */
