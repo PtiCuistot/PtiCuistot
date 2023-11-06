@@ -11,13 +11,8 @@ function detailRecipe()
 
     $rm = new RecipeManager();
     $um = new UserManager();
-    
-    if(!isset($_SESSION))
-    {
-        session_start();
-        $_SESSION['userId'] = 1; //TODO : Changer
-        $_SERVER['admin'] = true; //TODO : Changer
-    }
+
+    session_start();
 
 
     if (isset($_GET['id'])) {
