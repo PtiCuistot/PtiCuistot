@@ -89,6 +89,8 @@ class RecipeManager extends Manager
             intval($recipe->getCatId())
         ]);
 
+
+
         foreach($this->pdo->query("SELECT MAX(REP_ID) max FROM PC_RECIPE") as $row)
         {
             return intval($row['max']);
@@ -98,7 +100,7 @@ class RecipeManager extends Manager
 
     public function updateRecipe(Recipe $recipe)
     {
-        $query = "UPDATE PC_RECIPE SET REP_TITLE = ?, REP_CONTENT = ?, REP_IMAGE = ?, REP_NOTE = ?, REP_UPDATED = CURRENT_TIMESTAMP(), REP_VALIDATE = ?, REP_STATUT = ?, REP_CAT_ID = ? WHERE REP_ID = ?";
+        $query = "UPDATE PC_RECIPE SET REP_TITLE = ?, REP_CONTENT = ?, REP_IMAGE = ?, REP_NOTE = ?, REP_UPDATED = CURRENT_TIMESTAMP(), REP_VALIDATE = ?, REP_STATUT = ?, CAT_ID = ? WHERE REP_ID = ?";
         $title = $this->pdo->quote($recipe->getTitle());
         $content = $this->pdo->quote($recipe->getContent());
         $image = $this->pdo->quote($recipe->getImage());
@@ -107,8 +109,7 @@ class RecipeManager extends Manager
         $catId = intval($recipe->getCatId());
         $id = $recipe->getId();
 
-        $query = "UPDATE PC_RECIPE SET REP_TITLE = $title, REP_CONTENT = $content, REP_IMAGE = $image, REP_NOTE = ".$recipe->getNote()." REP_UPDATED = CURRENT_TIMESTAMP(), REP_VALIDATE = $validate, REP_STATUT = $statut, CAT_ID = $catId WHERE REP_ID = $id";
-
+        $query = "UPDATE PC_RECIPE SET REP_TITLE = $title, REP_CONTENT = $content, REP_IMAGE = $image, REP_NOTE = ".$recipe->getNote().", REP_UPDATED = CURRENT_TIMESTAMP(), REP_VALIDATE = $validate, REP_STATUT = $statut, CAT_ID = $catId WHERE REP_ID = $id";
         $this->pdo->query($query);
     }
 
