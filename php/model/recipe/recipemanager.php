@@ -205,9 +205,9 @@ class RecipeManager extends Manager
                 $row['CAT_ID']);
             $r->setId($row['REP_ID']);
 
-            array_push($recipes, $r);
+            array_push($recipe, $r);
         }
-        return $recipes;
+        return $recipe;
     }
 }
 ?>

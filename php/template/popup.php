@@ -51,7 +51,7 @@
 
         <form method="POST" action="php/template/filterIngredientDisplay.php">
         <label for="ingredientSelect">Ingredients:</label>
-        <select name="ingredient" id="ingredientSelect">
+        <select name="ingredient" id="ingredientSelect" multiple>
             <option value="">--Selectionnez un ingredient--</option>
             <?php
                 $im = new IngredientManager();

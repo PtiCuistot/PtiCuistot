@@ -27,7 +27,7 @@
     // echo $ingredientID;
     $im = new IngredientManager();
 
-    $ingredientIdArray = array ($ingredientID);
+    $ingredientIdArray = array($ingredientID);
     $rm = new RecipeManager();
     $um = new UserManager();
 
