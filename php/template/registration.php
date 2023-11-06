@@ -13,7 +13,7 @@
                 <div class="row d-flex justify-content-center align-items-center h-100">
                     <div class="card rounded-3" style="text-align: center;">
                         <div class="card-body p-4">
-                            <form action="../treatment/treatment_registration.php" id="recipeForm" method="POST" class="needs-validation" novalidate>
+                            <form action="php/treatment/treatment_registration.php" id="recipeForm" method="POST" class="needs-validation" novalidate>
 
                                 <div class="svg-wrapper wrapperFormCreateRecipeTitle" style="width: auto;">
                                     <svg height="60" width="500" xmlns="http://www.w3.org/2000/svg" style="z-index: 5;">

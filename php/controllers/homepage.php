@@ -10,6 +10,8 @@ function homepage()
     include_once("php/model/recipe/recipe.php");
 
     require('php/template/index.php');
+
+    session_start();
 }
 
 ?>

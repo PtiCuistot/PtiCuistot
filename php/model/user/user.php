@@ -7,7 +7,7 @@ class User
     private string $firstname; 
     private string $lastname;
     private int $statut;
-    private string $accountType;
+    private int $accountType;
     private ?int $id;
 
     public function __construct($username, $email, $password, $firstname=null, $lastname=null)
@@ -18,7 +18,7 @@ class User
         $this->firstname = $firstname; 
         $this->lastname = $lastname;
         $this->statut = 1;
-        $this->accountType = 1;
+        $this->accountType = 0;
         $this->id = null;
     }
 

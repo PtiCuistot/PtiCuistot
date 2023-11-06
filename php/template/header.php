@@ -34,7 +34,7 @@
 
                     if(isset($_SESSION['admin']) && $_SESSION['admin'] == true)
                     {
-                        echo '<li><a href="admin.php">Admin</a></li>';
+                        echo '<li><a href="admin.php">Page administration</a></li>';
                     }
                 ?>
           

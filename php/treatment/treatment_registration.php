@@ -64,7 +64,7 @@
                 {
                     $_SESSION['admin'] = true;
                 }
-                header('Location: index.php');
+                header('Location: ../../index.php');
             }catch(Exception $e){
                 echo $e;
             }

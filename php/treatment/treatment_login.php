@@ -15,6 +15,10 @@
         if (password_verify($password, $user->getPassword())) {
             session_start();
             $_SESSION['userId'] = $user->getId();
+            if($user->getAccountType()==2)
+            {
+                $_SESSION['admin'] = true;
+            }
             header('Location: ../../index.php');
         }
         else {

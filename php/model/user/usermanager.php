@@ -18,6 +18,7 @@ class UserManager extends Manager
                 $row['US_FIRSTNAME'], 
                 $row['US_LASTNAME']);
             $u->setId($row['US_ID']);
+            $u->setAccountType($row['UT_ID']);
             return $u;
         }    
         return null;
@@ -34,6 +35,7 @@ class UserManager extends Manager
                 $row['US_FIRSTNAME'], 
                 $row['US_LASTNAME']);
             $u->setId($row['US_ID']);
+            $u->setAccountType($row['UT_ID']);
             return $u;
         }   
         return null;
