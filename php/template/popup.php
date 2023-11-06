@@ -32,7 +32,7 @@
 
         <div class="searchBox">
             <div class="row">
-                <input class="autocomplete" type="text" id="inputBox" placeholder="cherchez un titre" autocomplete="off">
+                <input class="autocomplete" type="text" id="inputBox" placeholder="cherchez un titre" onkeyup="showHint(this.value)">
                 <button class="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
             </div>
             <div class="resultBox">
