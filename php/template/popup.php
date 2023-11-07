@@ -30,14 +30,16 @@
         <h1 id="modalTitle">Filtrer par titre</h1>
         <p id="dialogDesc">Selectionnez votre filtre</p>
 
-        <div class="searchBox">
-            <div class="row">
-                <input class="autocomplete" type="text" id="inputBox" placeholder="cherchez un titre" onkeyup="showHint(this.value)">
-                <button class="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <form method="POST" action="php/template/filterTitleDisplay.php">
+            <div class="searchBox">
+                <div class="row">
+                    <input name="title" class="autocomplete" type="text" id="inputBox" placeholder="cherchez un titre" autocomplete="off" onkeyup="showHint(this.value)">
+                </div>
+                <div class="resultBox">
+                </div>
+                <button type="submit" value="" class="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
             </div>
-            <div class="resultBox">
-            </div>
-        </div>
+        </form>
     </div>
 </div>
 

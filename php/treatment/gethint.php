@@ -14,6 +14,7 @@
     if ($q !== "") {
         $q = strtolower($q);
         $len=strlen($q);
+        $hint.="<ul>";
         foreach($recipesList as $recipe) {
             $name = $recipe->getTitle();
             //echo "<script>console.log('Debug Objects: " . $name . "' );</script>";
@@ -21,6 +22,7 @@
                 $hint .= "<li onclick=selectInput(this)>".$name."</li>";
             }
         }
+    $hint.="</ul>";
     }
     // Output "no suggestion" if no hint was found or output correct values
     echo $hint === "" ? "no suggestion" : $hint;

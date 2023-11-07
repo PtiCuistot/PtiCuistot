@@ -17,6 +17,14 @@ inputBox.onkeyup = function(){
         resultBox.innerHTML = '';
     }
 }
+
+function display(result){
+    const content = result.map((list)=>{
+        return "<li onclick=selectInput(this)>"+list+"</li>";
+    });
+
+    resultBox.innerHTML = "<ul>"+content.join('')+"<ul/>";
+}
 */
 
 const resultBox = document.querySelector(".resultBox");
@@ -37,15 +45,8 @@ function showHint(str) {
     }
 }
 
-function display(result){
-    const content = result.map((list)=>{
-        return "<li onclick=selectInput(this)>"+list+"</li>";
-    });
-
-    resultBox.innerHTML = "<ul>"+content.join('')+"<ul/>";
-}
-
 function selectInput(list){
     inputBox.value = list.innerHTML;
     resultBox.innerHTML = '';
+    
 }
