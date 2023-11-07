@@ -1,7 +1,7 @@
-<?php 
-
-function homepage() 
+<?php
+function register() 
 {
+
     if (session_status() === PHP_SESSION_NONE) {
         session_start();
     }
@@ -10,14 +10,7 @@ function homepage()
     include_once("php/model/manager.php");
     include_once("php/model/user/usermanager.php");
     include_once("php/model/user/user.php");
-    include_once("php/model/recipe/recipemanager.php");
-    include_once("php/model/recipe/recipe.php");
 
-
-
-    require('php/template/index.php');
-
-
+    return require("php/template/registration.php");
 }
-
 ?>

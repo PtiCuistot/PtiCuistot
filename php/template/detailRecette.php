@@ -52,7 +52,7 @@
                         </div>
 
 
-                        <?php if (intval($_SESSION['userId']) != intval($recipe->getUserId())) : ?>
+                        <?php if (intval($_SESSION['userId']) == intval($recipe->getUserId())) : ?>
                             <h2 class="h2Recipe">Action créateur</h2>
                             <form>
                                 <input name='recipeId' value="<?php echo $recipe->getId() ?>" hidden>
@@ -60,7 +60,7 @@
                             </form>
                         <?php endif; ?>
 
-                        <?php if ($_SESSION['admin'] && $recipe->getValidate() == 0) : ?>
+                        <?php if (isset($_SESSION['admin']) && $recipe->getValidate() == 0) : ?>
                             <h2 class="h2Recipe">Action Administrateur</h2>
                             <form method="POST" action="php/treatment/accept_recipe.php">
                                 <input name='recipeId' value="<?php echo $recipe->getId() ?>" hidden>

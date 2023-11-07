@@ -1,13 +1,15 @@
-<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Accueil</title>
-        <?php include('link.php');?>
-    </head>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Accueil</title>
+    <?php include('link.php'); ?>
+
+</head>
 <?php include('header.php'); ?>
 <?php include('popup.php'); ?>
+>>>>>>>>> Temporary merge branch 2
 
 <div class="Content">
     <div>
@@ -16,39 +18,67 @@
         <div class="DernieresRecettes">
             <div class="svg-wrapper">
                 <svg height="60" width="500" xmlns="http://www.w3.org/2000/svg" style="z-index: 5;">
-                    <rect class="shape" height="60" width="500"/>
+                    <rect class="shape" height="60" width="500" />
                     <div class="text">LES DERNIÈRES RECETTES</div>
                 </svg>
             </div>
-            <div class="scrollable-div">
-                <div class="inner-div">
-                    <img src="" alt="Image Recette">
-                    <p>AAA</p>
+
+            <div id="carouselMaterialStyle" class="carousel slide carousel-fade" data-mdb-ride="carousel">
+                <div class="carousel-indicators">
+                    <?php
+                    $rm = new RecipeManager();
+                    $recipes = $rm->getRecipes(5);
+
+                    for ($i = 0; $i < count($recipes); $i++) {
+                        $isActive = $i === 0 ? 'active' : '';
+                        echo '
+                                <button type="button" data-mdb-target="#carouselMaterialStyle" data-mdb-slide-to="' . $i . '" class="' . $isActive . '" aria-current="true" aria-label="Slide ' . ($i + 1) . '"></button>
+                            ';
+                    }
+                    ?>
                 </div>
-                <div class="inner-div">
-                    <img src="" alt="Image Recette">
-                    <p>AAA</p>
+                <div class="carousel-inner rounded-5 shadow-4-strong">
+                    <?php
+                    foreach ($recipes as $key => $recipe) {
+                        $isActive = $key === 0 ? 'active' : '';
+                        echo '
+                                <div class="carousel-item ' . $isActive . '">
+                                    <img src="' . $recipe->getImage() . '" class="d-block w-100" alt="Image Recette">
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <h5>' . $recipe->getTitle() . '</h5>
+                                    </div>
+                                </div>
+                            ';
+                    }
+                    ?>
                 </div>
-                <div class="inner-div">
-                    <img src="" alt="Image Recette">
-                    <p>AAA</p>
-                </div>
-                <div class="inner-div">
-                    <img src="" alt="Image Recette">
-                    <p>AAA</p>
-                </div>
-                <div class="inner-div">
-                    <img src="" alt="Image Recette">
-                    <p>AAA</p>
-                </div>
+                <button class="carousel-control-prev carouselOpacity" type="button" data-mdb-target="#carouselMaterialStyle" data-mdb-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next carouselOpacity" type="button" data-mdb-target="#carouselMaterialStyle" data-mdb-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
+
         </div>
         <div class="Edito">
             <div class="center">
                 <img src="assets/images/Pticuisto.png" alt="PtiCuisto img">
             </div>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer imperdiet congue neque non vulputate. Duis ultricies iaculis tincidunt. Vivamus a pellentesque sem. Nam tempus et metus in tempor. Nunc venenatis, risus fermentum sagittis vestibulum, eros nibh vehicula quam, in mattis augue lorem in magna. Nullam id nibh interdum, accumsan tellus sit amet, imperdiet turpis. Morbi ullamcorper dui ut ligula dignissim porttitor. Pellentesque quam libero, vehicula vitae fermentum eget, volutpat sit amet magna. Sed aliquet, purus non mattis semper, velit tortor dapibus mi, in tempor urna lacus sagittis ligula.
+            <p style="font-size: 14px;">
+                <b>Salut à tou·te·s</b>,
+
+                Bienvenue sur PtiCuisto, l'endroit idéal pour les amoureux·ses de la cuisine en quête d'inspiration. Ici, pas de formalités ni de recettes complexes, juste de la cuisine accessible à tou·te·s, quel que soit votre âge.
+
+                Sur PtiCuisto, nous sommes tou·te·s là pour apprendre et partager sans crainte de la critique. C'est un espace où l'expérimentation est encouragée, les erreurs sont des opportunités d'apprentissage, et les succès sont à célébrer ensemble.
+
+                Alors, prenez votre tablier, lancez-vous en cuisine, et rejoignez la communauté PtiCuisto pour un voyage culinaire rempli de découvertes, de plaisirs gustatifs et de partage. Nous avons hâte de voir vos créations et d'entendre vos idées, car PtiCuisto, c'est avant tout une grande famille de passionné·e·s de cuisine, curieux·ses et anonymes.
+
+                Bonne cuisine et à bientôt sur PtiCuisto !
+
+                L'équipe de PtiCuisto
             </p>
         </div>
     </div>

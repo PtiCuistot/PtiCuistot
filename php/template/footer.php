@@ -1,38 +1,21 @@
 <footer class="bg-light text-center text-white" style="background-color: var(--blue);">
-<!-- Grid container -->
+    <!-- Grid container -->
     <div class="container p-4 pb-0">
         <!-- Section: Social media -->
         <section class="mb-4">
-        <!-- Facebook -->
-        <a
-            class="btn text-white btn-floating m-1"
-            style="background-color: #3b5998;"
-            href="#!"
-            role="button"
-            ><i class="fab fa-facebook-f"></i
-        ></a>
-        <!-- Twitter -->
-        <a
-            class="btn text-white btn-floating m-1"
-            style="background-color: #55acee;"
-            href="#!"
-            role="button"
-            ><i class="fa-brands fa-twitter" style="color: #ffffff;"></i></i>
-        </a>
-        <!-- Linkedin -->
-        <a
-            class="btn text-white btn-floating m-1"
-            style="background-color: #0082ca;"
-            href="#!"
-            role="button"
-            ><i class="fab fa-linkedin-in"></i
-        ></a>
+            <!-- Facebook -->
+            <a class="btn text-white btn-floating m-1" style="background-color: #3b5998;" href="#!" role="button"><i class="fab fa-facebook-f"></i></a>
+            <!-- Twitter -->
+            <a class="btn text-white btn-floating m-1" style="background-color: #55acee;" href="#!" role="button"><i class="fa-brands fa-twitter" style="color: #ffffff;"></i></i>
+            </a>
+            <!-- Linkedin -->
+            <a class="btn text-white btn-floating m-1" style="background-color: #0082ca;" href="#!" role="button"><i class="fab fa-linkedin-in"></i></a>
         </section>
     </div>
 
     <div class="text-center p-3" style="background-color: var(--blue);color: var(--base);">
-        © 2023 Copyright:
-        <a class="text-white" href="https://github.com/PtiCuistot" style="color: var(--base);">Les PtiCuistot</a>
+        2023 © :
+        <a class="text-white" href="https://github.com/PtiCuistot" style="color: var(--base);text-decoration: underline;">Les PtiCuistot</a>
     </div>
 </footer>
 
@@ -49,7 +32,11 @@
 
 <script src="assets/scripts/script.js"></script>
 <script src="assets/scripts/NavBar.js"></script>
-<script src="assets/scripts/popup.js"></script>
-<script src="assets/scripts/autocomplete.js"></script>
+=========
+<script src="../../assets/scripts/script.js"></script>
+<script src="../../assets/scripts/NavBar.js"></script>
+<script src="../../assets/scripts/popup.js"></script>
+<script src="../../assets/scripts/autocomplete.js"></script>
+>>>>>>>>> Temporary merge branch 2
 </body>
 </html>

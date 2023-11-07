@@ -36,7 +36,7 @@ footer{
 
 /* Index */
 .Content {
-    height: 100vh;
+    height: 100%;
     width: 100%;
     display: block;
 }
@@ -58,7 +58,6 @@ footer{
 }
 
 .Content > .TwoRow > div {
-    height: 100%;
     width: 50%;
     border: 1px solid var(--grey);
     border-radius: 25px;
@@ -66,6 +65,7 @@ footer{
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     padding: 1%;
 }
 
@@ -75,7 +75,7 @@ footer{
 }
 
 .Content > .TwoRow > .Edito > .center {
-    height: 60%;
+    height: 50%;
 }
 
 img {
@@ -132,6 +132,30 @@ img {
     stroke-dashoffset:500;
     stroke-dasharray: 1660;
   }
+
+  .carouselOpacity{
+    opacity: 1 !important;
+    transition: all .3s ease-in-out;;
+  }
+
+  .carouselOpacity:hover{
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  #carouselMaterialStyle{
+    border: 1px solid black;
+    border-radius: 10px;
+  }
+
+  .carousel-caption{
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+  }
+
+  .center > img{
+    height: 80% !important;
+    }
+
 
 /* END of Index */
 
@@ -231,10 +255,6 @@ img {
     background: linear-gradient(to right, #a770ef, #cf8bf3, #fdb99b);
 }
 
-.RecipeImg{
-    height: 300px;
-}
-
 #ButtonShowMoreRecipe, #CreateRecipeLinkButton{
     width: 49%;
 }
@@ -274,6 +294,11 @@ img {
 /* END of detailRecette */
 
 /* creationRecette */
+
+.margin-bottom{
+    margin-bottom: 1rem !important;
+}
+
 #recipeContent{
     resize: none;
 }
@@ -324,46 +349,45 @@ i{
     transition: transform 0.3s ease-in-out;
 }
 
-i:hover{
-    animation: sautillement 0.5s infinite;
-}
-
 #submitButton, #addIngredientButton{
     color: white !important;
 }
 
+#addTagsButton{
+    color: white;
+}
+
+.form-group {
+    margin-bottom: 0;
+}
+  
 .TagsDivGlobal{
     display: flex;
     flex-direction: column;
-    width: 100%;
-    margin-top: 20px;
-  }
+}
   
-  .Tags{
+.Tags{
     display: flex;
-  }
+}
   
-  .Tags > * {
+.Tags > * {
     margin: 1%;
-    border-radius: 10px;
-    background-color: var(--blue);
-    border: 1px solid transparent;
-    color: var(--base);
+    border-radius: 20px;
     height: 40px;
     padding: 0.6%;
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  
-  .Tags > *:hover {
-    cursor: pointer;
-    background-color: transparent;
-    border: 1px solid var(--blue);
+    animation : slide-in-top 0.5s normal;
+}
+
+.CheckListTags{
+    margin-right: 2%;
     color: var(--blue);
-  }
+    visibility: hidden;
+}
   
-  .SpecialSelect{
+.SpecialSelect{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -371,80 +395,145 @@ i:hover{
     font-size: 20px;
     text-align: center;
     width: 100%;
-  }
+}
   
-  .SpecialSelect > .textSpecialSelect:first-child{
-    border: 1px solid black;
-    border-radius: 10px;
-    color: #000000;
+.SpecialSelect > .textSpecialSelect:first-child{
     width: 100%;
     height: 100%;
-    padding: 1%;
+    transition: all 0.3s ease;
     margin: 0;
-  }
+}
   
-  .SpecialSelect > .textSpecialSelect:first-child:hover{
-    background-color: rgb(106, 101, 94) !important;
-    color: #ffffff !important;
-    cursor: pointer;
-  }
-  
-  .SpecialSelect > .Elements{
+.SpecialSelect > .Elements{
     border: 1px solid #d4d4d4;
     border-radius: 10px;
     width: 100%;
     margin-top: 5px;
-  }
+}
   
-  .SpecialSelect > .Elements > .Bottom{
+.SpecialSelect > .Elements > .Bottom{
     border-top: 1px solid #d4d4d4;
     border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-  }
+}
   
-  .SpecialSelect > .Elements > .Bottom > .LabelSpecialSelect{
+.SpecialSelect > .Elements > .Bottom > .LabelSpecialSelect{
     width: 20%;
-  }
+}
   
-  .SpecialSelect > .Elements > .Bottom > .InputSpecialSelect{
+.SpecialSelect > .Elements > .Bottom > .InputSpecialSelect{
     width: 40% !important;
-  }
-  
-  .SpecialSelect > .Elements > .Bottom > .ButtonSpecialSelect{
+}
+
+.SpecialSelect > .Elements > .Bottom > .ButtonSpecialSelect{
     width: 20%;
     margin-left: 2%;
-  }
+}
   
-  .SpecialSelect > .Elements > .DivInputsSpecialSelect{
+.SpecialSelect > .Elements > .DivInputsSpecialSelect{
     padding: 1%;
     border-bottom: 1px solid #d4d4d4;
     border-radius: 10px;
-  }
+}
   
-  .SpecialSelect > .Elements > .DivInputsSpecialSelect > .InputSpecialSelect{
+.SpecialSelect > .Elements > .DivInputsSpecialSelect > .InputSpecialSelect{
     margin-left: 2%;
     width: 70%;
     border-radius: 10px;
     border: 1px solid #d4d4d4;
     padding-left: 2%;
-  }
+}
   
-  .SpecialSelect > .Elements > .DivInputsSpecialSelect > .LabelSpecialSelect{
+.SpecialSelect > .Elements > .DivInputsSpecialSelect > .LabelSpecialSelect{
     width: 20%;
-  }
+}
   
-  .SpecialSelect > .Elements > .TextDiv > .textSpecialSelect{
+.SpecialSelect > .Elements > .TextDiv > .textSpecialSelect{
     margin: 0;
     text-align: left;
     padding-left: 5%;
-  }
+}
   
-  .SpecialSelect > .Elements > .TextDiv > .textSpecialSelect:hover{
+.SpecialSelect > .Elements > .TextDiv > .textSpecialSelect:hover{
     background-color: rgb(154, 150, 144);
     cursor: pointer;
-  }
+}
+
+.stars {
+	width: fit-content;
+	margin: 0 auto;
+	cursor: pointer;
+}
+.star {
+	color: #91a6ff !important;
+}
+.rate {
+	height: 50px;
+	margin-left: -5px;
+	padding: 5px;
+	font-size: 25px;
+	position: relative;
+	cursor: pointer;
+}
+.rate input[type="radio"] {
+	opacity: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,0%);
+	pointer-events: none;
+}
+.star-over::after {
+	font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+	font-size: 16px;
+	content: "\f005";
+	display: inline-block;
+	color: #d3dcff;
+	z-index: 1;
+	position: absolute;
+	top: 17px;
+	left: 10px;
+}
+
+.face {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+    opacity: 0;
+    position: absolute;
+    width: 150px;
+    height: 35px;
+    background: #91a6ff;
+    border-radius: 5px;
+    top: -40px;
+    left: 2px;
+    transition: 0.2s;
+    pointer-events: none;
+  color: #fff;
+}
+.face::before {
+	font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+	content: "\f0dd";
+	display: inline-block;
+	color: #91a6ff;
+	z-index: 1;
+	position: absolute;
+	left: 9px;
+	bottom: -15px;
+}
+
+.rate:hover .face {
+	opacity: 1;
+}
+
+.SelectIngredient > .col{
+    margin-bottom: 20px;
+}
 /* END of creationRecette */
 
 /* Animation */
@@ -482,6 +571,49 @@ i:hover{
         transform: translateY(-10px); /* Ajustez la distance du sautillement verticalement */
     }
 }
+
+
+@keyframes slide-in-top {
+    0% {
+        -webkit-transform: translateY(10%);
+                transform: translateY(10%);
+                -webkit-filter: blur(12px);
+                filter: blur(12px);
+        opacity: 0;
+    }
+    100% {
+        -webkit-transform: translateY(0);
+                transform: translateY(0);
+                -webkit-filter: blur(0px);
+                filter: blur(0px);
+        opacity: 1;
+    }
+    }
+    
+    @keyframes slide-out-top {
+    0% {
+        -webkit-transform: translateY(0);
+                transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        -webkit-transform: translateY(10%);
+                transform: translateY(10%);
+        opacity: 0;
+    }
+    }
+    @keyframes text-focus-in {
+    0% {
+        -webkit-filter: blur(12px);
+                filter: blur(12px);
+        opacity: 0;
+    }
+    100% {
+        -webkit-filter: blur(0px);
+                filter: blur(0px);
+        opacity: 1;
+    }
+    }
 /* END of Animation */
 
 @media screen and (max-width: 999px) {
@@ -497,6 +629,79 @@ i:hover{
     .Content > .TwoRow > div {
         width: 100%;
         height: 50%;
+    }
+
+    .container{
+        max-width: 100% !important;
+        padding: 0 !important;
+    }
+
+    .CreateRecipeTitleDiv {
+        display: flex;
+        font-size: 5vw;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .CreateRecipeTitle {
+        font-size: 7vw;
+    }
+
+    .SelectIngredient{
+        flex-direction: column;
+    }
+
+    #submitButton{
+        font-size: 7vw;
+        margin-bottom: 25px;
+    }
+
+    .table {
+        margin: 0;
+    }
+    
+    .table th,
+    .table td {
+        padding: 3px;
+        font-size: 2vw;
+    }
+
+    #buttonDelete1{
+        font-size: 2vw;
+        padding: 5px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .svg-wrapper > svg{
+        display: none;
+    }
+    
+    .text {
+        top: 0;
+        margin-bottom: 20px;
+        font-size: 6vw;
+        letter-spacing: 5px;
+        line-height: 25px;
+    }
+
+    .card-body {
+        padding: 0 !important;
+    }
+
+    .center > img{
+        width: 80%;
+    }
+
+    .DernieresRecettes > .svg-wrapper > .text{
+        font-size: 4vw;
+        margin-top: 30px;
+        margin-bottom: 10px;
+    }
+
+    #carouselMaterialStyle {
+        margin-bottom: 10px;
     }
 }
 

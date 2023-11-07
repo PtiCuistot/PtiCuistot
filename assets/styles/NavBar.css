@@ -84,6 +84,7 @@
   }
 
   .SubMenu > li > a {
+    justify-content: center;
     color: var(--base);
     text-decoration: none;
     padding-left: 5%;

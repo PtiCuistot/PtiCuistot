@@ -50,13 +50,16 @@ recipeForm.addEventListener('submit', function(e) {
     let recipeCategory = document.getElementById('recipeCategory').value; 
 
     let addedDatas = weightArray;
+    let addedTag = TagsArray;
 
     let postData = {
         recipeTitle: recipeTitle,
         recipeContent: recipeContent,
         recipeImage: recipeImage,
+        recipeNote: rating,
         recipeCategory: recipeCategory,
-        ingredientData: createIngredientData(addedDatas)
+        ingredientData: createIngredientData(addedDatas), 
+        tagData:  JSON.stringify(addedTag)
     };
 
     submitForm(postData);
@@ -229,44 +232,53 @@ function checkFormValidity() {
 }
 
 const specialSelect = document.querySelector('.SpecialSelect');
-const children = specialSelect.children;
 
-for (let i = 1; i < children.length; i++) {
-  children[i].style.display = 'none';
-}
-
+/* OnClick display children */
 specialSelect.addEventListener('click', function() {
-  const children = this.children;
-  for (let i = 1; i < children.length; i++) {
-    children[i].style.display = 'block';
+  let cmpt = 0;
+  specialSelect.children[1].style.display = 'block';
+  let childrenOpen = specialSelect.children[1].children;
+  for (let i = 0; i < childrenOpen.length; i++) {
+    cmpt++;
+    childrenOpen[i].style.animation = "slide-in-top " + (cmpt+1)/15 + "s cubic-bezier(.25,.46,.45,.94) both"
+    let childrenOpen2 = childrenOpen[i].children;
+    for (let j = 0; j < childrenOpen2.length; j++) {
+      cmpt++;
+      childrenOpen2[j].style.animation = "slide-in-top " + (cmpt+1)/15 + "s cubic-bezier(.25,.46,.45,.94) both"
+    }
   }
-
-  children[0].style.backgroundColor = "rgb(106, 101, 94)";
-  children[0].style.color = "#ffffff";
 });
 
+const TagsArray = [];
+
+/* On exterior Click animate display none of children for smooth exit*/
 document.addEventListener('click', function(event) {
   if (!document.getElementById("SpecialSelectGlobalDiv").contains(event.target)) {
-    const children = specialSelect.children;
-    for (let i = 1; i < children.length; i++) {
-      children[i].style.display = 'none';
+    for(let i = 0; i < document.getElementById("Tags").children.length; i++){
+      TagsArray.push([document.getElementById("Tags").children[i].id, document.getElementById("Tags").children[i].innerText]);
+      console.log(TagsArray[i])
+      console.log(document.getElementById("Tags").children[i])
     }
 
-    children[0].style.backgroundColor = "transparent";
-    children[0].style.color = "#000000";
+    let cmpt = 0;
+    let childrenExit = specialSelect.children[1].children;
+    for (let i = 0; i < childrenExit.length; i++) {
+      cmpt++;
+      childrenExit[i].style.animation = "slide-out-top " + (cmpt+1)/15 + "s cubic-bezier(.55,.085,.68,.53) both"
+      let childrenExit2 = childrenExit[i].children;
+      for (let j = 0; j < childrenExit2.length; j++) {
+        cmpt++;
+        childrenExit2[j].style.animation = "slide-out-top " + (cmpt+1)/15 + "s cubic-bezier(.55,.085,.68,.53) both"
+      }
+    }
+    setTimeout(() => {
+      specialSelect.children[1].style.display = 'none';
+    }, ((cmpt+1)/15) * 1000);
   }
 });
 
-specialSelect.addEventListener('focus', function() {
-  // Le menu déroulant est en cours d'ouverture
-});
-
-specialSelect.addEventListener('blur', function() {
-  // Le menu déroulant est en cours de fermeture
-});
-
+/* SearchInput Scripts*/
 const searchInput = document.getElementById("searchInput");
-
 searchInput.addEventListener("input", function () {
   const textElements = document.querySelectorAll(".Elements .textSpecialSelect");
   const searchText = searchInput.value.toLowerCase();
@@ -281,22 +293,37 @@ searchInput.addEventListener("input", function () {
   });
 });
 
+/* Add of Tags in the top*/
 const childrenElements = document.getElementById("Elements").children;
-for (let i = 1; i < childrenElements.length; i++) {
-  if(childrenElements[i].classList.contains("textSpecialSelect")){
-    childrenElements[i].addEventListener('click', function(event) {
-      let contenu = document.createElement('p');
+for (let i = 0; i < childrenElements.length; i++) {
+  childrenElements[i].addEventListener('click', function() {
+    let alreadyHere = 0;
+    for(let j = 0; j < document.getElementById('Tags').children.length; j++){
+      if(document.getElementById('Tags').children[j].id == this.id){
+        alreadyHere = 1; 
+      }
+    }
+
+    if(alreadyHere == 0){
+      document.getElementById("CheckListTags" + this.id).style.visibility = "visible";
+
+      let contenu = document.createElement('button');
+      contenu.classList.add("btn");
+      contenu.classList.add("btn-info");
       contenu.innerText = this.innerText;
-      console.log(this.innerText)
+      contenu.id = this.id;
       document.getElementById('Tags').appendChild(contenu);
 
-      contenu.addEventListener('click', function() {
+      contenu.addEventListener('click', function(event) {
+        document.getElementById("CheckListTags" + this.id).style.visibility = "hidden";
+        event.stopPropagation();
         this.remove();
       });
-    });
-  }
+    }
+  });
 }
 
+/* Disable or Enable button Add Tags if input is void or not*/
 document.getElementById("CreateTag").addEventListener('input', function() {
   if(this.value != ""){
     document.getElementById("addTagsButton").disabled = false;
@@ -305,24 +332,47 @@ document.getElementById("CreateTag").addEventListener('input', function() {
   }
 });
 
+/* Create a new Tags in the list with the button CreateTags*/
 document.getElementById("addTagsButton").addEventListener('click', function() {
   var newParagraph = document.createElement('p');
+  newParagraph.id = document.getElementById("CreateTag").value;
   newParagraph.classList.add("textSpecialSelect");
   newParagraph.textContent = document.getElementById("CreateTag").value;
+  const icon = document.createElement('i');
+  icon.className = 'fa-regular fa-circle-check CheckListTags';
+  icon.id = "CheckListTags" + document.getElementById("CreateTag").value;
+  newParagraph.insertBefore(icon, newParagraph.firstChild);
 
   newParagraph.addEventListener('click', function(event) {
-    let contenu = document.createElement('p');
-    contenu.innerText = this.innerText;
-    document.getElementById('Tags').appendChild(contenu);
+    let alreadyHere = 0;
+    for(let i = 0; i < document.getElementById('Tags').children.length; i++){
+      if(document.getElementById('Tags').children[i].id == newParagraph.innerText){
+        alreadyHere = 1; 
+      }
+    }
+    if(alreadyHere == 0){
+      console.log("CheckListTags" + this.id);
+      document.getElementById("CheckListTags" + this.id).style.visibility = "visible";
 
-    contenu.addEventListener('click', function() {
-      this.remove();
-    });
+      let contenu = document.createElement('button');
+      contenu.classList.add("btn");
+      contenu.classList.add("btn-info");
+      contenu.innerText = newParagraph.innerText;
+      contenu.id = newParagraph.innerText;
+      document.getElementById('Tags').appendChild(contenu);
+
+      contenu.addEventListener('click', function(event) {
+        document.getElementById("CheckListTags" + this.id).style.visibility = "hidden";
+        event.stopPropagation();
+        this.remove();
+      });
+    }
   });
-  document.getElementById('Elements').insertBefore(newParagraph, document.getElementById('Elements').lastChild);
+  document.getElementById('Elements').appendChild(newParagraph);
   trierElementsAlphabetiquement();
 });
 
+/* Sort List*/
 function trierElementsAlphabetiquement() {
   const elementsDiv = document.getElementById("Elements");
   const elements = Array.from(elementsDiv.querySelectorAll(".textSpecialSelect"));
@@ -335,7 +385,80 @@ function trierElementsAlphabetiquement() {
   });
 }
 
+/* Start do not display children */
+let children = specialSelect.children;
+for (let i = 1; i < children.length; i++) {
+  children[i].style.display = 'none';
+}
 trierElementsAlphabetiquement();
+
 
 document.getElementById("ingredientNameCol").style.display = "none";
 document.getElementById("ingredientArrayGlobal").style.display = "none";
+
+
+const rateLabels = document.querySelectorAll('.rate');
+let rating = 0;
+
+rateLabels.forEach(function(label, index) {
+  label.addEventListener('mouseover', function() {
+    for (let i = 0; i < index + 1; i++) {
+      const prevLabel = rateLabels[i];
+      const starIcon = prevLabel.querySelector('i');
+      if (!starIcon.classList.contains("fa-solid")) {
+        starIcon.classList.add('star-over');
+      }
+    }
+  });
+
+  label.addEventListener('mouseout', function() {
+    for (let i = 0; i < index + 1; i++) {
+      const prevLabel = rateLabels[i];
+      const starIcon = prevLabel.querySelector('i');
+      if (starIcon) {
+        starIcon.classList.remove('star-over');
+      }
+    }
+    rating = index+1;
+    console.log(rating)
+  });
+
+  label.addEventListener('click', function() {
+    const starElements = document.querySelectorAll('.star');
+    starElements.forEach(function(starElement) {
+      starElement.classList.remove('fa-solid');
+    });
+
+    for (let i = 0; i < index + 1; i++) {
+      const prevLabel = rateLabels[i];
+      const starIcon = prevLabel.querySelector('i');
+      if (starIcon) {
+        starIcon.classList.add('fa-solid');
+      }
+    }
+  });
+});
+
+document.getElementById("recipeImage").addEventListener("change", function(event) {
+  const input = event.target;
+  const imageUrl = input.value;
+
+  if (imageUrl) {
+      const image = new Image();
+
+      image.onload = function() {
+          const aspectRatio = image.width / image.height;
+          if (Math.abs(aspectRatio - (16 / 9)) > 0.01) {
+              alert('Please provide a link to an image with a 16:9 aspect ratio.');
+              input.value = '';
+          }
+      };
+
+      image.onerror = function() {
+          alert('Failed to load the image from the provided URL.');
+          input.value = '';
+      };
+
+      image.src = imageUrl;
+  }
+});

@@ -2,6 +2,11 @@
 
 function detailRecipe()
 {
+
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+
     include_once("php/database/connector.php");
     include_once("php/model/manager.php");
     include_once("php/model/recipe/recipe.php");
@@ -11,14 +16,6 @@ function detailRecipe()
 
     $rm = new RecipeManager();
     $um = new UserManager();
-    
-    if(!isset($_SESSION))
-    {
-        session_start();
-        $_SESSION['userId'] = 1; //TODO : Changer
-        $_SERVER['admin'] = true; //TODO : Changer
-    }
-
 
     if (isset($_GET['id'])) {
         $recipe = $rm->getRecipeById(intval($_GET['id']));

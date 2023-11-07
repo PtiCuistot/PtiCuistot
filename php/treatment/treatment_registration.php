@@ -1,4 +1,6 @@
 <?php 
+    include_once("../database/connector.php");
+
     include_once("../model/manager.php");
     include_once("../model/user/usermanager.php");
     include_once("../model/user/user.php");
@@ -58,7 +60,11 @@
                 $newUser = $um->getUserById(intval($um->insertUser($newUser)));
                 session_start();
                 $_SESSION['userId'] = $newUser->getId();
-                header('Location: index.php');
+                if($newUser->getAccountType()==2)
+                {
+                    $_SESSION['admin'] = true;
+                }
+                header('Location: ../../index.php');
             }catch(Exception $e){
                 echo $e;
             }
