@@ -210,7 +210,6 @@ var $ = {
  ];
  
  var myDrop = new drop({
-    selector:  '#myMulti',
-    preselected: [1, 4]
+    selector:  '#myMulti'
  });
   myDrop.toggle();
