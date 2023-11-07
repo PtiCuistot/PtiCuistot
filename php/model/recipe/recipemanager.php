@@ -54,7 +54,6 @@ class RecipeManager extends Manager
         return $recipes;
     }
 
-
     public function getRecipeById(int $id)
     {
         foreach($this->pdo->query("SELECT * FROM PC_RECIPE WHERE REP_ID = ".$id) as $row)

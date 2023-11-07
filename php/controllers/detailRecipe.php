@@ -12,7 +12,9 @@ function detailRecipe()
     $rm = new RecipeManager();
     $um = new UserManager();
 
-    session_start();
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
 
 
     if (isset($_GET['id'])) {

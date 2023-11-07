@@ -9,7 +9,9 @@
         include_once("php/model/recipe/recipe.php");
         include_once("php/model/recipe/recipemanager.php");
 
-        session_start();
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
         
         require('php/template/listeRecette.php');
     }
