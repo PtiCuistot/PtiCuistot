@@ -1,7 +1,9 @@
 <?php
 function adminPage()
 {
-   
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
 
     include_once("php/database/connector.php");
     include_once("php/model/manager.php");
