@@ -9,11 +9,13 @@ function homepage()
     include_once("php/model/recipe/recipemanager.php");
     include_once("php/model/recipe/recipe.php");
 
-    require('php/template/index.php');
-
     if (session_status() === PHP_SESSION_NONE) {
         session_start();
     }
+
+    require('php/template/index.php');
+
+
 }
 
 ?>
