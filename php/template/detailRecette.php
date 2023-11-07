@@ -70,7 +70,7 @@
 
                         <?php if (isset($_SESSION['userId'])) : ?>
                         <h2 class="h2Recipe">Laisser un commentaire</h2>
-                            <form action="php/treatment/send_comment.php">
+                            <form action="php/treatment/send_comment.php" method="POST">
                                 <input name='recipeId' value="<?php echo $recipe->getId() ?>" hidden>
                                 <textarea name='comment' placeholder="Laisser un commentaire"></textarea>
                                 <br>
