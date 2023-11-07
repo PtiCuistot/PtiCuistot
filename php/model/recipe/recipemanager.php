@@ -179,7 +179,7 @@ class RecipeManager extends Manager
     public function getRecipeByTitle(string $title)
     {
         $recipes = []; 
-        foreach($this->pdo->query("SELECT * FROM PC_RECIPE  WHERE REP_TITLE LIKE %".$title."%") as $row)
+        foreach($this->pdo->query("SELECT * FROM PC_RECIPE  WHERE REP_TITLE LIKE '%".$title."%'") as $row)
         {
             $r = new Recipe(
                 $row['US_ID'],

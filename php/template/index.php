@@ -9,7 +9,6 @@
 </head>
 <?php include('header.php'); ?>
 <?php include('popup.php'); ?>
->>>>>>>>> Temporary merge branch 2
 
 <div class="Content">
     <div>

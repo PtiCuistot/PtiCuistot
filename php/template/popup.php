@@ -3,13 +3,12 @@
     <div class="ov triggerCategory"></div>
     <div class="popup" role="dialog" aria-describedby="dialogDesc" aria-labelledby="modalTitle" >
         <button aria-label="close modal" class="close-modal triggerCategory">X</button>
-        <h1 id="modalTitle">Filtrer par categorie</h1>
-        <p id="dialogDesc">Selectionnez votre filtre</p>
+        <h1 id="modalTitle">Filtrer par catégorie</h1>
 
         <form method="POST" action="php/template/filterCategoryDisplay.php">
-        <label for="categorySelect">Categories:</label>
+        <label id="dialogDesc" for="categorySelect">Sélectionner une catégorie</label>
         <select name="category" id="categorySelect">
-            <option value="">--Selectionnez une categorie--</option>
+            <option value="">--Catégorie--</option>
             <?php
                 $cm = new CategoryManager();
                    foreach ($cm->getCategories() as $category) {
@@ -17,7 +16,8 @@
                 }
             ?> 
         </select>
-        <input type="submit" value="Rechercher">
+        <button type="submit" value="" class="searchButtonCatIng"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <!--<input type="submit" value="Rechercher">-->
         </form>
     </div>
 </div>
@@ -28,12 +28,11 @@
     <div class="popup" role="dialog" aria-describedby="dialogDesc" aria-labelledby="modalTitle" >
         <button aria-label="close modal" class="close-modal triggerTitle">X</button>
         <h1 id="modalTitle">Filtrer par titre</h1>
-        <p id="dialogDesc">Selectionnez votre filtre</p>
 
         <form method="POST" action="php/template/filterTitleDisplay.php">
             <div class="searchBox">
                 <div class="row">
-                    <input name="title" class="autocomplete" type="text" id="inputBox" placeholder="cherchez un titre" autocomplete="off" onkeyup="showHint(this.value)">
+                    <input name="title" class="autocomplete" type="text" id="inputBox" placeholder="Chercher un titre" autocomplete="off" onkeyup="showHint(this.value)">
                 </div>
                 <div class="resultBox">
                 </div>
@@ -49,20 +48,20 @@
     <div class="popup" role="dialog" aria-describedby="dialogDesc" aria-labelledby="modalTitle" >
         <button aria-label="close modal" class="close-modal triggerIngredient">X</button>
         <h1 id="modalTitle">Filtrer par ingrédient</h1>
-        <p id="dialogDesc">Selectionnez votre filtre</p>
 
         <form method="POST" action="php/template/filterIngredientDisplay.php">
-        <label for="ingredientSelect">Ingredients:</label>
-        <select name="ingredient" id="ingredientSelect" multiple>
-            <option value="">--Selectionnez un ingredient--</option>
+        <label id="dialogDesc" for="ingredientSelect">Sélectionner un ou plusieurs ingrédients</label>
+        <select name="ingredient" id="myMulti" multiple>
+            <option value="">--Ingrédient--</option>
             <?php
                 $im = new IngredientManager();
                    foreach ($im->getIngredients() as $ingredient) {
-                       echo "<option name=\"ingredient\" value=".$ingredient->getId().">".$ingredient->getName()."(".$ingredient->getId().")"."</option>";
+                       echo "<option name=\"ingredient\" value=".$ingredient->getId().">".$ingredient->getName()."</option>";
                 }
             ?> 
         </select>
-        <input type="submit" value="Rechercher">
+        <button type="submit" value="" class="searchButtonCatIng"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <!--<input type="submit" value="Rechercher">-->
         </form>
     </div>
 </div>

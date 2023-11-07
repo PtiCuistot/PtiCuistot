@@ -32,11 +32,9 @@
 
 <script src="assets/scripts/script.js"></script>
 <script src="assets/scripts/NavBar.js"></script>
-=========
-<script src="../../assets/scripts/script.js"></script>
-<script src="../../assets/scripts/NavBar.js"></script>
-<script src="../../assets/scripts/popup.js"></script>
-<script src="../../assets/scripts/autocomplete.js"></script>
->>>>>>>>> Temporary merge branch 2
+<script src="assets/scripts/script.js"></script>
+<script src="assets/scripts/NavBar.js"></script>
+<script src="assets/scripts/popup.js"></script>
+<script src="assets/scripts/autocomplete.js"></script>
 </body>
 </html>
