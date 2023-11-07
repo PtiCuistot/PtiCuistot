@@ -36,6 +36,7 @@
                     {
                         echo '<li><a href="admin.php">Page administration</a></li>';
                     }
+                    
                 ?>
           
             </ul>
