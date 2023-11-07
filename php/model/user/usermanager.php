@@ -73,7 +73,6 @@ class UserManager extends Manager
     public function updateUser(User $user)
     {
         $query = "UPDATE PC_USER SET UT_ID = ?, US_USERNAME = ?, US_EMAIL = ?, US_PASSWORD = ?, US_FIRSTNAME = ?, US_LASTNAME = ?,  US_STATUT = ? WHERE US_EMAIL = '".$user->getEmail()."'";
-        echo $query;
         $statement = $this->pdo->prepare($query);
         $statement->execute([
             $user->getAccountType(),
@@ -89,7 +88,6 @@ class UserManager extends Manager
     public function checkPassword(string $mail, string $password) :?User
     {
         $u = $this->getUserByMail($mail);
-        echo  $u->getPassword();
         if(password_verify($password, $u->getPassword()))
         {
             return $u;
