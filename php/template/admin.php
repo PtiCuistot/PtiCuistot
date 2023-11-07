@@ -18,7 +18,7 @@
 
                 foreach($rm->getUnvalidateRecipe() as $recipe)
                 {
-                    echo '<a href="https://dev-baratin221.users.info.unicaen.fr/PtiCuistot/recipe.php?id='.$recipe->getId().'" class="list-group-item list-group-item-action">
+                    echo '<a href="recipe.php?id='.$recipe->getId().'" class="list-group-item list-group-item-action">
                             <div class="d-flex w-100 justify-content-between">
                             <h5 class="mb-1">'.$recipe->getTitle().'</h5>
                             <small>Màj du : '.$recipe->getUpdated()->format('d/m/y').'</small>
