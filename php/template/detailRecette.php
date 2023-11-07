@@ -67,6 +67,16 @@
                                 <input class="btn btn-success" type="submit" value="Valider la recette">
                             </form>
                         <?php endif; ?>
+
+                        <?php if (isset($_SESSION['userId'])) : ?>
+                        <h2 class="h2Recipe">Laisser un commentaire</h2>
+                            <form action="php/treatment/send_comment.php">
+                                <input name='recipeId' value="<?php echo $recipe->getId() ?>" hidden>
+                                <textarea name='comment' placeholder="Laisser un commentaire"></textarea>
+                                <br>
+                                <input type="submit" value="Valider le commentaire"/>
+                            </form>
+                         <?php endif; ?>
                     </div>
                 </div>
             </div>

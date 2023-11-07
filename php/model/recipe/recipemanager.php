@@ -222,5 +222,20 @@ class RecipeManager extends Manager
         }
         return $recipes;
     }
+
+    public function sendComment(User $author, Recipe $recipe, string $comment)
+    {
+        $c = new Comment($author->getId(),  $comment);
+        $cm = new CommentManager();
+        $c = $cm->getCommentById($cm->insertComment($c));
+        $query = 'INSERT INTO PC_COMMENT_DESCRIBE(CO_ID, REP_ID) VALUES(?, ?)';
+        $statement = $this->pdo->prepare($query);
+        $statement->execute(
+            [
+                $author->getId(), 
+                $recipe->getId()
+            ]
+        );
+    }
 }
 ?> 
