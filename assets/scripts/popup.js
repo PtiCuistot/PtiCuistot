@@ -29,10 +29,12 @@ function toggleModalIngredient(){
 }
 
 
-
+//select
+//https://codepen.io/miniven/pen/ZJydge
 
 
 //select multiple
+//https://www.cssscript.com/multiple-select-dropdown/
 
 //Varun Dewan 2019
 var $ = {
