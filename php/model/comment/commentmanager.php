@@ -13,8 +13,7 @@ class CommentManager extends Manager
         {
             $c = new Comment(
                 $row['US_ID'],
-                $row['CO_TEXT'], 
-                $row['CO_POSTED']
+                $row['CO_TEXT']
             ); 
             $c->setId(intval($row['CO_ID']));
             return $c;

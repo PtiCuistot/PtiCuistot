@@ -13,6 +13,8 @@ function detailRecipe()
     include_once("php/model/recipe/recipemanager.php");
     include_once("php/model/user/usermanager.php");
     include_once("php/model/user/user.php");
+    include_once("php/model/comment/comment.php");
+    include_once("php/model/comment/commentmanager.php");
 
     $rm = new RecipeManager();
     $um = new UserManager();
@@ -30,6 +32,7 @@ function detailRecipe()
         }
     }
 
+    $commentList = $rm->getComments($rm->getRecipeById(intval($_GET['id'])));
 
     return require("php/template/detailRecette.php");
 }

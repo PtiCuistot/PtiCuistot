@@ -11,10 +11,12 @@ include_once("../model/user/usermanager.php");
 include_once("../model/comment/comment.php");
 include_once("../model/comment/commentmanager.php");
 
+
 $rm = new RecipeManager();
 $um = new UserManager();
 $recipe = $rm->getRecipeById($_POST['recipeId']);
 $rm->sendComment($um->getUserById($_SESSION['userId']), $recipe, $_POST['comment']);
 
-
+header('Location: ../../recipe.php?id='. $recipe->getId());
+    
 ?>
