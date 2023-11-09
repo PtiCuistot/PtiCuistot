@@ -200,7 +200,7 @@ class RecipeManager extends Manager
 
     public function getRecipeByIngredients(array $ingListId)
     {
-        $recipe = []; 
+        $recipes = []; 
         foreach($this->pdo->query("SELECT *
         FROM PC_RECIPE
         INNER JOIN PC_INGREDIENTS_WEIGHT ON PC_RECIPE.REP_ID = PC_RECIPE.REP_ID
@@ -251,4 +251,4 @@ class RecipeManager extends Manager
         return $comments;
     }
 }
-?> 
+?>
