@@ -83,7 +83,6 @@
                                             echo '<div class="badge badge-danger px-3 rounded-pill font-weight-normal text-dark" style="color: red !important;">' . $tag->getContent() . '</div>';
                                         }
                                         echo '
-                                        <div class="badge badge-danger px-3 rounded-pill font-weight-normal text-dark" style="color: red !important;">New</div>
                                     </div>
                                 </div>
                             </div>
