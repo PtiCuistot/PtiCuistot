@@ -232,10 +232,23 @@ class RecipeManager extends Manager
         $statement = $this->pdo->prepare($query);
         $statement->execute(
             [
-                $author->getId(), 
+                $c->getId(), 
                 $recipe->getId()
             ]
         );
+    }
+
+    public function getComments(Recipe $recipe)
+    {
+        $cm = new CommentManager();
+
+        $comments = [];
+        foreach($this->pdo->query("SELECT CO_ID FROM PC_COMMENT_DESCRIBE WHERE REP_ID =".$recipe->getId()) as $row)
+        {
+            array_push($comments, $cm->getCommentById($row['CO_ID']));
+        }
+
+        return $comments;
     }
 }
 ?> 
