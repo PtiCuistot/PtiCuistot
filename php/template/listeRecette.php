@@ -76,8 +76,12 @@
                                         default:
                                             $difficulty = '';
                                     }
-                                    echo '<span class="font-weight-bold">' . $difficulty . '</span>
-                                    </p>
+                                    echo '<span class="font-weight-bold">' . $difficulty . '</span></p>';
+                                    $tags = $rm->getTag($recipe);
+                                    foreach ($tags as $tag) {
+                                        echo '<div class="badge badge-danger px-3 rounded-pill font-weight-normal text-dark" style="color: red !important;">' . $tag->getContent() . '</div>';
+                                    }
+                                    echo '
                                     <div class="badge badge-danger px-3 rounded-pill font-weight-normal text-dark" style="color: red !important;">New</div>
                                 </div>
                             </div>
