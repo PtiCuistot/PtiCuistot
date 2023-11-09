@@ -11,6 +11,8 @@
         include_once("php/model/user/user.php");
         include_once("php/model/recipe/recipe.php");
         include_once("php/model/recipe/recipemanager.php");
+        include_once("php/model/tag/tag.php");
+        include_once("php/model/tag/tagmanager.php");
 
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
