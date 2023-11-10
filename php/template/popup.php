@@ -7,16 +7,18 @@
 
         <form method="POST" action="php/template/filterCategoryDisplay.php">
         <label id="dialogDesc" for="categorySelect">Sélectionner une catégorie</label>
-        <select name="category" id="categorySelect">
-            <option value="">--Catégorie--</option>
-            <?php
-                $cm = new CategoryManager();
-                   foreach ($cm->getCategories() as $category) {
-                       echo "<option name=\"category\" value=".$category[0]->getId().">".$category[0]->getTitle()."</option>";
-                }
-            ?> 
-        </select>
-        <button type="submit" value="" class="searchButtonCatIng"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <div class="selectDiv">
+            <select name="category" id="categorySelect" class="select-box">
+                <option value="">Catégorie</option>
+                <?php
+                    $cm = new CategoryManager();
+                    foreach ($cm->getCategories() as $category) {
+                        echo "<option name=\"category\" value=".$category[0]->getId().">".$category[0]->getTitle()."</option>";
+                    }
+                ?> 
+            </select>
+            <button type="submit" value="" class="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
         <!--<input type="submit" value="Rechercher">-->
         </form>
     </div>
@@ -50,16 +52,18 @@
         <h1 id="modalTitle">Filtrer par ingrédient</h1>
 
         <form method="POST" action="php/template/filterIngredientDisplay.php">
-        <label id="dialogDesc" for="ingredientSelect">Sélectionner un ou plusieurs ingrédients</label>
-        <select name="ingredient" id="myMulti" multiple>
-            <?php
-                $im = new IngredientManager();
-                foreach ($im->getIngredients() as $ingredient) {
-                    echo "<option name=\"ingredient\" value=".$ingredient->getId().">".$ingredient->getName()."</option>";
-                }
-            ?> 
-        </select>
-        <button type="submit" value="" class="searchButtonCatIng"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <label id="dialogDesc" for="ingredientSelect">Sélectionner un ingrédient (maintenir touche MAJ pour en sélectionner plusieurs)</label>
+        <div class="selectDiv">
+            <select name="ingredient" id="myMulti" class="select-box" multiple>
+                <?php
+                    $im = new IngredientManager();
+                    foreach ($im->getIngredients() as $ingredient) {
+                        echo "<option name=\"ingredient\" value=".$ingredient->getId().">".$ingredient->getName()."</option>";
+                    }
+                ?> 
+            </select>
+            <button type="submit" value="" class="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
         <!--<input type="submit" value="Rechercher">-->
         </form>
     </div>
