@@ -909,7 +909,7 @@ i{
 /* END saerchBar */
 
 
-/*CSS bordel*/
+/* ingredient filter input */
 .drop {
     position: relative;
     -webkit-user-select: none;
@@ -930,7 +930,7 @@ i{
   }
   .drop.open .drop-display {
     z-index: 200;
-    border-color: #465;
+    border-color: var(--blue);
   }
   .drop select {
     display: none;
@@ -953,21 +953,19 @@ i{
     color:#8CACD7;
   }
   
-  
   .drop .drop-display {
     position: relative;
     padding: 0px 20px 5px 5px;
-    border: 4px solid #444;
+    border: 4px solid var(--blue);
     width: 100%;
     background: #FFF;
     z-index: 1;
     margin: 0px;
     font-size: 16px;
     min-height: 58px;
+    border-radius: 5px;
   }
-  .drop .drop-display:hover:after {
-    opacity: 0.75;
-  }
+  
   .drop .drop-display:after {
     font-family: 'Material Icons';
     content: "\e5c6";
@@ -975,12 +973,20 @@ i{
     right: 10px;
     top: 12px;
     font-size: 24px;
-    color: #444;
+    color: var(--blue);
   }
+
+  .drop .drop-display:hover:after {
+    color: var(--softBlue);
+  }
+
   .drop .drop-display .item {
     position: relative;
     display: inline-block;
-    border: 2px solid #333;
+    border: 2px solid var(--blue);
+    border-radius: 5px;
+    background-color: var(--softBlue);
+    color: var(--base);
     margin: 5px 5px -4px 0px;
     padding: 0px 25px 0px 10px;
     overflow: hidden;
@@ -988,7 +994,7 @@ i{
     line-height: 36px;
   }
   .drop .drop-display .item .btnclose {
-    color: #444;
+    color: var(--base);
     position: absolute;
     font-size: 16px;
     right: 5px;
@@ -999,20 +1005,21 @@ i{
     opacity: 0.75;
   }
   .drop .drop-display .item.remove {
-    -webkit-animation: removeSelected 0.2s, hide 1s infinite;
-            animation: removeSelected 0.2s, hide 1s infinite;
-    -webkit-animation-delay: 0s, 0.2s;
-            animation-delay: 0s, 0.2s;
+    -webkit-animation: removeSelected 0.3s, hide 0.3s infinite;
+            animation: removeSelected 0.3s, hide 0.3s infinite;
+    -webkit-animation-delay: 0s, 0.3s;
+            animation-delay: 0s, 0.3s;
   }
   .drop .drop-display .item.add {
-    -webkit-animation: addSelected 0.2s;
-            animation: addSelected 0.2s;
+    -webkit-animation: addSelected 0.3s;
+            animation: addSelected 0.3s;
   }
   .drop .drop-display .item.hide {
     display: none;
   }
   .drop .drop-options {
-    background: #444;
+    background: var(--base);
+    color: var(--blue);
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
     position: absolute;
     width: 100%;
@@ -1026,14 +1033,15 @@ i{
     height: 40px;
     line-height: 40px;
     padding: 0px 20px;
-    color: white;
+    color: var(--blue);
     position: relative;
     max-height: 40px;
-    transition: all 1s;
+    transition: all 0.3s;
     overflow: hidden;
   }
   .drop .drop-options a:hover {
-    background: #465;
+    background: var(--blue);
+    color: var(--base);
     cursor: pointer;
   }
   .drop .drop-options a.remove {
@@ -1161,3 +1169,4 @@ i{
     }
   }
   
+  /* END ingredient filter input */

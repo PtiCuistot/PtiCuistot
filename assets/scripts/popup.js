@@ -151,9 +151,9 @@ var $ = {
        var parentHTML = $.template('<div></div>')
        this.selected.forEach(function(select, index){ 
           var option = that.options[select.index];
-          var childHTML = $.template('<span class="item '+ select.state +'">'+ option.html +'</span>')
+          var childHTML = $.template('<span class="item '+select.state+ '" >'+ option.html +'</span>')
           var childCloseHTML = $.template(
-             '<button class="material-icons btnclose" data-index="'+select.index+'">X</button></span>')
+             '<i class="material-icons btnclose" data-index="'+select.index+'">&#xe5c9;</i></span>')
           childCloseHTML.on('click', function(e){ that.removeOption(e, this) })
           childHTML.appendChild(childCloseHTML)
           parentHTML.appendChild(childHTML)
@@ -166,7 +166,7 @@ var $ = {
        var parentHTML = $.template('<div></div>')
        this.options.forEach(function(option, index){
           var childHTML = $.template(
-             '<a data-index="'+index+'" class="'+option.state+'">'+ option.html +'</a>')
+             '<p data-index="'+index+'" class="'+option.state+'"> <input type="checkbox" value="'+option.value+'" name="ingredient">'+ option.html +'</input></p>')
           childHTML.on('click', function(e){ that.addOption(e, this) })
           parentHTML.appendChild(childHTML)
        })
@@ -203,14 +203,7 @@ var $ = {
  
  
  //Set up some data
- var options = [
-    { html: 'cats', value: 'cats' },
-    { html: 'fish', value: 'fish' },
-    { html: 'squids', value: 'squids' },
-    { html: 'cats', value: 'whales' },
-    { html: 'cats', value: 'bikes' },
- ];
- 
+
  var myDrop = new drop({
     selector:  '#myMulti'
  });

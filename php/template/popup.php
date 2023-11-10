@@ -52,11 +52,10 @@
         <form method="POST" action="php/template/filterIngredientDisplay.php">
         <label id="dialogDesc" for="ingredientSelect">Sélectionner un ou plusieurs ingrédients</label>
         <select name="ingredient" id="myMulti" multiple>
-            <option value="">--Ingrédient--</option>
             <?php
                 $im = new IngredientManager();
-                   foreach ($im->getIngredients() as $ingredient) {
-                       echo "<option name=\"ingredient\" value=".$ingredient->getId().">".$ingredient->getName()."</option>";
+                foreach ($im->getIngredients() as $ingredient) {
+                    echo "<option name=\"ingredient\" value=".$ingredient->getId().">".$ingredient->getName()."</option>";
                 }
             ?> 
         </select>

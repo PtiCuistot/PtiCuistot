@@ -23,6 +23,7 @@
     <div class="row" id="row">
     <?php
     $ingredientID = $_POST["ingredient"];
+    print_r($ingredientID);
     $ingredientID = intval($ingredientID);
     // echo $ingredientID;
     $im = new IngredientManager();
