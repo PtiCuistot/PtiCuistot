@@ -2,7 +2,6 @@
 
 include_once("category.php");
 
-
 class CategoryManager extends Manager
 {
     public function __construct()
@@ -26,7 +25,7 @@ class CategoryManager extends Manager
 
     public function getCategoryById(int $id)
     {
-        foreach($this->pdo->query("SELECT * FROM PC_CATEGORY WHERE CAT_STATUT = ".$id) as $row)
+        foreach($this->pdo->query("SELECT * FROM PC_CATEGORY WHERE CAT_ID = ".$id) as $row)
         {
             $cat = new Category($row["CAT_TITLE"], $row["CAT_DESCRIPTION"], $row["CAT_STATUT"]);
             $cat->setId($row["CAT_ID"]); 

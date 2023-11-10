@@ -39,7 +39,7 @@ class IngredientManager extends Manager
                 $row["ING_NAME"], 
             );
 
-            $ing->setId($row("ING_ID"));
+            $ing->setId($row["ING_ID"]);
 
             return $ing;
         }

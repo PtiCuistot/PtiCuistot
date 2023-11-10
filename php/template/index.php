@@ -8,7 +8,7 @@
 
 </head>
 <?php include('header.php'); ?>
-
+<?php include('popup.php'); ?>
 
 <div class="Content">
     <div>
