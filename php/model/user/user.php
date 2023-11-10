@@ -4,8 +4,8 @@ class User
     private string $username; 
     private string $email; 
     private string $password; 
-    private string $firstname; 
-    private string $lastname;
+    private ?string $firstname; 
+    private ?string $lastname;
     private int $statut;
     private int $accountType;
     private ?int $id;
@@ -15,7 +15,7 @@ class User
         $this->username = $username; 
         $this->email = $email; 
         $this->password = $password;
-        $this->firstname = $firstname; 
+        $this->firstname = $firstname;
         $this->lastname = $lastname;
         $this->statut = 1;
         $this->accountType = 0;
