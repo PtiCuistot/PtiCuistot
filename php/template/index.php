@@ -12,7 +12,20 @@
 
 <div class="Content">
     <div>
+        <div class="Row">
+            <div class="line">
+                <img src="assets/images/cooking.gif" alt="Child Happy">
+                <hr>
+            </div>
+        </div>
+        <div class="Row row2">
+            <div class="line">
+                <img src="assets/images/cookChild.png" alt="Child Cooking">
+                <hr>
+            </div>
+        </div>
     </div>
+
     <div class="TwoRow">
         <div class="DernieresRecettes">
             <div class="svg-wrapper">
