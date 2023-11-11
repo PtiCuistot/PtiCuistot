@@ -15,7 +15,7 @@ class User
         $this->username = $username; 
         $this->email = $email; 
         $this->password = $password;
-        $this->firstname = $firstname; 
+        $this->firstname = $firstname;
         $this->lastname = $lastname;
         $this->statut = 1;
         $this->accountType = 0;
