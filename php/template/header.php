@@ -12,14 +12,16 @@
                 <li><a class="Logo"><img src="assets/images/Logo.png" alt="Logo"></a></li>
                 <li><a href="index.php">Accueil</a></li>
                 <li><a href="recipe.php">Nos Recettes</a></li>
+                <?php if(strpos($_SERVER['SCRIPT_NAME'], 'index.php') !== false) : ?>
                 <li class="NavBarLiHasChildren">
-                    <a href="creationRecette.php">Filtes<span>▼</span></a>
+                    <a href="creationRecette.php">Filtres<span>▼</span></a>
                     <ul class="SubMenu">
                         <li><a class="triggerCategory" href="#">Catégories</a></li>
                         <li><a class="triggerTitle" href="#">Titre</a></li>
                         <li><a class="triggerIngredient" href="#">Ingrédients</a></li>
                     </ul>
                 </li>
+                <?php endif; ?>
                 <?php
 
                     if(isset($_SESSION['userId']))

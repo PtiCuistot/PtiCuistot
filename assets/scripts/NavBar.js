@@ -1,11 +1,11 @@
-let ButtonClicked = 0;
+let NavButtonClicked = 0;
 document.getElementById('ShowNav').addEventListener('click', function() {
     let Div = document.getElementById('NavBar');
-    if (ButtonClicked == 0) {
+    if (NavButtonClicked == 0) {
         Div.style.display = 'block';
-        ButtonClicked = 1;
+        NavButtonClicked = 1;
     } else {
-        ButtonClicked = 0;
+        NavButtonClicked = 0;
         Div.style.display = 'none';
     }
 });

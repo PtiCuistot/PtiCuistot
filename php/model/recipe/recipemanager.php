@@ -114,15 +114,14 @@ class RecipeManager extends Manager
 
     public function addTag(Recipe $recipe, Tag $tag)
     {
-        $query = "INSERT INTO PC_TAG_REFERENCE (REP_ID, TA_ID, TA_CONTENT) VALUES (?, ?, ?)"; 
+        $query = "INSERT INTO PC_TAG_REFERENCE (REP_ID, TA_ID) VALUES (?, ?)"; 
         $statement = $this->pdo->prepare($query);
         
         try
         {
             $statement->execute([
                 $recipe->getId(), 
-                $tag->getId(), 
-                $tag->getContent()
+                $tag->getId()
             ]);
         }catch(PDOException $e)
         {
@@ -201,26 +200,19 @@ class RecipeManager extends Manager
     public function getRecipeByIngredients(array $ingListId)
     {
         $recipes = []; 
-        foreach($this->pdo->query("SELECT *
-        FROM PC_RECIPE
-        INNER JOIN PC_INGREDIENTS_WEIGHT ON PC_RECIPE.REP_ID = PC_RECIPE.REP_ID
-        WHERE PC_INGREDIENTS_WEIGHT.ING_ID IN (" . implode(",", $ingListId) . ")") as $row)
-        {
-            $r = new Recipe(
-                $row['US_ID'],
-                $row['REP_TITLE'],
-                $row['REP_CONTENT'],
-                $row['REP_IMAGE'],
-                $row['REP_NOTE'],
-                $row['REP_CREATED'],
-                $row['REP_UPDATED'],
-                $row['REP_VALIDATE'],
-                $row['CAT_ID']);
-            $r->setId($row['REP_ID']);
+        $inputId = [];
 
-            array_push($recipe, $r);
+        foreach($this->pdo->query("SELECT DISTINCT *
+        FROM PC_INGREDIENTS_WEIGHT
+        WHERE ING_ID IN (" . implode(",", $ingListId) . ")") as $row)
+        {
+            if(!in_array($row['REP_ID'], $inputId))
+            {
+                array_push($recipes, $this->getRecipeById($row['REP_ID']));
+                array_push($inputId, $row['REP_ID']);
+            }
         }
-        return $recipe;
+        return $recipes;
     }
 
     public function sendComment(User $author, Recipe $recipe, string $comment)

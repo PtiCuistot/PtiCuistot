@@ -10,6 +10,8 @@
         }
         ?>
         <?php include('link.php'); ?>
+        <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
     </head>
     <?php include('header.php'); ?>
     <section style="background-color: #eee;">
@@ -71,7 +73,7 @@
                                 </svg>
                             </div>
                             <div class="bg-white rounded shadow-sm p-4" style="border: 1px solid black;">
-                                <p class="RecipeContent"><?php echo $recipe->getContent(); ?></p>
+                                <div id="recipeContent"><?php echo $recipe->getContent(); ?></div>
                             </div>
                         </div>
 
@@ -116,6 +118,20 @@
             </div>
         </div>
     </section>
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script>
+    let options = {
+        placeholder: 'Description de la recette',
+        readOnly: true,
+        modules:
+        {
+            "toolbar" : false
+        },
+        theme: 'snow'
+        };
+    var quill = new Quill('#recipeContent', options);
+    </script>
+
     <?php include('footer.php'); ?>
 <?php else: ?>
     <?php include('404.php'); ?>

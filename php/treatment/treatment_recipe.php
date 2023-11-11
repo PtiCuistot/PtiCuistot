@@ -23,11 +23,15 @@ $recipeId = $recipeManager->insertRecipe($recipe);
 $recipe = $recipeManager->getRecipeById($recipeId);
 
 $ingredientData = json_decode($_POST['ingredientData'], true);
-$tagData = json_decode($_POST['tagData'], true);
+$tagData = json_decode($_POST['tagData'], false);
+
+print_r($tagData);
 
 $iwManager = new IngredientWeightManager();
 $ingManager = new IngredientManager();
 $tagManager = new TagManager();
+
+$tagSend = [];
 
 foreach($ingredientData as $id => $data)
 {
@@ -48,19 +52,22 @@ foreach($ingredientData as $id => $data)
 
 foreach($tagData as $id => $data)
 {
-
-    if(intval($data[0]) != 0)
+    if(array_key_exists($data[0], $tagSend) == false)
     {
-        $t = $tagManager->getTagById(intval($data[0])); 
-        $recipeManager->addTag($recipe, $t); 
+        if(intval($data[0]) != 0)
+        {
+            $t = $tagManager->getTagById(intval($data[0])); 
+            $recipeManager->addTag($recipe, $t); 
+        }
+        else
+        {
+            $t = new Tag($data[0], 1); 
+            $t = $tagManager->getTagById($tagManager->insertTag($t));
+            $recipeManager->addTag($recipe, $t);                
+        }
+        array_push($tagSend, $data[0]);
     }
-    else
-    {
 
-        $t = new Tag($data[0], 1); 
-        $t = $tagManager->getTagById($tagManager->insertTag($t));
-        $recipeManager->addTag($recipe, $t);                
-    }
 }
 
 header('Location: ../../recipe.php');
