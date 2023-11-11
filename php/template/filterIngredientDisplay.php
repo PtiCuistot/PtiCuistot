@@ -22,13 +22,10 @@
 ?>
     <div class="row" id="row">
     <?php
-    $ingredientID = $_POST["ingredient"];
-    print_r($ingredientID);
-    $ingredientID = intval($ingredientID);
-    // echo $ingredientID;
-    $im = new IngredientManager();
+    $ingredientIdArray = $_POST["ingredient"];
+    print_r($ingredientIdArray);
 
-    $ingredientIdArray = array($ingredientID);
+    $im = new IngredientManager();
     $rm = new RecipeManager();
     $um = new UserManager();
 

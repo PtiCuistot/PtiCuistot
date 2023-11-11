@@ -51,18 +51,18 @@
         <button aria-label="close modal" class="close-modal triggerIngredient">X</button>
         <h1 id="modalTitle">Filtrer par ingrédient</h1>
 
-        <form method="POST" action="php/template/filterIngredientDisplay.php">
-        <label id="dialogDesc" for="ingredientSelect">Sélectionner un ingrédient (maintenir touche MAJ pour en sélectionner plusieurs)</label>
+        <form method="POST" action="php/template/filterIngredientDisplay.php" onsubmit="return selectAll()">
+        <label id="dialogDesc" for="ingredientSelect">Sélectionner un ingrédient (maintenir la touche Ctrl pour en sélectionner plusieurs)</label>
         <div class="selectDiv">
-            <select name="ingredient" id="myMulti" class="select-box" multiple>
+            <select name="ingredient[]" id="myMulti" class="select-box" multiple="multiple">
                 <?php
                     $im = new IngredientManager();
                     foreach ($im->getIngredients() as $ingredient) {
-                        echo "<option name=\"ingredient\" value=".$ingredient->getId().">".$ingredient->getName()."</option>";
+                        echo "<option name=\"ingredient[]\" value=".$ingredient->getId().">".$ingredient->getName()."(".$ingredient->getId().")"."</option>";
                     }
                 ?> 
             </select>
-            <button type="submit" value="" class="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <button type="submit" value="submit" class="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
         <!--<input type="submit" value="Rechercher">-->
         </form>

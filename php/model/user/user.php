@@ -4,8 +4,8 @@ class User
     private string $username; 
     private string $email; 
     private string $password; 
-    private string $firstname; 
-    private string $lastname;
+    private ?string $firstname; 
+    private ?string $lastname;
     private int $statut;
     private int $accountType;
     private ?int $id;
