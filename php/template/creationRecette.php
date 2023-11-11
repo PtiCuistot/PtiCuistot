@@ -15,9 +15,9 @@
                 <div class="card-body p-4">
                     <form action="php/treatment/treatment_recipe.php" id="recipeForm" method="POST" class="needs-validation" novalidate>
                         <div class="CreateRecipeTitleDiv">
-                            <i class="fa-solid fa-utensils"></i>
-                            <h1 class="CreateRecipeTitle">Création de recettes</h1>
-                            <i class="fa-solid fa-pizza-slice"></i>
+                            <i class="fa-solid fa-utensils text-rainbow"></i>
+                            <h1 class="CreateRecipeTitle text-rainbow">Création de recettes</h1>
+                            <i class="fa-solid fa-pizza-slice text-rainbow"></i>
                         </div>
                         <div class="svg-wrapper wrapperFormCreateRecipeTitle" style="width: auto;">
                             <svg height="60" width="500" xmlns="http://www.w3.org/2000/svg" style="z-index: 5;">
