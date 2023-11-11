@@ -23,7 +23,6 @@
     <div class="row" id="row">
     <?php
     $ingredientIdArray = $_POST["ingredient"];
-    print_r($ingredientIdArray);
 
     $im = new IngredientManager();
     $rm = new RecipeManager();

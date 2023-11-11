@@ -201,7 +201,7 @@ class RecipeManager extends Manager
     public function getRecipeByIngredients(array $ingListId)
     {
         $recipes = []; 
-        foreach($this->pdo->query("SELECT *
+        foreach($this->pdo->query("SELECT DISTINCT *
         FROM PC_RECIPE
         INNER JOIN PC_INGREDIENTS_WEIGHT ON PC_RECIPE.REP_ID = PC_RECIPE.REP_ID
         WHERE PC_INGREDIENTS_WEIGHT.ING_ID IN (" . implode(",", $ingListId) . ")") as $row)
@@ -218,9 +218,9 @@ class RecipeManager extends Manager
                 $row['CAT_ID']);
             $r->setId($row['REP_ID']);
 
-            array_push($recipe, $r);
+            array_push($recipes, $r);
         }
-        return $recipe;
+        return $recipes;
     }
 
     public function sendComment(User $author, Recipe $recipe, string $comment)
