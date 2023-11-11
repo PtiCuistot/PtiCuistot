@@ -307,9 +307,109 @@ img {
 }
 
 /* detailRecette */
+
+.CreateByRecipeDetail{
+    width: 60%;
+    border-radius: 25px;
+    background-color: var(--blue);
+    color: white;
+    margin-top: 25px;
+    padding: 2%;
+}
+
+.table-dark, .table-dark > td, .table-dark > th {
+    background-color: var(--blue) !important;
+  }
+
+  tr, thead {
+    border: 1px solid var(--blue);
+  }
+
+  .formCommentsRecipeDetail > *{
+    width: 80%;
+  }
+
+  .formCommentsRecipeDetail{
+    width: 100%;
+  }
+
+  .CommentsDetailRecipe{
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 25px;
+    padding: 2%;
+    background: linear-gradient(to right, #a770ef, #cf8bf3, #fdb99b);
+  }
+
+  .CommentsDetailRecipe > *{
+    width: 80%;
+    color: white;
+  }
+
+  .CommentsDetailRecipe > p:first-child{
+    font-size: 20px;
+}
+
+.CommentsDetailRecipe > p:nth-child(2){
+    font-size: 14px;
+    font-style: italic;
+}
+
+.commentFormDiv{
+    margin-bottom: 25px;
+}
+
+.CommentValidateButton{
+    margin-bottom: 50px;
+}
+
+#recipeComment{
+    resize: none;
+}
+
+.displayFlex{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .RecipeTitle
 {
-    margin-top: 2%;  
+    color: var(--blue);
+}
+
+.lineDetailRecipe{
+    margin-top: 25px;  
+    margin-bottom: 25px;  
+    width: 100%;
+}
+
+.lineDetailRecipe > hr{
+    width: 40%;
+    height: 1px;
+    background-color: var(--blue);
+    opacity: 1;
+}
+
+.CreateByRecipeDetailHR1{
+    width: 20%;
+    height: 1px;
+    background-color: var(--blue);
+    opacity: 1;
+}
+
+.CreateByRecipeDetailHR2{
+    width: 40%;
+    margin-top: 50px;  
+    height: 1px;
+    background-color: var(--blue);
+    opacity: 1;
+}
+
+
+.line2{
+    margin-top: 50px;
 }
 
 .RecipeContent
@@ -321,6 +421,7 @@ img {
     border: 1px solid black;
     height: 32%;
     border-radius: 30px;
+    width: 100%;
 }
 /* END of detailRecette */
 
