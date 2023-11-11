@@ -59,7 +59,7 @@ recipeForm.addEventListener('submit', function(e) {
         recipeNote: rating,
         recipeCategory: recipeCategory,
         ingredientData: createIngredientData(addedDatas), 
-        tagData:  JSON.stringify(addedTag)
+        tagData: JSON.stringify(addedTag)
     };
 
     submitForm(postData);
@@ -253,11 +253,13 @@ const TagsArray = [];
 
 /* On exterior Click animate display none of children for smooth exit*/
 document.addEventListener('click', function(event) {
-  if (!document.getElementById("SpecialSelectGlobalDiv").contains(event.target)) {
-    for(let i = 0; i < document.getElementById("Tags").children.length; i++){
-      TagsArray.push([document.getElementById("Tags").children[i].id, document.getElementById("Tags").children[i].innerText]);
-      console.log(TagsArray[i])
-      console.log(document.getElementById("Tags").children[i])
+    if (!document.getElementById("SpecialSelectGlobalDiv").contains(event.target)) {
+    for(let i = 0; i < document.getElementById("Tags").children.length; i++)
+    {
+        if([document.getElementById("Tags").children[i].id, document.getElementById("Tags").children[i].innerText] in TagsArray.values() === false)
+        {
+            TagsArray.push([document.getElementById("Tags").children[i].id, document.getElementById("Tags").children[i].innerText]);
+        }
     }
 
     let cmpt = 0;
