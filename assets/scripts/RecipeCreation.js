@@ -45,7 +45,7 @@ recipeForm.addEventListener('submit', function(e) {
     e.preventDefault();
 
     let recipeTitle = document.querySelector('input[name="recipeTitle"]').value;
-    let recipeContent = document.getElementById("recipeContent").value;
+    let recipeContent = document.getElementsByClassName("ql-editor")[0].innerHTML; 
     let recipeImage = document.querySelector('input[name="recipeImage"]').value;
     let recipeCategory = document.getElementById('recipeCategory').value; 
 

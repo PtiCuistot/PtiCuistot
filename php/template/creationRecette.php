@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Nos Recettes</title>
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
     <?php include('link.php'); ?>
 </head>
 <?php include('header.php'); ?>
@@ -31,8 +32,9 @@
                             </div>
 
                             <div class="form-outline">
-                                <textarea class="form-control RecipeContent" id="recipeContent" rows="4" required></textarea>
-                                <label class="form-label" for="textAreaExample">Description de la recette</label>
+                                <div  class="form-control" name="recipeContent" id="recipeContent">
+                                    
+                                </div>
                             </div>
 
                             <div class="form-outline">
@@ -190,4 +192,12 @@
     </div>
 </section>
 <script src="assets/scripts/RecipeCreation.js"></script>
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+<script>
+  var quill = new Quill('#recipeContent', {
+    theme: 'snow', 
+    placeholder: 'Description de la recette'
+  });
+</script>
+
 <?php include_once('footer.php'); ?>
