@@ -55,10 +55,12 @@
                         $isActive = $key === 0 ? 'active' : '';
                         echo '
                                 <div class="carousel-item ' . $isActive . '">
-                                    <img src="' . $recipe->getImage() . '" class="d-block w-100" alt="Image Recette">
-                                    <div class="carousel-caption d-none d-md-block">
-                                        <h5>' . $recipe->getTitle() . '</h5>
-                                    </div>
+                                    <a href="recipe.php?id=' . $recipe->getId() . '">
+                                        <img src="' . $recipe->getImage() . '" class="d-block w-100" alt="Image Recette">
+                                        <div class="carousel-caption d-none d-md-block">
+                                            <h5 style="display: flex;"><a href="recipe.php?id=' . $recipe->getId() . '" class="RecipeTitle text-dark" style="width: 100%;color: white !important;">' . $recipe->getTitle() . '</a></h5>
+                                        </div>
+                                    </a>
                                 </div>
                             ';
                     }
