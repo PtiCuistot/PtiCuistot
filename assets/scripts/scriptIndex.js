@@ -110,3 +110,16 @@
   initialise();
 
 })();
+
+document.addEventListener("DOMContentLoaded", function () {
+    var presentationIndex = document.querySelector(".Presentionindex");
+    var content = document.querySelector(".Content");
+    setTimeout(function () {
+      presentationIndex.classList.add("translateYAnimation");
+      content.classList.remove("hidden");
+      content.classList.add("ContenttranslateYAnimation2");
+    }, 300);
+    setTimeout(function () {
+      presentationIndex.style.display = "none";
+    }, 800);
+});

@@ -25,8 +25,6 @@ $recipe = $recipeManager->getRecipeById($recipeId);
 $ingredientData = json_decode($_POST['ingredientData'], true);
 $tagData = json_decode($_POST['tagData'], false);
 
-print_r($tagData);
-
 $iwManager = new IngredientWeightManager();
 $ingManager = new IngredientManager();
 $tagManager = new TagManager();

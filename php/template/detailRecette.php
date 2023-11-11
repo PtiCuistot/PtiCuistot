@@ -66,9 +66,6 @@
                                 </tbody>
                             </table>
 
-                            <div class="displayFlex">
-                                <hr class="CreateByRecipeDetailHR2">
-                            </div>
                             <div class="svg-wrapper wrapperFormCreateRecipeTitle" style="width: auto;">
                                 <svg height="60" width="500" xmlns="http://www.w3.org/2000/svg" style="z-index: 5;">
                                     <rect class="shape" height="60" width="500" />
@@ -80,20 +77,16 @@
                             </div>
                         </div>
 
-
-                        <?php if(isset($_SESSION['userId']) && (intval($_SESSION['userId']) == intval($recipe->getUserId()))) : ?>
-                            <h2 class="h2Recipe">Action créateur</h2>
-                            <form>
-                                <input name='recipeId' value="<?php echo $recipe->getId() ?>" hidden>
-                                <input class="btn btn-success" type="submit" value="Mettre à jour ma recette">
-                            </form>
-                        <?php endif; ?>
-
                         <?php if (isset($_SESSION['admin']) && $recipe->getValidate() == 0) : ?>
-                            <h2 class="h2Recipe">Action Administrateur</h2>
-                            <form method="POST" action="php/treatment/accept_recipe.php">
+                            <div class="svg-wrapper wrapperFormCreateRecipeTitle" style="width: auto;">
+                                <svg height="60" width="500" xmlns="http://www.w3.org/2000/svg" style="z-index: 5;">
+                                    <rect class="shape" height="60" width="500" />
+                                    <div class="text">Action Administrateur</div>
+                                </svg>
+                            </div>
+                            <form method="POST" action="php/treatment/accept_recipe.php" style="width: 80%;">
                                 <input name='recipeId' value="<?php echo $recipe->getId() ?>" hidden>
-                                <input class="btn btn-success" type="submit" value="Valider la recette">
+                                <input class="btn btn-success" type="submit" value="Valider la recette"  style="width: 100%;">
                             </form>
                         <?php endif; ?>
 
