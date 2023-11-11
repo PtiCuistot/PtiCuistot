@@ -5,7 +5,7 @@
         <button aria-label="close modal" class="close-modal triggerCategory">X</button>
         <h1 id="modalTitle">Filtrer par catégorie</h1>
 
-        <form method="POST" action="php/template/filterCategoryDisplay.php">
+        <form method="POST" action="result.php?type=c">
         <label id="dialogDesc" for="categorySelect">Sélectionner une catégorie</label>
         <div class="selectDiv">
             <select name="category" id="categorySelect" class="select-box">
@@ -31,7 +31,7 @@
         <button aria-label="close modal" class="close-modal triggerTitle">X</button>
         <h1 id="modalTitle">Filtrer par titre</h1>
 
-        <form method="POST" action="php/template/filterTitleDisplay.php">
+        <form method="POST" action="result.php?type=t">
             <div class="searchBox">
                 <div class="row">
                     <input name="title" class="autocomplete" type="text" id="inputBox" placeholder="Chercher un titre" autocomplete="off" onkeyup="showHint(this.value)">
@@ -51,7 +51,7 @@
         <button aria-label="close modal" class="close-modal triggerIngredient">X</button>
         <h1 id="modalTitle">Filtrer par ingrédient</h1>
 
-        <form method="POST" action="php/template/filterIngredientDisplay.php" onsubmit="return selectAll()">
+        <form method="POST" action="result.php?type=i" onsubmit="return selectAll()">
         <label id="dialogDesc" for="ingredientSelect">Sélectionner un ingrédient (maintenir la touche Ctrl pour en sélectionner plusieurs)</label>
         <div class="selectDiv">
             <select name="ingredient[]" id="myMulti" class="select-box" multiple="multiple">

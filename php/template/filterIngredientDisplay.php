@@ -10,23 +10,11 @@
 </head>
 <?php 
     include_once('header.php'); 
-    include_once ('../database/connector.php');
-    include_once ('../model/manager.php');
-    include_once ('../model/ingredient/ingredientmanager.php');
-    include_once ('../model/category/categorymanager.php');
-    include_once ('../model/recipe/recipe.php');
-    include_once("../model/recipe/recipemanager.php");
-    include_once("../model/user/user.php");
-    include_once("../model/user/usermanager.php");
-    include_once('popup.php'); 
+
 ?>
     <div class="row" id="row">
     <?php
-    $ingredientIdArray = $_POST["ingredient"];
 
-    $im = new IngredientManager();
-    $rm = new RecipeManager();
-    $um = new UserManager();
 
     foreach ($rm->getRecipeByIngredients($ingredientIdArray) as $recipe) {
         echo '
@@ -34,7 +22,7 @@
         <div class="RecipFirstChild bg-white rounded shadow-sm" style="border: 1px solid black;">
             <img src="' . $recipe->getImage() . '" alt="" class="RecipeImg img-fluid card-img-top">
             <div class="RecipeDiv p-4">
-                <h5><a href="../../recipe.php?id='.$recipe->getId().'" class="RecipeTitle text-dark">' . $recipe->getTitle() . '</a></h5>
+                <h5><a href="recipe.php?id='.$recipe->getId().'" class="RecipeTitle text-dark">' . $recipe->getTitle() . '</a></h5>
                 <b>By : ' . $um->getUserById($recipe->getUserId())->getUsername() . '</b>
                 <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
                     <p class="small mb-0">
