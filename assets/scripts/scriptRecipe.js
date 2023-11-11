@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var urlParams = new URLSearchParams(window.location.search);
     var limit = parseInt(urlParams.get('limit')) || 0;
 
-    if (limit > 30) {
+    if (limit >= 30) {
         var row = document.getElementById('row');
         var childNumber = Math.min(limit - 20, row.childElementCount);
         var elementToScrollTo = row.children[childNumber - 1];
