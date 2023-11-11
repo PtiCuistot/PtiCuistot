@@ -200,7 +200,7 @@ class RecipeManager extends Manager
 
     public function getRecipeByIngredients(array $ingListId)
     {
-        $recipe = []; 
+        $recipes = []; 
         foreach($this->pdo->query("SELECT *
         FROM PC_RECIPE
         INNER JOIN PC_INGREDIENTS_WEIGHT ON PC_RECIPE.REP_ID = PC_RECIPE.REP_ID
@@ -222,5 +222,33 @@ class RecipeManager extends Manager
         }
         return $recipe;
     }
+
+    public function sendComment(User $author, Recipe $recipe, string $comment)
+    {
+        $c = new Comment($author->getId(),  $comment);
+        $cm = new CommentManager();
+        $c = $cm->getCommentById($cm->insertComment($c));
+        $query = 'INSERT INTO PC_COMMENT_DESCRIBE(CO_ID, REP_ID) VALUES(?, ?)';
+        $statement = $this->pdo->prepare($query);
+        $statement->execute(
+            [
+                $c->getId(), 
+                $recipe->getId()
+            ]
+        );
+    }
+
+    public function getComments(Recipe $recipe)
+    {
+        $cm = new CommentManager();
+
+        $comments = [];
+        foreach($this->pdo->query("SELECT CO_ID FROM PC_COMMENT_DESCRIBE WHERE REP_ID =".$recipe->getId()) as $row)
+        {
+            array_push($comments, $cm->getCommentById($row['CO_ID']));
+        }
+
+        return $comments;
+    }
 }
-?> 
+?>

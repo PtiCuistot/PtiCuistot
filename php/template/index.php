@@ -12,7 +12,20 @@
 
 <div class="Content">
     <div>
+        <div class="Row">
+            <div class="line">
+                <img src="assets/images/cooking.gif" alt="Child Happy">
+                <hr>
+            </div>
+        </div>
+        <div class="Row row2">
+            <div class="line">
+                <img src="assets/images/cookChild.png" alt="Child Cooking">
+                <hr>
+            </div>
+        </div>
     </div>
+
     <div class="TwoRow">
         <div class="DernieresRecettes">
             <div class="svg-wrapper">
@@ -66,21 +79,14 @@
             <div class="center">
                 <img src="assets/images/Pticuisto.png" alt="PtiCuisto img">
             </div>
-            <p style="font-size: 14px;">
-                <b>Salut à tou·te·s</b>,
-
-                Bienvenue sur PtiCuisto, l'endroit idéal pour les amoureux·ses de la cuisine en quête d'inspiration. Ici, pas de formalités ni de recettes complexes, juste de la cuisine accessible à tou·te·s, quel que soit votre âge.
-
-                Sur PtiCuisto, nous sommes tou·te·s là pour apprendre et partager sans crainte de la critique. C'est un espace où l'expérimentation est encouragée, les erreurs sont des opportunités d'apprentissage, et les succès sont à célébrer ensemble.
-
-                Alors, prenez votre tablier, lancez-vous en cuisine, et rejoignez la communauté PtiCuisto pour un voyage culinaire rempli de découvertes, de plaisirs gustatifs et de partage. Nous avons hâte de voir vos créations et d'entendre vos idées, car PtiCuisto, c'est avant tout une grande famille de passionné·e·s de cuisine, curieux·ses et anonymes.
-
-                Bonne cuisine et à bientôt sur PtiCuisto !
-
-                L'équipe de PtiCuisto
-            </p>
+            <div id="container" style="width: 100%;">
+                <div id="message">
+                    <a id="animate" href="#" style="display : none">Transmit</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
+<script src="assets/scripts/scriptIndex.js"></script>
 <?php include('footer.php'); ?>

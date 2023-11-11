@@ -52,7 +52,7 @@
                         </div>
 
 
-                        <?php if (intval($_SESSION['userId']) == intval($recipe->getUserId())) : ?>
+                        <?php if(isset($_SESSION['userId']) && (intval($_SESSION['userId']) == intval($recipe->getUserId()))) : ?>
                             <h2 class="h2Recipe">Action créateur</h2>
                             <form>
                                 <input name='recipeId' value="<?php echo $recipe->getId() ?>" hidden>
@@ -67,6 +67,23 @@
                                 <input class="btn btn-success" type="submit" value="Valider la recette">
                             </form>
                         <?php endif; ?>
+
+                        <?php if (isset($_SESSION['userId'])) : ?>
+                        <h2 class="h2Recipe">Laisser un commentaire</h2>
+                            <form action="php/treatment/send_comment.php" method="POST">
+                                <input name='recipeId' value="<?php echo $recipe->getId() ?>" hidden>
+                                <textarea name='comment' placeholder="Laisser un commentaire"></textarea>
+                                <br>
+                                <input type="submit" value="Valider le commentaire"/>
+                            </form>
+                         <?php endif; ?>
+
+                        <?php
+                        foreach($commentList as $comment)
+                        {
+                            echo '<div><p>'.$comment->getContent().'</p><p>Posté par '.$um->getUserById($comment->getUserId())->getUsername().'</p></div';
+                        }
+                        ?>
                     </div>
                 </div>
             </div>

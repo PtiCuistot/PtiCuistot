@@ -7,7 +7,7 @@
             <span class="menu-btn__line"></span>
             <span class="menu-btn__close"></span>
         </button>
-        <nav class="NavBar" id="NavBar">
+        <nav class="NavBar" id="NavBar" style="border-bottom: 1px solid white;">
             <ul id="UlMenu">
                 <li><a class="Logo"><img src="assets/images/Logo.png" alt="Logo"></a></li>
                 <li><a href="index.php">Accueil</a></li>
@@ -36,6 +36,7 @@
                     {
                         echo '<li><a href="admin.php">Page administration</a></li>';
                     }
+                    
                 ?>
           
             </ul>

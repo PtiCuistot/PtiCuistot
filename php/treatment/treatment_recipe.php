@@ -1,5 +1,9 @@
 <?php 
 
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 include_once("../database/connector.php");
 include_once("../model/manager.php");
 include_once("../model/recipe/recipe.php");
@@ -11,7 +15,7 @@ include_once("../model/ingredientWeight/ingredientweightmanager.php");
 include_once("../model/tag/tag.php");
 include_once("../model/tag/tagmanager.php");
 
-session_start();
+
 
 $recipeManager = new RecipeManager();
 $recipe = new Recipe($_SESSION['userId'], $_POST["recipeTitle"], $_POST["recipeContent"], $_POST["recipeImage"], intval($_POST["recipeNote"]), date('Y-m-d'), date('Y-m-d'), 0, $_POST['recipeCategory']); 
