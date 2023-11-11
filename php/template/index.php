@@ -18,13 +18,13 @@
     <div>
         <div class="Row">
             <div class="line">
-                <img src="assets/images/cooking.gif" alt="Child Happy">
+                <h1 class="text-reflect">PtiCuisto</h1>
                 <hr>
             </div>
         </div>
         <div class="Row row2">
             <div class="line">
-                <img src="assets/images/cookChild.png" alt="Child Cooking">
+                <img src="assets/images/cooking.gif" alt="Child Happy">
                 <hr>
             </div>
         </div>
