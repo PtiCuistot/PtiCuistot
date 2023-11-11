@@ -14,3 +14,11 @@ function Form() {
         }) 
 } 
 Form();
+
+if(document.getElementById("recipeComment")){
+    var textarea = document.getElementById("recipeComment");
+    textarea.addEventListener('input', function () {
+        this.style.height = 'auto';
+        this.style.height = (this.scrollHeight) + 'px';
+    });
+}

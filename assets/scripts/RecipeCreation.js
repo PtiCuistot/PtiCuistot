@@ -203,27 +203,24 @@ recipeForm.addEventListener("submit", function (event) {
 const recipeIngredientsSelect = document.getElementById("recipeIngredients");
 const ingredientNameInput = document.getElementById("ingredientName");
 const ingredientWeightInput = document.getElementById("ingredientWeight");
-const ingredientWeightUnityInput = document.getElementById("ingredientWeightUnity");
 
 recipeIngredientsSelect.addEventListener("input", checkFormValidity);
 ingredientNameInput.addEventListener("input", checkFormValidity);
 ingredientWeightInput.addEventListener("input", checkFormValidity);
-ingredientWeightUnityInput.addEventListener("input", checkFormValidity);
 
 function checkFormValidity() {
     const ingredientSelected = recipeIngredientsSelect.value !== "";
     const ingredientName = ingredientNameInput.value.trim();
     const ingredientWeight = parseFloat(ingredientWeightInput.value);
-    const ingredientWeightUnity = ingredientWeightUnityInput.value.trim();
 
     if(document.getElementById("ingredientNameCol").style.display != "none"){
-        if (ingredientName && !isNaN(ingredientWeight) && ingredientWeight > 0 && ingredientWeightUnity) {
-            addIngredientButton.disabled = false;
+        if (ingredientName && !isNaN(ingredientWeight) && ingredientWeight > 0) {
+          addIngredientButton.disabled = false;
         } else {
-            addIngredientButton.disabled = true;
+          addIngredientButton.disabled = true;
         }
     }else{
-        if (ingredientSelected && !isNaN(ingredientWeight) && ingredientWeight > 0 && ingredientWeightUnity) {
+        if (ingredientSelected && !isNaN(ingredientWeight) && ingredientWeight > 0) {
             addIngredientButton.disabled = false;
         } else {
             addIngredientButton.disabled = true;
