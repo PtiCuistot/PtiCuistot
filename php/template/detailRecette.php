@@ -21,7 +21,7 @@
                     <div class="card-body p-4 displayFlex">
 
                         <div class="lineDetailRecipe displayFlex">
-                            <h1 class="display-3 RecipeTitle"><?php echo $recipe->getTitle(); ?></h1>
+                            <h1 class="display-3 RecipeTitle text-reflect"><?php echo $recipe->getTitle(); ?></h1>
                             <hr>
                         </div>
 
