@@ -10,7 +10,11 @@
 <?php include('header.php'); ?>
 <?php include('popup.php'); ?>
 
-<div class="Content">
+<div class="Presentionindex displayFlex">
+    <h1 class="text-reflect">PtiCuisto</h1>
+</div>
+
+<div class="Content hidden">
     <div>
         <div class="Row">
             <div class="line">

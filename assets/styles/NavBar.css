@@ -59,7 +59,7 @@
   }
   
   .NavBar > ul > li > a:hover, .SubMenu > li > a:hover {
-    color: var(--blue);
+    color: var(--blue) !important;
     transition: all 0.7s ease;
     cursor: pointer;
     background-color: var(--base);
