@@ -129,7 +129,26 @@
                         <?php
                         foreach($commentList as $comment)
                         {
-                            echo '<div class="displayFlex CommentsDetailRecipe"><p>'.$comment->getContent().'</p><p>Posté par '.$um->getUserById($comment->getUserId())->getUsername().'</p></div>';
+                            if((isset($_SESSION['userId']) && $recipe->getUserId() == intval($_SESSION['userId'])||isset($_SESSION['admin'])))
+                            {
+                                echo '
+                                <div class="displayFlex CommentsDetailRecipe">
+                                    <p>'.$comment->getContent().'</p>
+                                    <p>Posté par '.$um->getUserById($comment->getUserId())->getUsername().'</p>.
+                                    <form action="php/treatment/delete_comment.php" method="POST">
+                                        <input type="number" name="commentId" value="'.$comment->getId().'" hidden>
+                                        <input type="submit" class="btn btn-danger SuppUserButton" value="Supprimer le commentaire"/>
+                                    </form>
+                                </div>';
+                            }
+                            else
+                            {
+                                echo '<div class="displayFlex CommentsDetailRecipe">
+                                <p>'.$comment->getContent().'</p>
+                                <p>Posté par '.$um->getUserById($comment->getUserId())->getUsername().'</p>.
+                                </div>';
+                            }
+
                         }
                         ?>
                     </div>
