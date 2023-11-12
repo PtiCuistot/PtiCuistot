@@ -57,12 +57,16 @@
     transform: rotate(-90deg);
     display: inline-block;
   }
+
+  .NavBar > ul > li:hover, .SubMenu > li:hover {
+    flex-grow: 1.4;
+  }
   
   .NavBar > ul > li > a:hover, .SubMenu > li > a:hover {
-    color: var(--blue) !important;
     transition: all 0.7s ease;
     cursor: pointer;
-    background-color: var(--base);
+    background-color: var(--blue2);
+    transition: ease-in-out 0.5s;
   }
   
   .SubMenu {
@@ -79,8 +83,7 @@
 
   .NavBarLiHasChildren:hover > a {    
     transition: all 0.7s ease;
-    background-color: var(--base);
-    color: var(--grey);
+    background-color: var(--blue2);
   }
 
   .SubMenu > li > a {
