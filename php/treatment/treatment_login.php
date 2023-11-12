@@ -12,7 +12,7 @@
     $user = $um->getUserByMail($email);
 
     if ($user != NULL) {
-        if (password_verify($password, $user->getPassword())) {
+        if (password_verify($password, $user->getPassword()) && ($user->getStatut() == 1)) {
             session_start();
             $_SESSION['userId'] = $user->getId();
             if($user->getAccountType()==2)
