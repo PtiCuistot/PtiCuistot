@@ -25,8 +25,6 @@ $recipe = $recipeManager->getRecipeById($recipeId);
 $ingredientData = json_decode($_POST['ingredientData'], true);
 $tagData = json_decode($_POST['tagData'], false);
 
-print_r($tagData);
-
 $iwManager = new IngredientWeightManager();
 $ingManager = new IngredientManager();
 $tagManager = new TagManager();
@@ -67,7 +65,7 @@ foreach($tagData as $id => $data)
         }
         array_push($tagSend, $data[0]);
     }
-
+    
 }
 
 header('Location: ../../recipe.php');
