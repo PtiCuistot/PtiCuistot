@@ -442,6 +442,11 @@ img {
 
 .table-dark, .table-dark > td, .table-dark > th {
     background-color: var(--blue) !important;
+    text-align: center;
+  }
+
+  .table{
+    text-align: center;
   }
 
   tr, thead {
@@ -1213,3 +1218,49 @@ i{
 }
 
   /* END ingredient filter input */
+
+  /* User.php*/
+  .formUser > *{
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .UserButtonDiv{
+    border: 1px solid black;flex-direction: row;display: flex;
+}
+
+  @media (max-width:480px)  {
+    .UserButtonDiv{
+        flex-direction: column !important;
+    }
+    
+    .UserButtonDiv > *{
+        width: 100% !important;
+        margin-top: 10px !important;
+        margin-bottom: 10px !important;
+    }
+
+    .SuppUserButton{
+        font-size: 2vw;
+        padding: 5px;
+    }
+
+    .highMargin{
+        margin-left: 1% !important;
+        margin-right: 1% !important;
+    }
+
+    
+  }
+  /* END User.php*/
+
+    /* admin.php*/
+    .AdminGroupe{
+       text-align: center;
+      }
+
+      .AdminGroupe > *{
+        margin-top: 20px;
+        margin-bottom: 20px;
+       }
+      /* END admin.php*/
