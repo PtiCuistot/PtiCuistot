@@ -31,6 +31,106 @@ header {
 }
 
 /* Index */
+
+.Presentionindex{
+    background-color: white;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    z-index: 999999;
+    top: 0;
+}
+
+.Presentionindex h1 {
+    background: #CA4246;
+  background-color: #CA4246;
+  background: conic-gradient(
+    #CA4246 16.666%, 
+    #E16541 16.666%, 
+    #E16541 33.333%, 
+    #F18F43 33.333%, 
+    #F18F43 50%, 
+    #8B9862 50%, 
+    #8B9862 66.666%, 
+    #476098 66.666%, 
+    #476098 83.333%, 
+    #A7489B 83.333%);
+  
+  background-size: 57%;
+  background-repeat: repeat;
+  
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+    font-size: 13vw; 
+    font-weight:700;
+  }
+
+  .text-reflect{
+    background: #CA4246;
+  background-color: #CA4246;
+  background: conic-gradient(
+    #CA4246 16.666%, 
+    #E16541 16.666%, 
+    #E16541 33.333%, 
+    #F18F43 33.333%, 
+    #F18F43 50%, 
+    #8B9862 50%, 
+    #8B9862 66.666%, 
+    #476098 66.666%, 
+    #476098 83.333%, 
+    #A7489B 83.333%);
+  
+  background-size: 57%;
+  background-repeat: repeat;
+  
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+    font-size: 5vw; 
+    font-weight:700;
+  }
+
+  .text-rainbow{
+    background: #CA4246;
+    background-color: #CA4246;
+    background: conic-gradient(
+      #CA4246 16.666%, 
+      #E16541 16.666%, 
+      #E16541 33.333%, 
+      #F18F43 33.333%, 
+      #F18F43 50%, 
+      #8B9862 50%, 
+      #8B9862 66.666%, 
+      #476098 66.666%, 
+      #476098 83.333%, 
+      #A7489B 83.333%);
+    
+    background-size: 57%;
+    background-repeat: repeat;
+    
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    font-weight:700;
+  }
+
+.Presentionindex.translateYAnimation {
+    animation: translateYAnimation 0.8s ease forwards;
+}
+
+  @keyframes translateYAnimation {
+    0% {
+      opacity: 1;
+      filter: blur(0px);
+    }
+    100% {
+      filter: blur(12px);
+      opacity: 0;
+    }
+  }
+  
+.hidden {
+    display: none !important;
+}
+
 .Content {
     height: 100%;
     width: 100%;
@@ -40,6 +140,19 @@ header {
     background-color: #eee;
 }
 
+.ContenttranslateYAnimation2 {
+    animation: translateYAnimation2 2s ease forwards;
+}
+
+  @keyframes translateYAnimation2 {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
 .Content > div {
     margin: 2%;
 }
@@ -67,7 +180,7 @@ header {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    width: 80%;
+    width: 96%;
     height: 100%;
     border-radius: 25px;
 }
@@ -677,11 +790,13 @@ i{
 @keyframes slideUp {
     0% {
         transform: translateY(100%);
+        transform: scale(0.5);
         opacity: 0;
     }
     100% {
         transform: translateY(0);
         opacity: 1;
+        transform: scale(1);
     }
 }
 
@@ -749,6 +864,10 @@ i{
 /* END of Animation */
 
 @media screen and (max-width: 999px) {
+
+    .text-reflect{
+        font-size: 20vw;
+    }
 
     .Content > div:first-child > .row2{
         display: none;
@@ -818,6 +937,7 @@ i{
 }
 
 @media screen and (max-width: 550px) {
+
     .svg-wrapper > svg{
         display: none;
     }

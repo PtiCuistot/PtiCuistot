@@ -7,7 +7,7 @@
     </head>
         <?php include('header.php');?>
 
-        <h1>Recette en attente de validation</h1>
+        <h1 class="text-rainbow displayFlex" style="font-size: 5vw;margin-top: 25px;margin-bottom: 25px;">Recette en attente de validation</h1>
         <div class = "highMargin">
             <div class="list-group">
 
