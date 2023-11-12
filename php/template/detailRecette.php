@@ -88,8 +88,18 @@
                                 <input name='recipeId' value="<?php echo $recipe->getId() ?>" hidden>
                                 <input class="btn btn-success" type="submit" value="Valider la recette"  style="width: 100%;">
                             </form>
+                            <form method="POST" action="php/treatment/delete_recipe.php" style="width: 80%;">
+                                <input name='recipeId' value="<?php echo $recipe->getId() ?>" hidden>
+                                <input class="btn btn-warning" type="submit" value="Valider la recette"  style="width: 100%;">
+                            </form>
                         <?php endif; ?>
 
+                        <?php if (isset($_SESSION['userId']) && $recipe->getUserId() == intval($_SESSION['userId'])) : ?>
+                            <form method="POST" action="php/treatment/delete_recipe.php" style="width: 80%;">
+                                <input name='recipeId' value="<?php echo $recipe->getId() ?>" hidden>
+                                <input class="btn btn-warning" type="submit" value="Supprimer la recette"  style="width: 100%;">
+                            </form>
+                        <?php endif; ?>
                         <?php if (isset($_SESSION['userId'])) : ?>
                             <div class="svg-wrapper wrapperFormCreateRecipeTitle" style="width: auto;">
                                 <svg height="60" width="500" xmlns="http://www.w3.org/2000/svg" style="z-index: 5;">
