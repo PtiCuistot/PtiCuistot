@@ -49,40 +49,47 @@
                                     <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
                                         <p class="small mb-0">';
 
-                                        for ($i = 0; $i < $solidStars; $i++) {
-                                            echo '<i class="fa-solid fa-star" style="var(--blue);"></i>';
-                                        }
+                    for ($i = 0; $i < $solidStars; $i++) {
+                        echo '<i class="fa-solid fa-star" style="var(--blue);"></i>';
+                    }
 
-                                        for ($i = 0; $i < $regularStars; $i++) {
-                                            echo '<i class="fa-regular fa-star" style="var(--blue);"></i>';
-                                        }
-                                        
-                                        $difficulty = '';
-                                        switch ($notes) {
-                                            case 1:
-                                                $difficulty = 'Très Simple';
-                                                break;
-                                            case 2:
-                                                $difficulty = 'Simple';
-                                                break;
-                                            case 3:
-                                                $difficulty = 'Moyen';
-                                                break;
-                                            case 4:
-                                                $difficulty = 'Difficile';
-                                                break;
-                                            case 5:
-                                                $difficulty = 'Très Difficile';
-                                                break;
-                                            default:
-                                                $difficulty = '';
-                                        }
-                                        echo '<span class="font-weight-bold">' . $difficulty . '</span></p>';
-                                        $tags = $rm->getTag($recipe);
-                                        foreach ($tags as $tag) {
-                                            echo '<div class="badge badge-danger px-3 rounded-pill font-weight-normal text-dark" style="color: red !important;">' . $tag->getContent() . '</div>';
-                                        }
-                                        echo '
+                    for ($i = 0; $i < $regularStars; $i++) {
+                        echo '<i class="fa-regular fa-star" style="var(--blue);"></i>';
+                    }
+
+                    $difficulty = '';
+                    switch ($notes) {
+                        case 1:
+                            $difficulty = 'Très Simple';
+                            break;
+                        case 2:
+                            $difficulty = 'Simple';
+                            break;
+                        case 3:
+                            $difficulty = 'Moyen';
+                            break;
+                        case 4:
+                            $difficulty = 'Difficile';
+                            break;
+                        case 5:
+                            $difficulty = 'Très Difficile';
+                            break;
+                        default:
+                            $difficulty = '';
+                    }
+                    echo '<span class="font-weight-bold">' . $difficulty . '</span></p>';
+                    $tags = $rm->getTag($recipe);
+
+                    for ($i = 0; $i < min(2, count($tags)); $i++) {
+                        echo '<div class="badge badge-danger px-3 rounded-pill font-weight-normal text-dark" style="color: red !important;">' . $tags[$i]->getContent() . '</div>';
+                    }
+
+                    if (count($tags) > 2) {
+                        $remainingTags = count($tags) - 2;
+                        echo '<div class="badge badge-danger px-3 rounded-pill font-weight-normal text-dark" style="color: red !important;">+' . $remainingTags . '</div>';
+                    }
+
+                    echo '
                                     </div>
                                 </div>
                             </div>

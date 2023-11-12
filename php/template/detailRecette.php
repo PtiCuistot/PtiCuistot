@@ -25,6 +25,15 @@
                             <hr>
                         </div>
 
+                        <?php
+                            $tags = $rm->getTag($recipe);
+                            echo '<div class="tagsDetailRecipe displayFlex">';
+                            foreach ($tags as $tag) {
+                                echo '<div class="badge badge-danger px-3 rounded-pill font-weight-normal text-dark" style="color: red !important;">' . $tag->getContent() . '</div>';
+                            }
+                            echo '</div>';
+                        ?>
+
                         <div class="lineDetailRecipe displayFlex">
                             <img src="<?php echo $recipe->getImage(); ?>" height="650px" class="imgRecipeDisplay" alt="Image de la recette">
                             <hr class="line2">

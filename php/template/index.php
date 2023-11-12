@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>Accueil</title>
     <?php include('link.php'); ?>
-
+    <meta name="viewport" content="width=device-width">
 </head>
 <?php include('header.php'); ?>
 <?php include('popup.php'); ?>
