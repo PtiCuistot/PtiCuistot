@@ -53,7 +53,7 @@
                                     <div class="text">Liste des ingrédients</div>
                                 </svg>
                             </div>
-                            <table class="table mb-4" id="ingredientArrayGlobal">
+                            <table class="table mb-4 table-striped" id="ingredientArrayGlobal">
                                 <thead>
                                     <tr class="table-dark">
                                         <th scope="col">Nom</th>

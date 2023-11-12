@@ -32,13 +32,13 @@
                             </div>
 
                             <div class="form-outline">
-                                <div  class="form-control" name="recipeContent" id="recipeContent">
-                                    
+                                <div class="form-control" name="recipeContent" id="recipeContent">
+
                                 </div>
                             </div>
 
                             <div class="form-outline">
-                            <input type="url" name="recipeImage" id="recipeImage" class="form-control RecipeImage" required />
+                                <input type="url" name="recipeImage" id="recipeImage" class="form-control RecipeImage" required />
                                 <label class="form-label" for="typeURL">URL de l'image de la recette</label>
                             </div>
                         </div>
@@ -194,10 +194,10 @@
 <script src="assets/scripts/RecipeCreation.js"></script>
 <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 <script>
-  var quill = new Quill('#recipeContent', {
-    theme: 'snow', 
-    placeholder: 'Description de la recette'
-  });
+    var quill = new Quill('#recipeContent', {
+        theme: 'snow',
+        placeholder: 'Description de la recette'
+    });
 </script>
 
 <?php include_once('footer.php'); ?>

@@ -10,8 +10,13 @@
 
 <h1 class="text-rainbow displayFlex" style="font-size: 5vw;margin-top: 25px;margin-bottom: 25px;">Page d'administration</h1>
 <div class="highMargin">
-    <div class="list-group">
-        <h3>Recette en attente de validation</h3>
+    <div class="list-group AdminGroupe">
+        <div class="svg-wrapper wrapperFormCreateRecipeTitle" style="width: auto;">
+            <svg height="60" width="500" xmlns="http://www.w3.org/2000/svg" style="z-index: 5;">
+                <rect class="shape" height="60" width="500" />
+                <div class="text">En attente de validation</div>
+            </svg>
+        </div>
         <?php
         $rm = new RecipeManager();
         $um = new UserManager();
@@ -26,7 +31,12 @@
                             <p class="mb-1">Recette de ' . $um->getUserById($recipe->getUserId())->getUsername() . '</p></a>';
         }
         ?>
-        <h3>Liste des utilisateurs</h3>
+        <div class="svg-wrapper wrapperFormCreateRecipeTitle" style="width: auto;">
+            <svg height="60" width="500" xmlns="http://www.w3.org/2000/svg" style="z-index: 5;">
+                <rect class="shape" height="60" width="500" />
+                <div class="text">Liste des utilisateurs</div>
+            </svg>
+        </div>
         <table class="table table-striped">
             <thead>
                 <tr class="table-dark">
@@ -46,7 +56,7 @@
                     echo '<td>
                         <form action="php/treatment/disable.php" method="POST">
                             <input type="number" name="userId" value="'.$user->getId().'" hidden>
-                            <input type="submit" class="btn btn-danger" value="Supprimer le compte"/>
+                            <input type="submit" class="btn btn-danger SuppUserButton" value="Supprimer"/>
                         </form></td>';
 
                 }
