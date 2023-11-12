@@ -11,6 +11,8 @@ function adminPage()
     include_once("php/model/user/user.php");
     include_once("php/model/recipe/recipe.php");
     include_once("php/model/recipe/recipemanager.php");
+    include_once("php/model/comment/comment.php");
+    include_once("php/model/comment/commentmanager.php");
 
     if (session_status() === PHP_SESSION_NONE) {
         session_start();

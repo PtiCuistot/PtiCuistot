@@ -6,11 +6,13 @@ class Comment
     private int $userId; 
     private string $content; 
     private ?DateTime $posted;
+    private int $validate;
 
     public function __construct($userId, $content)
     {
         $this->userId = $userId; 
         $this->content = $content;
+        $this->validate = 0;
     }
 
     /**
@@ -105,6 +107,30 @@ class Comment
     public function setPosted(DateTime $posted): self
     {
         $this->posted = $posted;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of validate
+     *
+     * @return int
+     */
+    public function getValidate(): int
+    {
+        return $this->validate;
+    }
+
+    /**
+     * Set the value of validate
+     *
+     * @param int $validate
+     *
+     * @return self
+     */
+    public function setValidate(int $validate): self
+    {
+        $this->validate = $validate;
 
         return $this;
     }
