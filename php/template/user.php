@@ -29,6 +29,7 @@
             </form>
             <h4>Supprimer mon compte</h4>
             <form action="php/treatment/disable.php" method="POST">
+                <input type="number" name="userId" value="<?php echo $_SESSION['userId']?>" hidden>
                 <input type="submit" class="btn btn-danger" value="Supprimer mon compte"/>
             </form>
             <br>

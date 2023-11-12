@@ -8,7 +8,7 @@ include_once("../model/user/user.php");
 include_once("../model/user/usermanager.php");
 
 $um = new UserManager(); 
-$user = $um->getUserById(intval($_SESSION['userId']));
+$user = $um->getUserById(intval($_POST['userId']));
 $user->setStatut(0); 
 $um->updateUser($user);
 
