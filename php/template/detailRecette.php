@@ -103,7 +103,7 @@
                             </form>
                         <?php endif; ?>
 
-                        <?php if (isset($_SESSION['userId']) && $recipe->getUserId() == intval($_SESSION['userId'])) : ?>
+                        <?php if (isset($_SESSION['userId']) && $recipe->getUserId() == intval($_SESSION['userId'])||isset($_SESSION['admin'])) : ?>
                             <form method="POST" action="php/treatment/delete_recipe.php" style="width: 80%;">
                                 <input name='recipeId' value="<?php echo $recipe->getId() ?>" hidden>
                                 <input class="btn btn-warning" type="submit" value="Supprimer la recette"  style="width: 100%;">
