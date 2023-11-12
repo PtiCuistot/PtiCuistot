@@ -237,7 +237,11 @@ class RecipeManager extends Manager
         $comments = [];
         foreach($this->pdo->query("SELECT CO_ID FROM PC_COMMENT_DESCRIBE WHERE REP_ID =".$recipe->getId()) as $row)
         {
-            array_push($comments, $cm->getCommentById($row['CO_ID']));
+            $c = $cm->getCommentById($row['CO_ID']);
+            if($c->getValidate() == 1)
+            {
+                array_push($comments, $c);
+            }
         }
 
         return $comments;

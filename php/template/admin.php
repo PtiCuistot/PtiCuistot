@@ -15,7 +15,7 @@
         <?php
         $rm = new RecipeManager();
         $um = new UserManager();
-
+        $cm = new CommentManager();
 
         foreach ($rm->getUnvalidateRecipe() as $recipe) {
             echo '<a href="recipe.php?id=' . $recipe->getId() . '" class="list-group-item list-group-item-action">
@@ -36,7 +36,7 @@
                     
                 </tr>
             </thead>
-            <tbody id="ingredientArray">
+            <tbody>
             <?php
                 foreach($um->getUsers() as $user)
                 {
@@ -48,12 +48,44 @@
                             <input type="number" name="userId" value="'.$user->getId().'" hidden>
                             <input type="submit" class="btn btn-danger" value="Supprimer le compte"/>
                         </form></td>';
+                    echo '</tr>';
 
                 }
             ?>
             </tbody>
         </table>
-
+        <h3>Liste des commentaires non validés</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr class="table-dark">
+                    <th scope="col">Contenu</th>
+                    <th scope="col">Auteur</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php
+            foreach($cm->getUnvalidate() as $comment)
+            {
+                echo '<tr>';
+                echo '<td>'.$comment->getContent().'</td>';
+                echo '<td>'.$um->getUserById($comment->getUserId())->getUsername().'</td>';
+                echo '<td>
+                    <form action="php/treatment/delete_comment.php" method="POST">
+                        <input type="number" name="commentId" value="'.$comment->getId().'" hidden>
+                        <input type="submit" class="btn btn-danger" value="Supprimer le commentaire"/>
+                    </form>
+                    <br>
+                    <form action="php/treatment/accept_comment.php" method="POST">
+                        <input type="number" name="commentId" value="'.$comment->getId().'" hidden>
+                        <input type="submit" class="btn btn-success" value="Valider le commentaire"/>
+                    </form>
+                    </td>';
+                echo '</tr>';
+            }
+            ?>
+            </tbody>
+        </table>
     </div>
 </div>
 
