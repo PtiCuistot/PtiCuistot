@@ -419,6 +419,14 @@ img {
     margin-top: 2%;
 }
 
+.tagsDetailRecipe{
+    flex-direction: row !important;
+}
+
+.tagsDetailRecipe > *{
+    font-size: 30px;
+}
+
 /* detailRecette */
 
 .CreateByRecipeDetail{
