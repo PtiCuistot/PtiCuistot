@@ -21,9 +21,10 @@
             }
             header('Location: ../../index.php');
         }
-        else {
-            echo "can't connect";
-        }
+    }
+    else
+    {
+        header('Location: ../../login.php');
     }
 
 ?>
