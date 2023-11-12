@@ -7,19 +7,18 @@
 
         <form method="POST" action="result.php?type=c">
         <label id="dialogDesc" for="categorySelect">Sélectionner une catégorie</label>
-        <div class="selectDiv">
-            <select name="category" id="categorySelect" class="select-box">
-                <option value="">Catégorie</option>
-                <?php
-                    $cm = new CategoryManager();
-                    foreach ($cm->getCategories() as $category) {
-                        echo "<option name=\"category\" value=".$category[0]->getId().">".$category[0]->getTitle()."</option>";
-                    }
-                ?> 
-            </select>
-            <button type="submit" value="" class="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
-        </div>
-        <!--<input type="submit" value="Rechercher">-->
+            <div class="selectDiv">
+                <select name="category" id="categorySelect" class="select-box">
+                    <option value="">Catégorie</option>
+                    <?php
+                        $cm = new CategoryManager();
+                        foreach ($cm->getCategories() as $category) {
+                            echo "<option name=\"category\" value=".$category[0]->getId().">".$category[0]->getTitle()."</option>";
+                        }
+                    ?> 
+                </select>
+                <button type="submit" value="" class="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
         </form>
     </div>
 </div>
@@ -33,13 +32,13 @@
 
         <form method="POST" action="result.php?type=t">
             <div class="searchBox">
-            <div class="flexDiv">
+                <div class="flexDiv">
                     <div class="row">
                         <input name="title" class="autocomplete" type="text" id="inputBox" placeholder="Chercher un titre" autocomplete="off" onkeyup="showHint(this.value)">
                     </div>
-                    <div class="resultBox">
-                    </div>
-                    <button type="submit" value="" class="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <button type="submit" value="" class="searchButtonIng"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+                <div class="resultBox">
                 </div>
             </div>
         </form>
@@ -56,7 +55,7 @@
         <form method="POST" action="result.php?type=i" onsubmit="return selectAll()" checked>
         <label id="dialogDesc" for="ingredientSelect">Sélectionner un/des ingrédient.s </label>
         <div class="flexDiv">
-            <div class="selectDiv">
+            <div class="selectDivIng">
                 <ul>
                     <?php
                         $im = new IngredientManager();
@@ -69,7 +68,7 @@
                     ?> 
                 </ul>
             </div>
-            <button type="submit" value="submit" class="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <button type="submit" value="submit" class="searchButtonIng"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
         </form>
     </div>

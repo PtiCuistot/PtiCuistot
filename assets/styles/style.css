@@ -1010,6 +1010,11 @@ i{
     transform 0.4s ease-out;
 }
 
+.selectDiv {
+    background-color: #f0f0f0;
+    box-sizing: border-box;
+    display: flex;
+  }
 
 .close-modal{
     padding: 8px 10px;
@@ -1149,10 +1154,23 @@ i{
     color: #333;
 }
 
-.searchButton{
+.searchButtonIng{
     background-color: #f0f0f0;
     border: 0;
     border-left: var(--blue) 2px solid;
+    outline: 0;
+}
+
+.searchButtonIng .fa-solid{
+    width: 25px;
+    color: #555;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.searchButton{
+    background: transparent;
+    border: 0;
     outline: 0;
 }
 
@@ -1194,7 +1212,7 @@ i{
 
 /* ingredient filter input */
 
-.selectDiv {
+.selectDivIng {
   background-color: #f0f0f0;
   box-sizing: border-box;
   height: 150px;
@@ -1203,15 +1221,26 @@ i{
 }
 
 .select-box {
-  width: 100%;
-  padding: 10px 10px;
-  margin: 0 auto;
-  border-radius:  5px;
-  border-color: var(--blue);
-  color: #60666d;
-  height: 150px;
-  overflow: scroll;
-}
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 10px 10px;
+    margin: 0 auto;
+    border-radius:  5px;
+    border-color: var(--blue);
+    color: #60666d;
+  }
+  
+  .select-box option{
+    padding: 5px;
+    color: var(--blue);
+  }
+  
+  .select-box option:hover {
+    color: var(--base);
+    background-color: var(--blue);
+    transition: 0.3s;
+  }
 
 /* checkbox */
 input[type="checkbox"]{
@@ -1252,6 +1281,13 @@ outline-offset: 0;
 
   /* END ingredient filter input */
 
+  .full{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
   /* User.php*/
   .formUser > *{
     margin-top: 20px;
@@ -1282,8 +1318,6 @@ outline-offset: 0;
         margin-left: 1% !important;
         margin-right: 1% !important;
     }
-
-    
   }
   /* END User.php*/
 
