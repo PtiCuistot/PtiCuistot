@@ -27,7 +27,7 @@
                     if(isset($_SESSION['userId']))
                     {
                         $um = new UserManager();
-                        echo '<li><a href="php/treatment/disconnect.php">Déconnexion</a></li>';
+                        echo '<li><a href="account.php">'.$um->getUserById(intval($_SESSION['userId']))->getUsername().'</a></li>';
                     }
                     else 
                     {

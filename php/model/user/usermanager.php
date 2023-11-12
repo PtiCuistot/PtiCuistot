@@ -7,6 +7,25 @@ class UserManager extends Manager
         parent::__construct();
     }
 
+    public function getUsers()
+    {
+        $userlist = [];
+        foreach($this->pdo->query("SELECT * FROM PC_USER WHERE US_STATUT = 1") as $row)
+        {
+            $u = new User(
+                $row['US_USERNAME'], 
+                $row['US_EMAIL'], 
+                $row['US_PASSWORD'], 
+                $row['US_FIRSTNAME'], 
+                $row['US_LASTNAME']);
+            $u->setId($row['US_ID']);
+            $u->setStatut($row['US_STATUT']);
+            $u->setAccountType($row['UT_ID']);
+            array_push($userlist, $u);
+        }
+        return $userlist;
+    }
+
     public function getUserById(int $id): ?User
     {
         foreach($this->pdo->query("SELECT * FROM PC_USER WHERE US_ID = ".$id) as $row)
@@ -18,6 +37,7 @@ class UserManager extends Manager
                 $row['US_FIRSTNAME'], 
                 $row['US_LASTNAME']);
             $u->setId($row['US_ID']);
+            $u->setStatut($row['US_STATUT']);
             $u->setAccountType($row['UT_ID']);
             return $u;
         }    
@@ -35,6 +55,7 @@ class UserManager extends Manager
                 $row['US_FIRSTNAME'], 
                 $row['US_LASTNAME']);
             $u->setId($row['US_ID']);
+            $u->setStatut($row['US_STATUT']);
             $u->setAccountType($row['UT_ID']);
             return $u;
         }   

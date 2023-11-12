@@ -147,9 +147,9 @@
   
   .menu-btn__line {
     display: block;
-    width: 24px;
-    height: 2px;
-    margin-bottom: 3px;
+    width: 50px;
+    height: 4px;
+    margin-bottom: 10px;
     background-color: var(--grey);
     transition: transform 0.3s ease-in-out;
     transform-origin: left;
@@ -157,8 +157,8 @@
   
   .menu-btn__close {
     display: block;
-    width: 20px;
-    height: 20px;
+    width: 50px;
+    height: 50px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -176,7 +176,7 @@
   
   .menu-btn__close::before {
     width: 2px;
-    height: 20px;
+    height: 50px;
     top: 0;
     left: 50%;
     margin-left: -1px;
@@ -186,7 +186,7 @@
   }
   
   .menu-btn__close::after {
-    width: 20px;
+    width: 49px;
     height: 2px;
     top: 50%;
     left: 0;
@@ -289,5 +289,48 @@
     .SubMenu{
       position: relative;
       left: 0 !important;
+    }
+  }
+
+  @media (max-width:480px)  {
+
+    .Logo > img{
+      height: 100px !important;
+    }
+
+    .menu-btn__line {
+      display: block;
+      width: 100px;
+      height: 3px;
+      margin-bottom: 18px;
+    }
+
+    .menu-btn__close::after {
+      width: 100px;
+    }
+
+    .menu-btn__close::before {
+      height: 100px;
+    }
+
+    .menu-btn__close {
+      height: 100px;
+      width: 100px;
+    }
+
+    .NavBar > ul > li > a {
+      height: auto;
+    }
+
+    .NavBar span {
+      font-size: 40px;
+    }
+
+    .NavBar {
+      font-size: 40px;
+    }
+
+    .svg-wrapper {
+      width: 100%;
     }
   }
