@@ -6,6 +6,9 @@ modalTriggerCategory.forEach( triggerCategory => triggerCategory.addEventListene
 
 function toggleModalCategory(){
     modalContainerCategory.classList.toggle("active");
+
+    modalContainerTitle.classList.remove("active");
+    modalContainerIngredient.classList.remove("active");
 }
 
 // modal title
@@ -16,6 +19,9 @@ modalTriggerTtile.forEach( triggerTitle => triggerTitle.addEventListener("click"
 
 function toggleModalTitle(){
     modalContainerTitle.classList.toggle("active");
+
+    modalContainerCategory.classList.remove("active");
+    modalContainerIngredient.classList.remove("active");
 }
 
 // modal ingredient
@@ -26,4 +32,7 @@ modalTriggerIngredient.forEach( triggerIngredient => triggerIngredient.addEventL
 
 function toggleModalIngredient(){
     modalContainerIngredient.classList.toggle("active");
+
+    modalContainerTitle.classList.remove("active");
+    modalContainerCategory.classList.remove("active");
 }

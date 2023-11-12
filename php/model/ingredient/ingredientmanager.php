@@ -19,7 +19,6 @@ class IngredientManager extends Manager
 
             $ing = new Ingredient(
                 $row["ING_NAME"], 
-                $row["ING_DESCRIPTION"]
             );
 
             $ing->setId($row["ING_ID"]);
