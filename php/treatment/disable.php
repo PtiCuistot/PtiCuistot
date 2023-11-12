@@ -12,9 +12,13 @@ $user = $um->getUserById(intval($_POST['userId']));
 $user->setStatut(0); 
 $um->updateUser($user);
 
-unset($_SERVER['userId']);
-unset($_SESSION['admin']); 
-session_destroy();
+if($_SESSION['userId'] == $_POST['userId'])
+{
+    unset($_SESSION['userId']);
+    unset($_SESSION['admin']); 
+    session_destroy();
+}
+
 header('Location: ../../index.php');
 
 ?>
